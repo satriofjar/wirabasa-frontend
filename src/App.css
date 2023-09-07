@@ -1,38 +1,603 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root{
+    --mainColor:#145DA0;
+    --btnColor:#2E8BC0;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    font-family: 'Roboto', Tahoma, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body a{
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.actv{
+    background-color: var(--mainColor) !important;
 }
 
-.App-link {
-  color: #61dafb;
+.hidden{
+    display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.test{
+    border: black 2px solid;
+}
+
+.navbar{
+    background-color: var(--mainColor);
+}
+
+
+
+.icon{
+    width: 40px;
+    height: 40px;
+
+}
+
+.price{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.price s{
+    color: #818181;
+}
+
+.price-dc{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #818181;
+}
+
+.rd{
+    color: #ff3b19;
+}
+
+.bg-green{
+    background-color: #33af7d !important;
+}
+
+.bg-scs{
+    background-color: #00df30;
+}
+
+.bg-yellow{
+    background-color: #ffd25f !important;
+}
+
+.b-5{
+    font-weight: 500;
+}
+
+
+
+#hero {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    background: url("./assets/bg.jpg") no-repeat;
+    background-size: cover;
+    padding: 0;
+}
+
+#hero .layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#hero .hero-content{
+    padding-top: 20vh;
+}
+
+#hero .hero-content h1{
+    color: #fff;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+#hero .hero-content h1 span{
+    color: var(--btnColor);
+    font-size: 70px;
+    font-weight: 700;
+}
+
+#hero .hero-content p{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+#hero .hero-content .btn{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 350;
+    background-color: var(--btnColor);
+}
+
+
+.box-content{
+    background-color: #B1D4E0;
+
+}
+
+
+.box-content p{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.sec-content p{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.layanan a{
+    text-decoration: none;
+}
+
+.layanan .header{
+    background-color: var(--mainColor);
+    max-width: fit-content;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+}
+
+.layanan .box-layanan{
+    width: 270px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+.layanan .box-layanan .title{
+    background-color: #ffc1075b;
+    border-radius: 10px 10px 0 0;
+    height: 60px;
+    color: var(--mainColor);
+}
+
+.layanan .box-layanan .ln{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.layanan .box-layanan ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.layanan .box-layanan ul li{
+    background: url('./assets/check.png') no-repeat left top;
+    background-size: 18px;
+    background-position-y: 5px;
+    padding-left: 35px;
+    font-size: 18px;
+    color: #000;
+}
+
+.layanan .btn{
+    background-color: #FF6044;
+    color: #fff;
+    font-size: 25px;
+}
+
+.layanan .btn:hover{
+    background-color: #ff3b19;
+    color: #fff;
+}
+
+.kelas .header{
+    background-color: var(--mainColor);
+    max-width: fit-content;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+}
+
+.kelas .card{
+    margin: 0 auto;
+}
+
+/* ============= Layanan =============== */
+
+
+#layanan .title{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#layanan .btn{
+    color: #fff;
+    background-color: var(--btnColor);
+    font-size: 18px;
+    width: 200px;
+}
+
+#layanan .box-layanan{
+    max-width: 290px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+#layanan .box-layanan .clr-block{
+    border-radius: 10px 10px 0 0;
+    height: 20px;
+}
+
+#layanan .box-layanan .ln{
+    max-width: 260px;
+    height: 1px;
+    background: #b7b7b7;
+    margin: 0 auto;
+}
+
+#layanan .box-layanan ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    height: 160px;
+}
+
+#layanan .box-layanan ul li{
+    background: url('./assets/check.png') no-repeat left top;
+    background-size: 18px;
+    /* background-position-y: 5px; */
+    padding-left: 35px;
+    font-size: 16px;
+    line-height: 15px;
+    max-width: 230px;
+    height: 40px;
+}
+
+#layanan .box-layanan a{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#layanan .header{
+    background-color: var(--mainColor);
+    max-width: fit-content;
+    border-radius: 0 10px 10px 0;
+    color: #fff;
+}
+
+#layanan .con-header{
+    position: relative;
+    height: 75px;
+}
+
+#layanan .con-header .header-r{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--mainColor);
+    border-radius: 10px 0 0 10px;
+    color: #fff;
+}
+
+#layanan .des{
+    max-width: 900px;
+    font-size: 18px;
+}
+
+
+/* ============= Detail Layanan =============== */
+
+#det-layanan .nav{
+    background: var(--mainColor);
+    height: 50px;
+}
+
+#det-layanan .main-cntn{
+    margin-bottom: 126px;
+}
+
+#det-layanan .title{
+    color: #fff;
+}
+
+#det-layanan .clr-b{
+    color: var(--mainColor);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#det-layanan .clr-d{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#det-layanan .col ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#det-layanan .col ul li{
+    background: url('./assets/check.png') no-repeat left top;
+    background-size: 18px;
+    background-position-y: 5px;
+    padding-left: 35px;
+    font-size: 18px;
+}
+
+#det-layanan .btn{
+    background: var(--btnColor);
+    color: #fff;
+    font-weight: 500;
+}
+
+@media (max-width: 800px) {
+    
+    #det-layanan .lcnt{
+        width: 300px;
+    }
+}
+
+
+
+/* ============= User =============== */
+
+
+#user .user-profile img{
+    width: 120px;
+    height: 120px;
+}
+
+#user .user-profile p{
+    font-size: 25px;
+}
+
+#user .user-profile .btn{
+    font-size: 18px;
+}
+
+#user h2{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#user .card{
+    margin: 0 auto;
+}
+
+#user .riwayat-pembelian .box-layanan{
+    width: 400px;
+    height: 210px;
+    margin: 0 auto;
+}
+
+#user .riwayat-pembelian .box-layanan .clr-block{
+    background-color: #145DA0;
+    height: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+#user .riwayat-pembelian .box-layanan h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#user .riwayat-pembelian .box-layanan .status{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+#user button{
+    color: #000;
+    background: none;
+    font-size: 18px;
+    border: none;
+    font-weight: 500;
+}
+
+#user button:hover{
+    text-decoration: underline;
+}
+
+#user .riwayat-pembelian .box-layanan .ln{
+    width: 300px;
+    height: 1px;
+    background: #b7b7b7;
+    margin: 0 auto;
+}
+
+#user .popup-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#user .popup-overlay .detail-order{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 800px;
+}
+
+#user .popup-overlay .detail-order td{
+    padding-left: 60px;
+}
+
+
+@media (max-width: 1000px){
+    #user .popup-overlay .detail-order{
+        width: 600px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    
+    #user .riwayat-pembelian .box-layanan{
+        width: 300px;
+        min-height: 200px;
+        max-height: 290px;
+        margin: 0 auto;
+    }
+
+    #user .popup-overlay .detail-order{
+        width: 300px;
+    }
+
+    #user .popup-overlay .detail-order td{
+        padding-left: 0;
+    }
+}
+
+
+/* ============= Payment =============== */
+
+
+#payment .nav{
+    background: var(--mainColor);
+    height: 50px;
+}
+
+#payment .title{
+    color: #fff;
+}
+
+#payment table{
+    max-width: 700px;
+}
+
+#payment table td{
+    width: 350px;
+}
+
+#payment .btn{
+    background: var(--btnColor);
+    color: #fff;
+    font-weight: 500;
+}
+
+
+/* ============= Reading Test =============== */
+
+#hero1{
+    background-image: url('./assets/bg-r.jpg');
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    background-size: cover;
+    padding: 0;
+}
+
+#hero1 .layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#hero1 .hero-cntn{
+    padding-top: 20vh;
+}
+
+#hero1 .hero-cntn h2{
+    color: #FFCA42;
+}
+
+#hero1 .hero-cntn a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+#hero1 .hero-cntn a img{
+    transition: transform 0.3s ease;
+}
+
+#hero1 .hero-cntn a:hover{
+    font-size: 26px;
+}
+
+#hero1 .hero-cntn a:hover img{
+    transform: rotate(90deg);
+}
+
+#read-test{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#read-test p{
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+#read-test .read-test .btn{
+    background: var(--btnColor);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#read-test .read-test span{
+    text-decoration: underline;
+    padding: 0 8px;
+}
+
+
+/* ============= Footer =============== */
+
+
+#footer-detlayanan{
+    background-color: rgba(20, 93, 160, 0.80);
+    color: #fff;
+    height: 160px;
+}
+
+#footer-detlayanan .btn{
+    background: #FF6044;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#footer{
+    background-color: var(--mainColor);
+    color: #fff;
+}
+
+#footer p{
+    margin: 0;
+}
+
+#footer ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    height: 120px;
+}
+
+#footer a{
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer a:hover{
+    text-decoration: underline;
 }
