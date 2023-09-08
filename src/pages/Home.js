@@ -5,6 +5,7 @@ import longArrow from '../assets/long-arrow.png';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  document.title = 'Home | WiraBasa';
   return (
     <>
         <Navbar/>
@@ -79,7 +80,7 @@ const Home = () => {
           </div>
 
           <div className="text-center">
-            <a href="{% url 'layanan' %}?q=Jasa-Sunting" className="btn rounded-5 px-4">Daftar Sekarang!</a>
+            <Link className="btn rounded-5 px-4" to='/layanan'>Daftar Sekarang!</Link>
           </div>
         </div>
 

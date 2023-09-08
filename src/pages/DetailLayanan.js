@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
 import WhatsApp from '../assets/wa.png';
+import FormJasaSunting from '../components/FormJasaSunting';
 
 const DetailLayanan = () => {
   return (
@@ -10,7 +12,7 @@ const DetailLayanan = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-5">
-                        <a><img src={LArrow} alt="" width="30" className="pt-2" /></a>
+                        <Link to='/layanan'><img src={LArrow} alt="" width="30" className="pt-2" /></Link>
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
@@ -41,9 +43,36 @@ const DetailLayanan = () => {
                     </div>
                 </div>
                 <div className="col my-4 ms-4">
+                    {/* {kategori == 'Jasa-sunting' && <FormJasaSunting/>} */}
+                    <FormJasaSunting/>
+                    <h3 className="clr-d mb-5 mt-2">Ringkasan pembayaran:</h3>
 
+                    <table className="table table-borderless table-sm b-5">
+                        <tbody>
+                        <tr>
+                            <td>Jenis layanan</td>
+                            <td>Kelas sunting</td>
+                        </tr>
+                        <tr>
+                            <td>Harga layanan</td>
+                            <td id="price">Rp 100.000</td>
+                        </tr>
+                        <tr>
+                            <td className="rd">Diskon 35 %</td>
+                            <td className="rd">- Rp 35.000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Total harga</td>
+                            <td id="total-price" style={{paddingLeft: '14px'}}> Rp 65.000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</button>
 
                 </div>
+
             </div>
         </div>  
 

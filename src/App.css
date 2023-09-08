@@ -55,7 +55,7 @@ body a{
 }
 
 .rd{
-    color: #ff3b19;
+    color: #ff3b19 !important;
 }
 
 .bg-green{

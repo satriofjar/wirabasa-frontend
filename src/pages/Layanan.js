@@ -4,6 +4,7 @@ import Navbar  from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Layanan = () => {
+  document.title = 'Layanan | WiraBasa';
 
     const [activeButton, setActiveButton] = useState(1);
 
@@ -24,7 +25,7 @@ const Layanan = () => {
         }
       };
 
-    const getLayananClass = (buttonId) => {
+    const getLayananClass = () => {
         if (activeButton === 1) {
           return 'bg-green';
         } else {
@@ -68,7 +69,7 @@ const Layanan = () => {
                         <p className="price ms-4">Rp 65.000</p>
 
                     <div className="text-center mb-3">
-                        <Link className={`btn ${getLayananClass()}`} to='/detail-layanan'>Beli sekarang!</Link>
+                        <Link className={`btn ${getLayananClass()}`} to={{pathname: '/detail-layanan', search: '?q=jasa-sunting'}}>Beli sekarang!</Link>
                     </div>
                     
                     <ul className="text-start ms-4 me-2">
