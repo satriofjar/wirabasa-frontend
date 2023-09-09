@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import LArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
 import WhatsApp from '../assets/wa.png';
 import FormJasaSunting from '../components/FormJasaSunting';
 
 const DetailLayanan = () => {
+    const location = useLocation();
+    const search = location.search;
+    const queryParams = queryString.parse(search);
+    const productId = queryParams.id;
+    
   return (
     <div id="det-layanan">
         <div className="nav">

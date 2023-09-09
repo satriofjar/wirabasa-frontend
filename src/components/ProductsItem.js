@@ -67,10 +67,10 @@ const ProductsItem = ({activeButton}) => {
     }
 
     const filterProducts = (product) => {
-        if(activeButton == 1){
-            return product.category == 'Jasa-Sunting'
-        } else if(activeButton == 2){
-            return product.category == 'Kelas-Sunting'
+        if(activeButton === 1){
+            return product.category === 'Jasa-Sunting'
+        } else if(activeButton === 2){
+            return product.category === 'Kelas-Sunting'
         }
     }
 
@@ -114,7 +114,7 @@ const ProductsItem = ({activeButton}) => {
                     }
 
                 <div className="text-center mb-3">
-                    <Link className={`btn ${getLayananClass()}`} to={{pathname: '/detail-layanan/', search: '?product=jasa-sunting'}}>Beli sekarang!</Link>
+                    <Link className={`btn ${getLayananClass()}`} to={{pathname: '/detail-layanan/', search: `?id=${1}`}}>Beli sekarang!</Link>
                 </div>
                 
                 <ul className="text-start ms-4 me-2">
