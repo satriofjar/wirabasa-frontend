@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar  from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProductsItem from '../components/ProductsItem';
 
 const Layanan = () => {
   document.title = 'Layanan | WiraBasa';
 
     const [activeButton, setActiveButton] = useState(1);
+
 
     const btnStyle = {
         width: '220px',
@@ -25,13 +26,7 @@ const Layanan = () => {
         }
       };
 
-    const getLayananClass = () => {
-        if (activeButton === 1) {
-          return 'bg-green';
-        } else {
-          return 'bg-yellow';
-        }
-      };
+    
 
   return (
     <>
@@ -55,36 +50,9 @@ const Layanan = () => {
                 </div>
             </div>
 
-            <div className="row my-5">
-
-                <div className="col-md-3 my-3" style={{minWidth: '270px'}}>
-                  <div className="box-layanan border rounded-4">
-                    <div className={`clr-block ${getLayananClass()}`}></div>
-                    <div className="text-center">
-                      <h3 className="pt-2"></h3>
-                    </div>
-                    <div className="ln mt-3"></div>
-
-                        <p className="price-dc ms-4 mt-2"> <s>Rp 100.000</s></p>
-                        <p className="price ms-4">Rp 65.000</p>
-
-                    <div className="text-center mb-3">
-                        <Link className={`btn ${getLayananClass()}`} to={{pathname: '/detail-layanan', search: '?q=jasa-sunting'}}>Beli sekarang!</Link>
-                    </div>
-                    
-                    <ul className="text-start ms-4 me-2">
-                        <li>losafahpiuhpu</li>
-                        <li>losafahpiuhpu</li>
-                        <li>losafahpiuhpu</li>
-                        <li>losafahpiuhpu</li>
-                    </ul>
-
-
-                    
-    
-                  </div>
-                </div>
-            </div>
+            <ProductsItem
+              activeButton={activeButton}
+            />
 
               <div className="header px-5 pt-3 pb-2">
                 <h2>Penyuntingan</h2>
