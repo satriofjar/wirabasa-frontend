@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import LArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
 import WhatsApp from '../assets/wa.png';
-import FormJasaSunting from '../components/FormJasaSunting';
+import rupiahFormat from '../utils/rupiahFormat';
+import getDiscount from '../utils/getDiscount';
 
 const DetailLayanan = () => {
     const location = useLocation();
     const search = location.search;
     const queryParams = queryString.parse(search);
     const productId = queryParams.id;
+
+    const [product, setProduct] = useState();
+    const [inputValue, setInputValue] = useState('');
+    document.title = product?.name + " | WiraBasa";
+
+    const getProduct = async () => {
+        const response = await fetch(`http://localhost:8000/products/${productId}`);
+        const data = await response.json();
+        setProduct(data);
+    }
+
+    
+
+    const handleInputChage = (e) => {
+        setInputValue(e.target.value)
+    }
+    
+    const handleSubmit = () => {
+        console.log(inputValue);
+    }
+
+    useEffect(() => {
+        getProduct();
+    }, [])
+
     
   return (
     <div id="det-layanan">
@@ -36,21 +62,41 @@ const DetailLayanan = () => {
             <div className="row mt-5">
                 <div className="col my-4 ms-4">
                     <div className="lcnt">
-                        <h2 className="title-prod">Kelas sibuk</h2>
-                        <p className="price-dc ms-4 mt-2"> <s>Rp 100.000</s></p>
-                        <p className="price ms-4">Rp 65.000</p>
+                        <h2 className="title-prod">{product?.name}</h2>
+                        {product?.discount === 0?
+                        <p className="price ms-4">{rupiahFormat(getDiscount(product?.price, product?.discount))}</p>:
+                        <>
+                            <p className="price-dc ms-4 mt-2"> <s>{rupiahFormat(product?.price)}</s></p>
+                            <p className="price ms-4">{rupiahFormat(getDiscount(product?.price, product?.discount))}</p>
+                        </>
+                        }
+                        
                     <hr/>
 
                     <h3 className="clr-b mb-5 mt-2">Layanan yang akan didapatkan Sobat Rasa</h3>
 
                     <ul className="text-start ms-4">
-                        <li className="my-2">lorem</li>
+                        {product?.features.map((feature, _index) =>
+                        <li key={_index} className="my-2">{feature}</li>
+                        )}
                     </ul>
                     </div>
                 </div>
                 <div className="col my-4 ms-4">
-                    {/* {kategori == 'Jasa-sunting' && <FormJasaSunting/>} */}
-                    <FormJasaSunting/>
+                    {product?.category === 'Jasa-Sunting' && 
+                    <div>
+                        <p className="b-5">Masukan jumlah halaman untuk menentukan harga</p>
+                        <div className="mb-3">
+                            <label className="form-label text-secondary">Jumlah halaman</label>
+                            <input 
+                            value={inputValue}
+                            onChange={handleInputChage}
+                            className="form-control w-50" 
+                            type='number'/>
+                      </div>
+                      <button type="button" onClick={handleSubmit} className="btn px-3 rounded-3 bg-green" id="submit-pages">Apply </button>
+                    </div>}
+
                     <h3 className="clr-d mb-5 mt-2">Ringkasan pembayaran:</h3>
 
                     <table className="table table-borderless table-sm b-5">
@@ -61,16 +107,21 @@ const DetailLayanan = () => {
                         </tr>
                         <tr>
                             <td>Harga layanan</td>
-                            <td id="price">Rp 100.000</td>
+                            <td id="price">{rupiahFormat(product?.price)}</td>
                         </tr>
+                        {product?.discount !== 0 &&
                         <tr>
-                            <td className="rd">Diskon 35 %</td>
-                            <td className="rd">- Rp 35.000</td>
+                            <td className="rd">Diskon {product?.discount + ' %'}</td>
+                            <td className="rd">- {product?.price * (product?.discount / 100)}</td>
                         </tr>
+                        }
 
                         <tr>
                             <td>Total harga</td>
+                            {product?.category === 'Jasa-Sunting' ? 
+                            <td id="total-price"> Rp 65.000</td>:
                             <td id="total-price" style={{paddingLeft: '14px'}}> Rp 65.000</td>
+                            }
                         </tr>
                         </tbody>
                     </table>
