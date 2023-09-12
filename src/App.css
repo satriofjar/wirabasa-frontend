@@ -315,13 +315,13 @@ body a{
     font-weight: 700;
 }
 
-#det-layanan .col ul{
+#det-layanan .l-cntn ul{
     padding: 0;
     margin: 0;
     list-style-type: none;
 }
 
-#det-layanan .col ul li{
+#det-layanan .l-cntn ul li{
     background: url('./assets/check.png') no-repeat left top;
     background-size: 18px;
     background-position-y: 5px;

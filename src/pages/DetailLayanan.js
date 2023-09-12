@@ -14,7 +14,8 @@ const DetailLayanan = () => {
     const productId = queryParams.id;
 
     const [product, setProduct] = useState();
-    const [inputValue, setInputValue] = useState('');
+    const [pagesValue, setPagesValue] = useState('');
+    const [totalPrice, setTotalPrice] = useState('');
     document.title = product?.name + " | WiraBasa";
 
     const getProduct = async () => {
@@ -26,11 +27,42 @@ const DetailLayanan = () => {
     
 
     const handleInputChage = (e) => {
-        setInputValue(e.target.value)
+        setPagesValue(e.target.value)
     }
     
     const handleSubmit = () => {
-        console.log(inputValue);
+        console.log(pagesValue);
+        setTotalPrice(getTotal(pagesValue));
+    }
+
+    const divmod = (x, y) => [Math.floor(x / y), x % y];
+
+    const getTotal = (pages)=> {
+        let total = 0;
+        
+        if(pages <= 3){
+            return 25000;
+        }
+        
+        let x = divmod(pages, 100)
+        if (x[1]  !== 0) {
+            total += x[0] * 500000;
+            x = divmod(x[1], 10);
+            if (x[1]  !== 0) {
+                total += x[0] * 75000;
+                x = divmod(x[1], 3);
+                if (x[1]  !== 0 || x[0] !== 0) {
+                    total += x[0] * 25000;
+                    total += x[1] * 10000;
+                } 
+            } else {
+                total += x[0] * 75000;
+            }
+        } else {
+            total += x[0] * 500000;
+        }
+    
+        return total;
     }
 
     useEffect(() => {
@@ -60,7 +92,7 @@ const DetailLayanan = () => {
 
         <div className="container main-cntn">
             <div className="row mt-5">
-                <div className="col my-4 ms-4">
+                <div className="col l-cntn my-4 ms-4">
                     <div className="lcnt">
                         <h2 className="title-prod">{product?.name}</h2>
                         {product?.discount === 0?
@@ -89,11 +121,14 @@ const DetailLayanan = () => {
                         <div className="mb-3">
                             <label className="form-label text-secondary">Jumlah halaman</label>
                             <input 
-                            value={inputValue}
+                            value={pagesValue}
                             onChange={handleInputChage}
                             className="form-control w-50" 
                             type='number'/>
                       </div>
+                      <ul>
+                        <li>Upload file yang ingin disunting pada laman user jika sudah melakukan pembayaran</li>
+                      </ul>
                       <button type="button" onClick={handleSubmit} className="btn px-3 rounded-3 bg-green" id="submit-pages">Apply </button>
                     </div>}
 
@@ -103,23 +138,29 @@ const DetailLayanan = () => {
                         <tbody>
                         <tr>
                             <td>Jenis layanan</td>
-                            <td>Kelas sunting</td>
+                            <td>{ product?.name }</td>
                         </tr>
                         <tr>
                             <td>Harga layanan</td>
                             <td id="price">{rupiahFormat(product?.price)}</td>
                         </tr>
+                        {product?.category === 'Jasa-Sunting' &&
+                        <tr>
+                            <td>Jumlah halaman</td>
+                            <td>{pagesValue !== ''? pagesValue : '-'}</td>
+                        </tr>
+                        }
                         {product?.discount !== 0 &&
                         <tr>
                             <td className="rd">Diskon {product?.discount + ' %'}</td>
-                            <td className="rd">- {product?.price * (product?.discount / 100)}</td>
+                            <td className="rd">- {rupiahFormat(product?.price * (product?.discount / 100))}</td>
                         </tr>
                         }
 
                         <tr>
                             <td>Total harga</td>
                             {product?.category === 'Jasa-Sunting' ? 
-                            <td id="total-price"> Rp 65.000</td>:
+                            <td id="total-price">{ totalPrice !== ''? rupiahFormat(totalPrice) : '-' }</td>:
                             <td id="total-price" style={{paddingLeft: '14px'}}> Rp 65.000</td>
                             }
                         </tr>
