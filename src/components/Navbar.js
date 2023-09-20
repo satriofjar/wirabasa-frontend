@@ -26,7 +26,7 @@ const Navbar = () => {
             <a className="nav-link text-light px-3" href="">Kecepatan Membaca</a>
           </li>
           <li className="nav-item">
-              <a className="nav-link text-light px-3" href="">Sign In</a>
+              <Link className="nav-link text-light px-3" to={{pathname: '/user/', search: `?username=$Satrio`}}>Satrio</Link>
           </li>
         </ul>
       </div>
