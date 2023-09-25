@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Navbar  from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProductsItem from '../components/ProductsItem';
+import { Helmet } from 'react-helmet';
 
 const Layanan = () => {
-  document.title = 'Layanan | WiraBasa';
 
     const [activeButton, setActiveButton] = useState(1);
+
+    const [x, setX] = useState();
 
 
     const btnStyle = {
@@ -30,6 +32,12 @@ const Layanan = () => {
 
   return (
     <>
+
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Layanan - WiraBasa</title>
+        </Helmet>
+
         <Navbar/>
         <div id="layanan">
         <div className="container">

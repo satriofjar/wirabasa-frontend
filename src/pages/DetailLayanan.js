@@ -167,7 +167,7 @@ const DetailLayanan = () => {
                         </tbody>
                     </table>
 
-                    <button type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</button>
+                    <Link to={{pathname: '/payment/', search: `id=${product?.id}`}} type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</Link>
 
                 </div>
 

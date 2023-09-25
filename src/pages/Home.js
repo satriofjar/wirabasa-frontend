@@ -3,11 +3,15 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import longArrow from '../assets/long-arrow.png';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
-  document.title = 'Home | WiraBasa';
   return (
     <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Home - WiraBasa</title>
+    </Helmet>
         <Navbar/>
 
         <section id="hero">

@@ -2,10 +2,19 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import UserIcon from '../assets/user.png';
+import { Helmet } from 'react-helmet';
 
 const User = () => {
+
+    const detailOrder = () => {
+        return 
+    }
   return (
     <>
+    <Helmet>
+          <meta charSet="utf-8" />
+          <title>Satrio - WiraBasa</title>
+        </Helmet>
     <Navbar/>
     <div id="user">
         <div className="container">
@@ -13,7 +22,26 @@ const User = () => {
             <div className="user-profile mt-5 text-center">
                 <img src={UserIcon} alt="" className="rounded-circle"/>
                 <p className="mt-2">Satrio</p>
-                {/* <a href="" className="btn btn-outline-info">Edit profile</a> */}
+                <a href="" className="btn btn-outline-info">Edit profile</a>
+            </div>
+
+            <div className="kelas my-5">
+                <h2 className="">Live class</h2>
+        
+                <div className="row my-5">
+                
+                <div className="col-md-3">
+                    <div className="card my-3" style={{width: '15rem'}}>
+                    <img src="" className="card-img-top" alt=""/>
+                    <div className="card-body">
+                        <h5 className="card-title"></h5>
+                        <p className="card-text"></p>
+                        <a href="" className="btn btn-primary">Join Live</a>
+                    </div>
+                    </div>
+                </div>
+        
+                </div>
             </div>
 
             <div className="kelas my-5">
@@ -56,7 +84,7 @@ const User = () => {
                         <div className="ln mt-2 mb-2"></div>
 
                         <div className="text-center mb-2">
-                        <button type="button">Detail order</button>
+                        <button type="button" onClick={detailOrder}>Detail order</button>
                         </div>
         
                     </div>
