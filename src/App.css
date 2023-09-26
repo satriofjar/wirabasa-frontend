@@ -30,6 +30,25 @@ body a{
     background-color: var(--mainColor);
 }
 
+.navbar a:hover{
+    color: #cdcdcd !important;
+}
+
+.navbar .active{
+    color: #cdcdcd !important;
+}
+
+.navbar .dropdown-menu{
+    width: 240px;
+}
+
+.navbar .dropdown-menu .dropdown-item{
+    width: 190px;
+}
+
+.navbar .dropdown-menu .dropdown-item:active{
+    background: none;
+}
 
 
 .icon{
@@ -149,18 +168,32 @@ body a{
     font-weight: 300;
 }
 
-.layanan a{
-    text-decoration: none;
+.layanan{
+    background: #effaff;
 }
 
 .layanan .header{
-    background-color: var(--mainColor);
-    max-width: fit-content;
-    border-radius: 0 10px 10px 0;
-    color: #fff;
+    width: fit-content;
+    margin: 0 auto;
 }
 
-.layanan .box-layanan{
+.layanan h2{
+    font-weight: 600;
+    color: #4C4C4C;
+}
+
+.layanan h2 span{
+    color: var(--mainColor);
+}
+
+.layanan .under-ln{
+    background: var(--mainColor);
+    width: 230px;
+    height: 3px;
+    margin-left: 150px;
+}
+
+/* .layanan .box-layanan{
     width: 270px;
     height: 280px;
     margin: 0 auto;
@@ -191,7 +224,7 @@ body a{
     padding-left: 35px;
     font-size: 18px;
     color: #000;
-}
+} */
 
 .layanan .btn{
     background-color: #FF6044;
@@ -553,6 +586,18 @@ body a{
     font-weight: 500;
 }
 
+
+/* ============= Edit Profile =============== */
+
+
+#edit-profile .nav{
+    background: var(--mainColor);
+    height: 50px;
+}
+
+#edit-profile .title{
+    color: #fff;
+}
 
 /* ============= Reading Test =============== */
 

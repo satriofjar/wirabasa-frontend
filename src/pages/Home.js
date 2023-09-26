@@ -39,14 +39,16 @@ const Home = () => {
           <p>Tenang! Sekarang, WiraBasa bersama dengan tim yang andal dalam berbahasa 
             tulis maupun lisan hadir menjadi bagian dari kesuksesan Sobat dalam menulis dan menjadi pewara.</p>
         </div>
+      </div>
   
-        <div className="layanan my-5">
-          <div className="header px-5 pt-3 pb-2">
-            <h2>Tersedia Layanan</h2>
+        <div className="layanan my-5 py-4">
+
+          <div className="header text-center">
+            <h2><span>Layanan</span> yang Tersedia</h2>
+            <div className='under-ln rounded-5'></div>
           </div>
 
-
-          <div className="row justify-content-md-center my-5">
+          {/* <div className="row justify-content-md-center my-5">
 
             <div className="col-md-4 my-3">
               <a href="">
@@ -85,7 +87,7 @@ const Home = () => {
 
           <div className="text-center">
             <Link className="btn rounded-5 px-4" to='/layanan'>Daftar Sekarang!</Link>
-          </div>
+          </div> */}
         </div>
 
         <div className="kelas my-5">
@@ -93,7 +95,6 @@ const Home = () => {
             <h2 className="">Tes kecepatan membaca</h2>
           </div>
         </div>
-      </div>
     </section>
 
     <Footer/>
