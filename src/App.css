@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
     --mainColor:#145DA0;
@@ -7,7 +7,7 @@
 }
 
 body{
-    font-family: 'Roboto', Tahoma, sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 body a{
@@ -218,7 +218,7 @@ body a{
     color: #fff;
     background-color: var(--btnColor);
     font-size: 18px;
-    width: 200px;
+    width: 220px;
 }
 
 #layanan .box-layanan{
@@ -405,6 +405,16 @@ body a{
     text-decoration: underline;
 }
 
+
+#user .vid-thumbnail{
+    width: 200px;
+    height: 100px;
+}
+
+#user .vid-wraper{
+    min-width: 200px;
+}
+
 #user .riwayat-pembelian .box-layanan .ln{
     width: 300px;
     height: 1px;
@@ -413,7 +423,7 @@ body a{
 }
 
 #user .popup-overlay{
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -460,6 +470,19 @@ body a{
 
     #user .popup-overlay .detail-order td{
         padding-left: 0;
+    }
+}
+
+
+
+@media (max-width: 800px){
+    #user .vid-thumbnail{
+        width: 320px;
+        height: 180px;
+    }
+
+    #user .vid-wraper{
+        width: 350px;
     }
 }
 
@@ -582,8 +605,14 @@ body a{
     color: #fff;
 }
 
+#footer h3{
+    font-weight: 600;
+}
+
 #footer p{
     margin: 0;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 #footer ul{
@@ -596,6 +625,8 @@ body a{
 #footer a{
     color: #fff;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 #footer a:hover{

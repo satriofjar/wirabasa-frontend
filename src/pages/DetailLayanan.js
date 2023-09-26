@@ -6,6 +6,7 @@ import Logo from '../assets/logo-circle.png';
 import WhatsApp from '../assets/wa.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
+import { Helmet } from 'react-helmet';
 
 const DetailLayanan = () => {
     const location = useLocation();
@@ -16,7 +17,6 @@ const DetailLayanan = () => {
     const [product, setProduct] = useState();
     const [pagesValue, setPagesValue] = useState('');
     const [totalPrice, setTotalPrice] = useState('');
-    document.title = product?.name + " | WiraBasa";
 
     const getProduct = async () => {
         const response = await fetch(`http://localhost:8000/products/${productId}`);
@@ -69,14 +69,24 @@ const DetailLayanan = () => {
         getProduct();
     }, [])
 
+    const arg = {
+        coba: 1
+    }
+
     
   return (
     <div id="det-layanan">
+
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{`${product?.name}`} - WiraBasa</title>
+        </Helmet>
+
         <div className="nav">
             <div className="container">
                 <div className="row">
                     <div className="col-5">
-                        <Link to='/layanan'><img src={LArrow} alt="" width="30" className="pt-2" /></Link>
+                        <Link to={{pathname: '/layanan', search: `id=${product?.id}`, state:{arg}}}><img src={LArrow} alt="" width="30" className="pt-2" /></Link>
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
@@ -167,7 +177,7 @@ const DetailLayanan = () => {
                         </tbody>
                     </table>
 
-                    <Link to={{pathname: '/payment/', search: `id=${product?.id}`}} type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</Link>
+                    <Link to={{pathname: '/payment/', search: `?id=${product?.id}`}} type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</Link>
 
                 </div>
 

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import UserIcon from '../assets/user.png';
+import DetailOrder from '../components/DetailOrder';
+import MyClass from '../components/MyClass';
 import { Helmet } from 'react-helmet';
 
 const User = () => {
 
-    const detailOrder = () => {
-        return 
-    }
+    const [isActive, setIsActive] = useState(false);
+
+
   return (
     <>
     <Helmet>
@@ -44,24 +46,7 @@ const User = () => {
                 </div>
             </div>
 
-            <div className="kelas my-5">
-                <h2 className="">Kelas saya</h2>
-        
-                <div className="row my-5">
-                
-                <div className="col-md-3">
-                    <div className="card my-3" style={{width: '15rem'}}>
-                    <img src="" className="card-img-top" alt=""/>
-                    <div className="card-body">
-                        <h5 className="card-title"></h5>
-                        <p className="card-text"></p>
-                        <a href="" className="btn btn-primary">Join Live</a>
-                    </div>
-                    </div>
-                </div>
-        
-                </div>
-            </div>
+            <MyClass />
 
             <div className="riwayat-pembelian">
                 <h2 className="">Riwayat pembelian</h2>
@@ -75,26 +60,31 @@ const User = () => {
                         <p className="status bg-warning ms-4 mt-2 px-2 pb-1 rounded ">Unpaid</p>
                         {/* <p className="status bg-scs ms-4 mt-2 px-2 pb-1 rounded "></p> */}
                         <table className="table table-borderless">
-                            <tr>
-                                <td className="ps-4">Tanggal order</td>
-                                <td className="text-end pe-4"></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td className="ps-4">Tanggal order</td>
+                                    <td className="text-end pe-4"></td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div className="ln mt-2 mb-2"></div>
 
                         <div className="text-center mb-2">
-                        <button type="button" onClick={detailOrder}>Detail order</button>
+                        <button type="button" onClick={() => setIsActive(true)}>Detail order</button>
                         </div>
         
                     </div>
                     </div>
+
+                    {isActive && <DetailOrder setIsActive={setIsActive} />}
 
                 </div>
             </div>
 
         </div>
     </div>
+
     <Footer/>
     </>
 

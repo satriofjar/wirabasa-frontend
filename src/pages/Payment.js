@@ -76,7 +76,7 @@ const NewPayment = () => {
             </table>
 
             <h4 className="my-4">Lakukan konfirmasi setelah melakukan pembayaran</h4>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" encType="multipart/form-data">
                 <div className="mt-2">
                     <input type="file" className="form-control w-25"/>
                 </div>

@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar  from '../components/Navbar';
 import Footer from '../components/Footer';
 import ProductsItem from '../components/ProductsItem';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 
 const Layanan = () => {
+    const location = useLocation();
+    const search = location.search;
+    const queryParams = queryString.parse(search);
+    const categoryLayanan = queryParams.layanan;
+
+    console.log(categoryLayanan);
 
     const [activeButton, setActiveButton] = useState(1);
 
-    const [x, setX] = useState();
-
-
     const btnStyle = {
-        width: '220px',
+        width: '240px',
     };
 
     const handleButtonClick = (buttonId) => {
@@ -27,6 +32,25 @@ const Layanan = () => {
           return 'btn rounded-3 layanan-button';
         }
       };
+
+    const getButtonId = () => {
+      if (categoryLayanan === 'Jasa-Sunting'){
+        return 1;
+      } else if (categoryLayanan === 'Kelas-Sunting'){
+        return 2;
+      } else if (categoryLayanan === 'Jasa-Kepewaraan'){
+        return 3;
+      } else if (categoryLayanan === 'Kelas-Kepewaraan'){
+        return 4;
+      } else {
+        return 1;
+      }
+    }
+
+      useEffect(() => {
+        handleButtonClick(getButtonId);
+        window.scrollTo(0, 0);
+      }, [categoryLayanan])
 
     
 
