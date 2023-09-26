@@ -20,7 +20,7 @@ const Home = () => {
               <div className="hero-content">
                 <h1>Wira<span>Basa</span></h1>
                 <p>Asah kompetensi berbahasa dan sempurnakan<br/>tulisanmu bersama WiraBasa!</p>
-                <Link to='/layanan' className="btn rounded-3 px-3">Daftar! <img src={longArrow} alt="" width="30"/></Link>
+                <Link to='/layanan' className="btn rounded-3 px-4">Daftar! <img src={longArrow} alt="" width="30"/></Link>
               </div>
             </div>
           </div>

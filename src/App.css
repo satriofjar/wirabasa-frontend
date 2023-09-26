@@ -70,6 +70,10 @@ body a{
     background-color: #ffd25f !important;
 }
 
+.bg-blue{
+    background-color: #3c91e6 !important;
+}
+
 .b-5{
     font-weight: 500;
 }
@@ -120,7 +124,12 @@ body a{
     color: #fff;
     font-size: 20px;
     font-weight: 350;
+    border: none;
     background-color: var(--btnColor);
+}
+
+#hero .hero-content .btn:hover{
+    background-color:#0d71aa;
 }
 
 
@@ -358,6 +367,9 @@ body a{
 
 #user .user-profile .btn{
     font-size: 18px;
+    color: var(--btnColor);
+    border: var(--btnColor) 2px solid;
+    /* background: var(--btnColor); */
 }
 
 #user h2{
@@ -365,8 +377,35 @@ body a{
     font-weight: 700;
 }
 
+#user a{
+    color: #000;
+}
+
 #user .card{
     margin: 0 auto;
+}
+
+#user .live-thumbnail{
+    width: 320px;
+}
+
+#user .live-class a{
+    background: #ff3b19 !important;
+    color: #fff;
+    border: none;
+}
+
+#user .live-class h5{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#user .kelas h5{
+    font-weight: 600;
+}
+
+#user .kelas p{
+    font-size: 14px;
 }
 
 #user .riwayat-pembelian .box-layanan{
@@ -393,6 +432,13 @@ body a{
     width: fit-content;
 }
 
+#user .riwayat-pembelian .box-layanan .ln{
+    width: 300px;
+    height: 1px;
+    background: #b7b7b7;
+    margin: 0 auto;
+}
+
 #user button{
     color: #000;
     background: none;
@@ -415,12 +461,6 @@ body a{
     min-width: 200px;
 }
 
-#user .riwayat-pembelian .box-layanan .ln{
-    width: 300px;
-    height: 1px;
-    background: #b7b7b7;
-    margin: 0 auto;
-}
 
 #user .popup-overlay{
     display: flex;

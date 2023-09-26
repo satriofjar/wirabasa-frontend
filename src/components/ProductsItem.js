@@ -17,8 +17,10 @@ const ProductsItem = ({activeButton}) => {
       const getLayananClass = () => {
         if (activeButton === 1) {
           return 'bg-green';
-        } else {
+        } else if (activeButton === 2) {
           return 'bg-yellow';
+        } else{
+          return 'bg-blue';
         }
       };
 
@@ -30,20 +32,12 @@ const ProductsItem = ({activeButton}) => {
         }
     }
 
-    const getSubString35 = (feature) => {
-        if(feature.length > 35){
-            return feature.substring(0, 35) + '...';
-        } else{
-            return feature;
-        }
-    }
-
-    const getSubString15 = (feature) => {
-        if(feature.length > 15){
-            return feature.substring(0, 15) + '...';
-        } else{
-            return feature;
-        }
+    const getSubString = (feature, len) => {
+      if(feature > len){
+        return feature.substring(0, len) + ' ...';
+      } else {
+        return feature;
+      }
     }
 
     useEffect(() => {
@@ -62,7 +56,7 @@ const ProductsItem = ({activeButton}) => {
                 <div className="box-layanan border rounded-4">
                 <div className={`clr-block ${getLayananClass()}`}></div>
                 <div className="text-center">
-                    <h3 className="pt-2">{getSubString15(product.name)}</h3>
+                    <h3 className="pt-2">{getSubString(product.name, 15)}</h3>
                 </div>
                 <div className="ln mt-3"></div>
                     {product.discount == 0? 
@@ -79,7 +73,7 @@ const ProductsItem = ({activeButton}) => {
                 
                 <ul className="text-start ms-4 me-2">
                     {product.features.map((feature, _index) => 
-                    <li key={ _index }>{getSubString35(feature)}</li>
+                    <li key={ _index }>{getSubString(feature, 35)}</li>
                     )}
                 </ul>
                 </div>

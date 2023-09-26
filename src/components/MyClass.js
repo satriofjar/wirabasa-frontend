@@ -1,5 +1,6 @@
 import React from 'react'
 import Thunbnail from '../assets/bg.jpg'
+import { Link } from 'react-router-dom'
 
 const MyClass = () => {
   return (
@@ -9,38 +10,47 @@ const MyClass = () => {
         <div className="row my-5 ms-2">
         
             <div className="col-md-6 my-2">
-                <div className='row'>
-                    <div className='col-4 vid-wraper'>
-                        <img src={Thunbnail} className='rounded vid-thumbnail' />
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
                     </div>
-                    <div className='col-8'>
-                        <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+               </Link>
+            </div>
+        
+            <div className="col-md-6 my-2"> 
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
                     </div>
-                </div>
+               </Link>
             </div>
         
             <div className="col-md-6 my-2">
-                <div className='row'>
-                    <div className='col-4' style={{minWidth: '200px'}}>
-                        <img src={Thunbnail} className='rounded vid-thumbnail' />
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
                     </div>
-                    <div className='col-8'>
-                        <h5 className='my-2'>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
-                    </div>
-                </div>
+               </Link>
             </div>
         
-            <div className="col-md-6 my-2">
-                <div className='row'>
-                    <div className='col-4' style={{minWidth: '200px'}}>
-                        <img src={Thunbnail} className='rounded vid-thumbnail' />
-                    </div>
-                    <div className='col-8'>
-                        <h5 className='my-2'>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
   )
