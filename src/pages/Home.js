@@ -1,11 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import longArrow from '../assets/long-arrow.png';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import Certificate from '../assets/sertifikat.png';
+import OnlineClass from '../assets/online-class.png';
+import TArrow from '../assets/tr-arrow.png';
+
+// just for developmet
+import TestBg from '../assets/bg-r.jpg';
 
 const Home = () => {
+
+  const setting = {
+    dots: true,
+    autoplay: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+  }
   return (
     <>
     <Helmet>
@@ -48,53 +66,102 @@ const Home = () => {
             <div className='under-ln rounded-5'></div>
           </div>
 
-          {/* <div className="row justify-content-md-center my-5">
-
-            <div className="col-md-4 my-3">
-              <a href="">
-                <div className="box-layanan border rounded-4">
-                  <div className="title text-center">
-                    <h3 className="pt-2">PENYUNTINGAN</h3>
-                  </div>
-                  <hr className="ln text-center my-4"/>
-  
-                  <ul className="text-start ms-4">
-                    <li>Perbaikan bahasa dalam tulisan</li>
-                    <li>Pelatihan menyunting</li>
-                  </ul>
-  
-                </div>
-              </a>
-            </div>
-            
-            <div className="col-md-4 my-3">
-              <a href="">
-                <div className="box-layanan border rounded-4">
-                  <div className="title text-center">
-                    <h3 className="pt-2">KEPEWARAAN</h3>
-                  </div>
-                  <hr className="ln text-center my-4"/>
-  
-                  <ul className="text-start ms-4 px-2">
-                    <li className="">Jasa menjadi pewara</li>
-                    <li>Pelatihan menjadi pewara</li>
-                  </ul>
-  
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Link className="btn rounded-5 px-4" to='/layanan'>Daftar Sekarang!</Link>
-          </div> */}
         </div>
 
-        <div className="kelas my-5">
-          <div className="header px-5 pt-3 pb-2">
-            <h2 className="">Tes kecepatan membaca</h2>
+        <div className='benefit'>
+          <div className='container'>
+          <div className="header text-center">
+            <h2><span>Layanan</span> yang Tersedia</h2>
+            <div className='under-ln rounded-5'></div>
+          </div>
+
+          <div className='row my-5'>
+
+            <div className='col box rounded-3 m-2'>
+              <div className='row'>
+                <div className='col-lg-5 text-center'>
+                  <img src={Certificate} />
+                </div>
+
+                <div className='col ps-4'>
+                  <h5 className='mt-5'>Pelatihan Bersertifikat</h5>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div className='col box rounded-3 m-2'>
+              <div className='row'>
+                <div className='col-lg-5 text-center'>
+                  <img src={OnlineClass} />
+                </div>
+
+                <div className='col ps-4'>
+                  <h5 className='mt-5'>Pelatihan Dilakukan Secara Online</h5>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
           </div>
         </div>
+
+        <div className='testi mb-5 py-5'>
+          <div className='container text-center'>
+
+            <div className=" text-center">
+              <h2>Kata mereka yang pernah menggunakan wirabasa</h2>
+            </div>
+
+            <div className='cntnr mt-5'>
+            <Slider {...setting} >
+              <img src={TestBg} className='mx-3 rounded-3' />
+              <img src={TestBg} className='mx-3 rounded-3' />
+              <img src={TestBg} className='mx-3 rounded-3' />
+              <img src={TestBg} className='mx-3 rounded-3' />
+              <img src={TestBg} className='mx-3 rounded-3' />
+            </Slider>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div className='reading-test mb-5'>
+          <div className='container'>
+            <div className=" text-center">
+              <h2>SEBERAPA CEPAT ANDA MEMBACA?</h2>
+            </div>
+
+            <div className='row my-5'>
+              <div className='col-lg-5'>
+                  <img src={TestBg} className='img-fluid' />
+              </div>
+
+              <div className='col'>
+                <p className='mt-4'>Sebelum menghitung kecepatan membaca, bersiaplah. Kemudian, klik tombol mulai jika sudah siap membaca. 
+                        Saat menekan tombol dimulai, pengatur waktu akan dimulai pula.
+                        Jangan cepat-cepat saat membaca, tetapi membacalah secara normal untuk menemukan tingkat membaca Anda saat ini.
+                        Klik tombol stop segera setelah Anda selesai. Ini akan menghentikan pengatur waktu dan menampilkan kecepatan membaca Anda.
+                        Sebelum memulai tes sebenarnya, Anda dapat mengeklik mulai. Scroll ke bawah tanpa membaca, lalu klik berhenti untuk melihat hasilnya.</p>
+              </div>
+
+            </div>
+
+            <div className='text-center'>
+              <a href='' className='btn rounded-4 px-3'>Tes kecepatan membaca anda sekarang!</a>
+            </div>
+
+          </div>
+        </div>
+
+
     </section>
 
     <Footer/>

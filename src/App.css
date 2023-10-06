@@ -99,6 +99,11 @@ body a{
 
 
 
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
 #hero {
     width: 100%;
     height: 80vh;
@@ -172,7 +177,7 @@ body a{
     background: #effaff;
 }
 
-.layanan .header{
+#main-content .layanan .header{
     width: fit-content;
     margin: 0 auto;
 }
@@ -186,66 +191,132 @@ body a{
     color: var(--mainColor);
 }
 
-.layanan .under-ln{
+#main-content .layanan .under-ln{
     background: var(--mainColor);
     width: 230px;
     height: 3px;
     margin-left: 150px;
 }
 
-/* .layanan .box-layanan{
-    width: 270px;
-    height: 280px;
-    margin: 0 auto;
+#main-content .benefit .box{
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
 }
 
-.layanan .box-layanan .title{
-    background-color: #ffc1075b;
-    border-radius: 10px 10px 0 0;
-    height: 60px;
+#main-content .benefit h5{
     color: var(--mainColor);
+    font-weight: 600;
 }
 
-.layanan .box-layanan .ln{
-    width: 200px;
+#main-content .benefit img{
+    max-width: 200px;
+}
+
+
+#main-content .testi{
+    background: #2a7dca;
+}
+
+#main-content .testi h2{
+    color: #fff;
+    font-weight: 600;
+}
+
+
+#main-content .testi .cntnr{
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.layanan .box-layanan ul{
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+#main-content .slick-slide img {
+    max-width: 260px;
 }
 
-.layanan .box-layanan ul li{
-    background: url('./assets/check.png') no-repeat left top;
-    background-size: 18px;
-    background-position-y: 5px;
-    padding-left: 35px;
+#main-content .reading-test h2{
+    font-weight: 600;
+    color: #4C4C4C;
+
+}
+
+#main-content .reading-test img{
+    width: 500px;
+}
+
+#main-content .reading-test p{
     font-size: 18px;
-    color: #000;
+}
+
+#main-content .reading-test a{
+    color: #fff;
+    font-size: 20px;
+    background: #ffb700 !important;
+}
+
+/* #main-content .reading-test a:hover{
+    width: ;
 } */
 
-.layanan .btn{
-    background-color: #FF6044;
-    color: #fff;
-    font-size: 25px;
+#main-content .reading-test a img{
+    width: 20px;
 }
 
-.layanan .btn:hover{
-    background-color: #ff3b19;
-    color: #fff;
+
+@media (max-width: 1000px) {
+    
+    #main-content .layanan .under-ln{
+        background: var(--mainColor);
+        width: 210px;
+        height: 3px;
+        margin-left: 140px;
+    }
+    
+    #main-content .testi .cntnr{
+        max-width: 600px;
+    }
+
+    #main-content .slick-slide img {
+        max-width: 180px;
+    }
 }
 
-.kelas .header{
-    background-color: var(--mainColor);
-    max-width: fit-content;
-    border-radius: 0 10px 10px 0;
-    color: #fff;
+@media (max-width: 800px) {
+    
+    #main-content .layanan .under-ln{
+        background: var(--mainColor);
+        width: 190px;
+        height: 3px;
+        margin-left: 128px;
+    }
+
+    #main-content .testi .cntnr{
+        max-width: 600px;
+    }
+
+    #main-content .slick-slide img {
+        max-width: 150px;
+    }
+
+
 }
 
-.kelas .card{
-    margin: 0 auto;
+@media (max-width: 600px) {
+    
+    #main-content .layanan .under-ln{
+        background: var(--mainColor);
+        width: 178px;
+        height: 3px;
+        margin-left: 118px;
+    }
+
+    #main-content .testi .cntnr{
+        max-width: 300px;
+    }
+
+    #main-content .slick-slide img {
+        max-width: 80px;
+    }
+
 }
 
 /* ============= Layanan =============== */

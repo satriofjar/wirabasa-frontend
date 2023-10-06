@@ -17,9 +17,9 @@ const Footer = () => {
           <p><img src={Mail} width='18' className='me-1' /> info@wirabasa.com</p>
           <p><img src={Phone} width='18'  /> +62 8570 2891 223</p>
           <div className='d-flex justify-content-between mt-3' style={{maxWidth: '130px'}}>
-            <a href=''><img src={WhatsApp} /></a>
-            <a href=''><img src={Instagram} /></a>
-            <a href=''><img src={Tiktok} /></a>
+            <a href='' target="_blank"><img src={WhatsApp} /></a>
+            <a href='https://www.instagram.com/wira.basa/' target="_blank"><img src={Instagram} /></a>
+            <a href='' target="_blank"><img src={Tiktok} /></a>
           </div>
         </div>
         <div className="col">
@@ -38,6 +38,11 @@ const Footer = () => {
               <Link to={{pathname: '/layanan/', search: `?layanan=${'Kelas-Kepewaraan'}`}}>Kelas Kepewaraan</Link>
             </li>
           </ul>
+        </div>
+
+        <div className="col">
+          <h3>Lain-lain</h3>
+          <p>Test kecepatan membaca</p>
         </div>
       </div>
     </div>
