@@ -750,6 +750,34 @@ body a{
 }
 
 
+/* ============= Authentication =============== */
+
+#auth{
+    background: #B1D4E0 !important;
+    height: 100vh;
+}
+
+#auth label{
+    color: #ACACAC;
+}
+
+#auth .card-title{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#auth .btn{
+    color: #fff !important;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#auth .btn-google{
+    background-color: #fff;
+    color: black !important;
+}
+
+
 /* ============= Footer =============== */
 
 

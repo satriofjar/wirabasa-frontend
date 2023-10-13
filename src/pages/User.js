@@ -7,9 +7,6 @@ import UserIcon from '../assets/user.png';
 import DetailOrder from '../components/DetailOrder';
 import MyClass from '../components/MyClass';
 
-
-import Thunbnail from '../assets/bg.jpg'
-
 const User = () => {
 
     const [isActive, setIsActive] = useState(false);
@@ -22,7 +19,7 @@ const User = () => {
           <title>Satrio - WiraBasa</title>
         </Helmet>
 
-        <Navbar/>
+        <Navbar isUserPage={true} />
 
         <div id="user">
             <div className="container">

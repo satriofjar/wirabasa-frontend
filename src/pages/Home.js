@@ -29,7 +29,7 @@ const Home = () => {
       <meta charSet="utf-8" />
       <title>Home - WiraBasa</title>
     </Helmet>
-        <Navbar/>
+        <Navbar isUserPage={false} />
 
         <section id="hero">
           <div className="layer">
@@ -79,7 +79,7 @@ const Home = () => {
             <div className='col box rounded-3 m-2'>
               <div className='row'>
                 <div className='col-lg-5 text-center'>
-                  <img src={Certificate} />
+                  <img src={Certificate} alt='' />
                 </div>
 
                 <div className='col ps-4'>
@@ -94,7 +94,7 @@ const Home = () => {
             <div className='col box rounded-3 m-2'>
               <div className='row'>
                 <div className='col-lg-5 text-center'>
-                  <img src={OnlineClass} />
+                  <img src={OnlineClass} alt='' />
                 </div>
 
                 <div className='col ps-4'>
@@ -119,11 +119,11 @@ const Home = () => {
 
             <div className='cntnr mt-5'>
             <Slider {...setting} >
-              <img src={TestBg} className='mx-3 rounded-3' />
-              <img src={TestBg} className='mx-3 rounded-3' />
-              <img src={TestBg} className='mx-3 rounded-3' />
-              <img src={TestBg} className='mx-3 rounded-3' />
-              <img src={TestBg} className='mx-3 rounded-3' />
+              <img src={TestBg} className='mx-3 rounded-3' alt='' />
+              <img src={TestBg} className='mx-3 rounded-3' alt='' />
+              <img src={TestBg} className='mx-3 rounded-3' alt='' />
+              <img src={TestBg} className='mx-3 rounded-3' alt='' />
+              <img src={TestBg} className='mx-3 rounded-3' alt='' />
             </Slider>
             </div>
 
@@ -140,7 +140,7 @@ const Home = () => {
 
             <div className='row my-5'>
               <div className='col-lg-5'>
-                  <img src={TestBg} className='img-fluid' />
+                  <img src={TestBg} className='img-fluid' alt='' />
               </div>
 
               <div className='col'>

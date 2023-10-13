@@ -60,23 +60,23 @@ const Layanan = () => {
           <title>Layanan - WiraBasa</title>
         </Helmet>
 
-        <Navbar/>
+        <Navbar isUserPage={false}/>
         <div id="layanan">
         <div className="container">
             <h2 className="title my-4">Layanan WiraBasa buat kamu</h2>
 
             <div className="row my-2">
                 <div className="col-md-2 my-2" style={btnStyle}>
-                    <a className={getButtonClass(1)} onClick={() => handleButtonClick(1)}>Jasa Sunting Tulisan</a>
+                    <button className={getButtonClass(1)} onClick={() => handleButtonClick(1)}>Jasa Sunting Tulisan</button>
                 </div>
                 <div className="col-md-2 my-2" style={btnStyle}>
-                    <a className={getButtonClass(2)} onClick={() => handleButtonClick(2)}>Kelas Menyunting</a>
+                    <button className={getButtonClass(2)} onClick={() => handleButtonClick(2)}>Kelas Menyunting</button>
                 </div>
                 <div className="col-md-2 my-2" style={btnStyle}>
-                    <a className={getButtonClass(3)} onClick={() => handleButtonClick(3)}>Jasa Kepewaraan</a>
+                    <button className={getButtonClass(3)} onClick={() => handleButtonClick(3)}>Jasa Kepewaraan</button>
                 </div>
                 <div className="col-md-2 my-2" style={btnStyle}>
-                    <a className={getButtonClass(4)} onClick={() => handleButtonClick(4)}>Kelas Kepewaraan</a>
+                    <button className={getButtonClass(4)} onClick={() => handleButtonClick(4)}>Kelas Kepewaraan</button>
                 </div>
             </div>
 

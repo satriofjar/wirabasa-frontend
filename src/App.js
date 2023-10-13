@@ -7,6 +7,7 @@ import User from './pages/User';
 import EditProfile from './pages/EditProfile';
 import ReadingTest from './pages/ReadingTest';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import {
   BrowserRouter as Router,
   Route,
@@ -25,6 +26,7 @@ function App() {
         <Route path={'/edit-profile'} element={<EditProfile />} />
         <Route path={'/reading-test'} element={<ReadingTest />} />
         <Route path={'/login'} element={<Login />} />
+        <Route path={'/logout'} element={<Logout />} />
 
       </Routes>
     </Router>

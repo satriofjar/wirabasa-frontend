@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 
-import './register.css';
+// import './register.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
             localStorage.setItem('access_token', response.data['access']);
             localStorage.setItem('refresh_token', response.data['refresh']);
 
-            axios.defaults.headers.common['Authorization'] = `Bearer ${response['access']}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
             navigate('/');
         
         } catch (error) {
@@ -40,8 +40,9 @@ const Login = () => {
     }
 
   return (
-    <div className='container'>
-        <div className="row">
+    <div id='auth'>
+      <div className='container'>
+        <div className="row pt-5">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
             <div className="card border-0 shadow rounded-4 my-5">
               <div className="card-body p-4 p-sm-5">
@@ -85,6 +86,7 @@ const Login = () => {
             </div>
           </div>
         </div>
+      </div>
     </div>
   )
 }

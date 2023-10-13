@@ -4,7 +4,9 @@ axios.interceptors.response.use(resp => resp, async error => {
   if (error.response.status === 401 && !refresh) {
      refresh = true;
      console.log(localStorage.getItem('refresh_token'))
-     const response = await axios.post('http://127.0.0.1:8000/v1/token/refresh/', user, {
+     const response = await axios.post('http://127.0.0.1:8000/v1/token/refresh/', {
+                refresh: localStorage.getItem('refresh_token')
+            }, {
                 headers:{
                     'Content-Type': 'application/json'
                 },
@@ -12,8 +14,8 @@ axios.interceptors.response.use(resp => resp, async error => {
             });
     if (response.status === 200) {
        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
-       localStorage.setItem('access_token', response.data.access);
-       localStorage.setItem('refresh_token', response.data.refresh);
+       localStorage.setItem('access_token', response.data['access']);
+       localStorage.setItem('refresh_token', response.data['refresh']);
        return axios(error.config);
     }
   }
