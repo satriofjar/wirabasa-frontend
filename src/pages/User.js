@@ -30,42 +30,11 @@ const User = () => {
                 <div className="user-profile mt-5 text-center">
                     <img src={UserIcon} alt="" className="rounded-circle"/>
                     <p className="mt-2">Satrio</p>
-                    <Link to={{pathname: '/edit-profile/', search: '?username=satrio'}} className="btn">Edit profile</Link>
-                </div>
-
-                <div className="live-class my-5">
-                    <h2 className="">Live class</h2>
-            
-                    <div className="row my-5">
-                    
-                        <div className="col-md-3 mt-3 ms-3">
-                                <img src={Thunbnail} className='live-thumbnail rounded' />
-                            <div className='ms-2 mt-2'>
-                                <h5>Strategi Menulis Karya Tulis ...</h5>
-                                <p>07:00 - 3 June 2023</p>
-                                <a href='' className='btn'>Join Live</a>
-                            </div>
-                        </div>
-                    
-                        <div className="col-md-3 mt-3 ms-3">
-                                <img src={Thunbnail} className='live-thumbnail rounded' />
-                            <div className='ms-2 mt-2'>
-                                <h5>Strategi Menulis Karya Tulis ...</h5>
-                                <p>07:00 - 3 June 2023</p>
-                                <a href='' className='btn'>Join Live</a>
-                            </div>
-                        </div>
-                    
-                        <div className="col-md-3 mt-3 ms-3">
-                                <img src={Thunbnail} className='live-thumbnail rounded' />
-                            <div className='ms-2 mt-2'>
-                                <h5>Strategi Menulis Karya Tulis ...</h5>
-                                <p>07:00 - 3 June 2023</p>
-                                <a href='' className='btn'>Join Live</a>
-                            </div>
-                        </div>
-            
-                    </div>
+                    <Link onClick={() => {
+            alert(
+              "Site is still under construction so here is the email: admin@wirabasa.com"
+            );
+          }} className="btn">Edit profile</Link>
                 </div>
 
                 <MyClass />
@@ -74,7 +43,7 @@ const User = () => {
                     <h2 className="">Riwayat pembelian</h2>
                     <div className="row my-5">
 
-                        <div className="col-md-4 my-3">
+                        <div className="col-md-5 my-3">
                         <div className="box-layanan border rounded-4">
                             <div className="clr-block"></div>
                             <h3 className="pt-2 ps-4">Menulis 101</h3>

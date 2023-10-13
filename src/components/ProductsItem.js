@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
+import axios from 'axios';
 
 const ProductsItem = ({activeButton}) => {
 
@@ -9,9 +10,12 @@ const ProductsItem = ({activeButton}) => {
       const [productFiltered, setProductFiltered] = useState();
 
       const getProducts = async () => {
-        const response = await fetch('http://localhost:8000/products/');
-        const data = await response.json();
-        setProducts(data);
+        try{
+          const response = await axios.get('http://127.0.0.1:8000/v1/products/');
+          setProducts(response.data);
+        } catch (error){
+          console.error(error);
+        }
       }
 
       const getLayananClass = () => {
@@ -29,6 +33,8 @@ const ProductsItem = ({activeButton}) => {
             return product.category === 'Jasa-Sunting'
         } else if(activeButton === 2){
             return product.category === 'Kelas-Sunting'
+        } else if(activeButton === 4){
+            return product.category === 'Kelas-Kepewaraan'
         }
     }
 
@@ -52,7 +58,7 @@ const ProductsItem = ({activeButton}) => {
   return (
     <div className="row my-5">
         {productFiltered?.map((product, _index) => 
-            <div key={ _index } className="col-md-3 my-3" style={{minWidth: '270px'}}>
+              <div key={ _index } className="col-md-3 my-3" style={{minWidth: '270px'}}>
                 <div className="box-layanan border rounded-4">
                 <div className={`clr-block ${getLayananClass()}`}></div>
                 <div className="text-center">
@@ -60,7 +66,7 @@ const ProductsItem = ({activeButton}) => {
                 </div>
                 <div className="ln mt-3"></div>
                     {product.discount == 0? 
-                    <p className="price ms-4">{rupiahFormat(getDiscount(product.price, product.discount))}</p>:
+                    <p className="price ms-4 my-4">{rupiahFormat(getDiscount(product.price, product.discount))}</p>:
                     <>
                         <p className="price-dc ms-4 mt-2"> <s>{rupiahFormat(product.price)}</s></p>
                         <p className="price ms-4">{rupiahFormat(getDiscount(product.price, product.discount))}</p>
@@ -73,11 +79,12 @@ const ProductsItem = ({activeButton}) => {
                 
                 <ul className="text-start ms-4 me-2">
                     {product.features.map((feature, _index) => 
-                    <li key={ _index }>{getSubString(feature, 35)}</li>
+                    <li key={ _index }>{getSubString(feature.name, 35)}</li>
                     )}
                 </ul>
                 </div>
-          </div>
+
+              </div>
         )}
     </div>
   )

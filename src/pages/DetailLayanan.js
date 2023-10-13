@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import LArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
@@ -7,6 +7,7 @@ import WhatsApp from '../assets/wa.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const DetailLayanan = () => {
     const location = useLocation();
@@ -18,12 +19,34 @@ const DetailLayanan = () => {
     const [pagesValue, setPagesValue] = useState('');
     const [totalPrice, setTotalPrice] = useState('');
 
+    const navigate = useNavigate()
+
     const getProduct = async () => {
-        const response = await fetch(`http://localhost:8000/products/${productId}`);
-        const data = await response.json();
-        setProduct(data);
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/v1/product/', {
+                params: {
+                    id:productId
+                }
+            });
+            setProduct(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
+
+    const handleOrder = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
+            product: product?.id,
+            user:1
+            });
+            navigate({pathname: '/payment/', search: `?id=${response.data['id']}`, replace:true});
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
     
 
     const handleInputChage = (e) => {
@@ -119,7 +142,7 @@ const DetailLayanan = () => {
 
                     <ul className="text-start ms-4">
                         {product?.features.map((feature, _index) =>
-                        <li key={_index} className="my-2">{feature}</li>
+                        <li key={_index} className="my-2">{feature.name}</li>
                         )}
                     </ul>
                     </div>
@@ -168,16 +191,16 @@ const DetailLayanan = () => {
                         }
 
                         <tr>
-                            <td>Total harga</td>
+                            <td className='rd'>Total harga</td>
                             {product?.category === 'Jasa-Sunting' ? 
-                            <td id="total-price">{ totalPrice !== ''? rupiahFormat(totalPrice) : '-' }</td>:
-                            <td id="total-price" style={{paddingLeft: '14px'}}> Rp 65.000</td>
+                            <td className='rd'>{ totalPrice !== ''? rupiahFormat(totalPrice) : '-' }</td>:
+                            <td className='rd' style={{paddingLeft: '14px'}}> {rupiahFormat(product?.get_price)}</td>
                             }
                         </tr>
                         </tbody>
                     </table>
 
-                    <Link to={{pathname: '/payment/', search: `?id=${product?.id}`}} type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</Link>
+                    <button onClick={handleOrder} type="submit" className="btn px-5 rounded-3">Lanjutkan Pembayaran</button>
 
                 </div>
 

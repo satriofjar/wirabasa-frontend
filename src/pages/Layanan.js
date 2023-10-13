@@ -12,8 +12,6 @@ const Layanan = () => {
     const queryParams = queryString.parse(search);
     const categoryLayanan = queryParams.layanan;
 
-    console.log(categoryLayanan);
-
     const [activeButton, setActiveButton] = useState(1);
 
     const btnStyle = {

@@ -5,18 +5,38 @@ import LeftArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const NewPayment = () => {
     const location = useLocation();
     const search = location.search;
     const queryParams = queryString.parse(search);
-    const productId = queryParams.id;
-    const [product, setProduct] = useState();
+    const orderId = queryParams.id;
+    const [order, setOrder] = useState();
 
     const getProduct = async () => {
-        const response = await fetch(`http://localhost:8000/products/${productId}`);
-        const data = await response.json();
-        setProduct(data);
+
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/v1/order-product/', {
+                params: {
+                id: orderId
+                }
+            });
+                // headers: {
+                //     'Authorization': 'application/json'
+                //   }
+            setOrder(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handlePayment = async () => {
+        try {
+            
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     useEffect(() => {
@@ -52,11 +72,11 @@ const NewPayment = () => {
                 <tbody>
                     <tr>
                         <td>Layanan</td>
-                        <td>{product?.name}</td>
+                        <td>{order?.product_name}</td>
                     </tr>
                     <tr>
                         <td>Total pembayaran</td>
-                        <td>{rupiahFormat(product?.price)}</td>
+                        <td>{rupiahFormat(order?.get_total_price)}</td>
                     </tr>
                 </tbody>
             </table>
@@ -80,7 +100,7 @@ const NewPayment = () => {
                 <div className="mt-2">
                     <input type="file" className="form-control w-25"/>
                 </div>
-                <button type="submit" className="btn mt-4 px-4">Upload bukti transfer</button>
+                <button onClick={handlePayment} type="submit" className="btn mt-4 px-4">Upload bukti transfer</button>
             </form>
 
         </div>

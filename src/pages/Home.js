@@ -9,7 +9,6 @@ import Footer from '../components/Footer';
 import longArrow from '../assets/long-arrow.png';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
-import TArrow from '../assets/tr-arrow.png';
 
 // just for developmet
 import TestBg from '../assets/bg-r.jpg';
@@ -71,7 +70,7 @@ const Home = () => {
         <div className='benefit'>
           <div className='container'>
           <div className="header text-center">
-            <h2><span>Layanan</span> yang Tersedia</h2>
+            <h2>Keuntungan yang akan Anda dapatkan jika menggunakan layanan WiraBasa</h2>
             <div className='under-ln rounded-5'></div>
           </div>
 
@@ -155,7 +154,7 @@ const Home = () => {
             </div>
 
             <div className='text-center'>
-              <a href='' className='btn rounded-4 px-3'>Tes kecepatan membaca anda sekarang!</a>
+              <a href='' className='btn rounded-4 px-4'>Mulai sekarang!</a>
             </div>
 
           </div>

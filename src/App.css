@@ -198,6 +198,12 @@ body a{
     margin-left: 150px;
 }
 
+#main-content .benefit h2{
+    margin: 0 auto;
+    max-width: 800px;
+    font-weight: 600;
+}
+
 #main-content .benefit .box{
     box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
@@ -253,9 +259,9 @@ body a{
     background: #ffb700 !important;
 }
 
-/* #main-content .reading-test a:hover{
-    width: ;
-} */
+#main-content .reading-test a:hover{
+    background: #dfa000 !important;
+}
 
 #main-content .reading-test a img{
     width: 20px;
@@ -483,6 +489,10 @@ body a{
 
 #user a{
     color: #000;
+}
+
+#user .col-md-4{
+    width: 350px !important;
 }
 
 #user .card{
