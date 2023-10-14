@@ -3,21 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from '../assets/logo-circle.png'
 import axios from 'axios';
 
+import { useUser } from '../utils/UserContext';
+
 const Navbar = ({isUserPage}) => {
   const [userName, setUserName] = useState('');
-
-  const getUser = async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:8000/v1/user/');
-      setUserName(response.data['username']);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  useEffect(() => {
-    getUser();
-  }, [])
+  const { user, setUser } = useUser();
 
 
   return (
@@ -34,9 +24,6 @@ const Navbar = ({isUserPage}) => {
           <li className="nav-item">
             <NavLink className="nav-link text-light px-3" aria-current="page" to='/'>Home</NavLink>
           </li>
-          {/* <li className="nav-item">
-            <NavLink className="nav-link text-light px-3" to='/layanan'>Layanan</NavLink>
-          </li> */}
           <li className="nav-item dropdown">
             <a className="nav-link text-light px-3 dropdown-toggle" href='' role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Layanan
@@ -58,8 +45,8 @@ const Navbar = ({isUserPage}) => {
           </li>
 
           <li className="nav-item">
-          {userName? (isUserPage? <NavLink className="nav-link text-light px-3" to='/logout'>Logout</NavLink> :
-          <NavLink className="nav-link text-light px-3" to={{pathname: '/user/', search: `?username=Satrio`}}>{userName}</NavLink>):
+          {user? (isUserPage? <NavLink className="nav-link text-light px-3" to='/logout'>Logout</NavLink> :
+          <NavLink className="nav-link text-light px-3" to={{pathname: '/user/', search: `?username=Satrio`}}>{user?.username}</NavLink>):
           <NavLink className="nav-link text-light px-3" to='/login'>Login</NavLink>}
           </li>
         </ul>

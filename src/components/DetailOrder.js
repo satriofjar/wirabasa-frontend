@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UploadIcon from '../assets/upload.png';
 import DownloadIcon from '../assets/download.png';
+import axios from 'axios';
+import rupiahFormat from '../utils/rupiahFormat';
+import formatDate from '../utils/formatDate';
+import { Link } from 'react-router-dom';
 
-const DetailOrder = ({setIsActive}) => {
+const DetailOrder = ({orderId, setIsActive}) => {
+
+    const [order, setOrder] = useState(null);
+
+    const getOrder = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/v1/order-product/', {
+                params:{
+                    id:orderId
+                }
+            });
+            setOrder(response.data);
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getOrder();
+    }, [])
   return (
     <div className="popup-overlay">
         <div className="detail-order">
@@ -12,24 +36,25 @@ const DetailOrder = ({setIsActive}) => {
             <tbody>
                 <tr>
                     <td>Layanan</td>
-                    <td id="name-layanan">-</td>
+                    <td id="name-layanan">{order?.product_name}</td>
                 </tr>
                 <tr>
                     <td>Harga layanan</td>
-                    <td id="price-layanan">-</td>
+                    <td id="price-layanan">{rupiahFormat(order?.get_total_price)}</td>
                 </tr>
                 <tr>
                     <td>Tanggal order</td>
-                    <td id="date-order">-</td>
+                    <td id="date-order">{formatDate(order?.created)}</td>
                 </tr>
                 <tr>
                     <td>Status pembayaran</td>
-                    <td id="payment-status">-</td>
+                    <td id="payment-status">{order?.status}</td>
                 </tr>
-                <tr id="payment-page">
-                    <td>Upload bukti pembayaran</td>
-                    <td><a href="">Bayar</a></td>
-                </tr>
+                {order?.status === 'UnPaid' &&
+                    <tr id="payment-page">
+                        <td>Upload bukti pembayaran</td>
+                        <td><Link to={{pathname:'/payment', search:`?id=${order?.id}`}}>Bayar</Link></td>
+                    </tr>}
                 <tr id="file-sunting">
                     <td>Upload file untuk disunting</td>
                     <td>

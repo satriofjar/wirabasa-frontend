@@ -16,10 +16,15 @@ const DetailLayanan = () => {
     const productId = queryParams.id;
 
     const [product, setProduct] = useState();
-    const [pagesValue, setPagesValue] = useState('');
+    const [pagesValue, setPagesValue] = useState(0);
     const [totalPrice, setTotalPrice] = useState('');
+    const [user, setUser] = useState('');
 
     const navigate = useNavigate()
+
+    const isAuth = localStorage.getItem('access_token') != null;
+
+    console.log(user);
 
     const getProduct = async () => {
         try {
@@ -34,14 +39,35 @@ const DetailLayanan = () => {
         }
     }
 
+    const getUser = async () => {
+        try{
+            const response = await axios.get('http://127.0.0.1:8000/v1/user')
+             setUser(response.data?.id);
+        } catch (error){
+            console.error(error);
+        }
+    }
 
     const handleOrder = async () => {
+        if(!isAuth){
+            navigate('/login');
+        }
         try {
-            const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
-            product: product?.id,
-            user:1
-            });
-            navigate({pathname: '/payment/', search: `?id=${response.data['id']}`, replace:true});
+            if (product?.category == 'Jasa-Sunting'){
+                const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
+                product: product?.id,
+                user:user,
+                number_of_pages:pagesValue
+                });
+                navigate({pathname: '/payment/', search: `?id=${response.data['id']}`, replace:true});
+            } else{
+                const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
+                product: product?.id,
+                user:user,
+    
+                });
+                navigate({pathname: '/payment/', search: `?id=${response.data['id']}`, replace:true});
+            }
 
         } catch (error) {
             console.error(error);
@@ -90,6 +116,7 @@ const DetailLayanan = () => {
 
     useEffect(() => {
         getProduct();
+        getUser();
     }, [])
 
     const arg = {

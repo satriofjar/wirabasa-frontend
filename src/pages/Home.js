@@ -15,6 +15,7 @@ import TestBg from '../assets/bg-r.jpg';
 
 const Home = () => {
 
+
   const setting = {
     dots: true,
     autoplay: true,

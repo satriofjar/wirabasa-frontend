@@ -51,7 +51,7 @@ const ProductsItem = ({activeButton}) => {
     }, [])
 
     useEffect(() => {
-      setProductFiltered(products.filter(filterProducts));
+      setProductFiltered(products?.filter(filterProducts));
     }, [activeButton, products])
 
 

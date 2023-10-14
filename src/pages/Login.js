@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-
-
-// import './register.css';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../utils/UserContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+
+    const { user, setUser } = useUser();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -24,14 +24,23 @@ const Login = () => {
                 },
                 withCredentials: true
             });
-
-            console.log(response.data);
-
             localStorage.clear();
             localStorage.setItem('access_token', response.data['access']);
             localStorage.setItem('refresh_token', response.data['refresh']);
 
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
+
+            if(localStorage.getItem('access_token')){
+              try {
+                const response = await axios.get('http://127.0.0.1:8000/v1/user/');
+                console.log(response.data);
+
+                localStorage.setItem('user', JSON.stringify(response.data))
+                setUser(response.data)
+              } catch (error) {
+                console.error(error);
+              }
+            }
             navigate('/');
         
         } catch (error) {

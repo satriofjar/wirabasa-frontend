@@ -11,17 +11,25 @@ import Logout from './pages/Logout';
 import {
   BrowserRouter as Router,
   Route,
-  Routes
+  Routes,
+  Navigate
 } from "react-router-dom";
+import { useState } from 'react';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
+
   return (
     <Router>
       <Routes>
-        <Route path={'/'} element={<Home/>} />
-        <Route path={'/layanan'} element={<Layanan/>} />
+        <Route path={'/'} element={<Home />} />
+        <Route path={'/layanan'} element={<Layanan />} />
         <Route path={'/detail-layanan'} element={<DetailLayanan/>} />
         <Route path={'/payment'} element={<Payment/>} />
+        {/* <Route path={'/payment'} element={isAuth? <Payment/>: <Navigate to="/login" />} />
+        <Route path={'/user'} element={isAuth? <User/>: <Navigate to="/login" />} />
+        <Route path={'/edit-profile'} element={isAuth? <EditProfile />: <Navigate to="/login" />} /> */}
         <Route path={'/user'} element={<User/>} />
         <Route path={'/edit-profile'} element={<EditProfile />} />
         <Route path={'/reading-test'} element={<ReadingTest />} />

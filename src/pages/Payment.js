@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import LeftArrow from '../assets/left-arrow.png';
 import Logo from '../assets/logo-circle.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
+import { useUser } from '../utils/UserContext';
 
 const NewPayment = () => {
     const location = useLocation();
@@ -13,6 +14,10 @@ const NewPayment = () => {
     const queryParams = queryString.parse(search);
     const orderId = queryParams.id;
     const [order, setOrder] = useState();
+    const [selectedFile, setSelectedFile] = useState(null);
+    const { user, setUser } = useUser();
+
+    const navigate = useNavigate();
 
     const getProduct = async () => {
 
@@ -22,9 +27,6 @@ const NewPayment = () => {
                 id: orderId
                 }
             });
-                // headers: {
-                //     'Authorization': 'application/json'
-                //   }
             setOrder(response.data);
         } catch (error) {
             console.error(error);
@@ -33,6 +35,19 @@ const NewPayment = () => {
 
     const handlePayment = async () => {
         try {
+            const response = await axios.put('http://127.0.0.1:8000/v1/order-product/', {
+                product:order?.product,
+                user:order?.user,
+                bukti_transfer:selectedFile
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                params: {
+                    id: orderId
+                }
+            });
+            navigate({pathname:'/user/', search:`?username=Satrio`, replace:true})
             
         } catch (error) {
             console.error(error);
@@ -42,6 +57,7 @@ const NewPayment = () => {
     useEffect(() => {
         getProduct();
     }, [])
+
   return (
     <div id="payment">
         <Helmet>
@@ -53,7 +69,7 @@ const NewPayment = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-5">
-                        <Link to='/user'><img src={LeftArrow} alt="" width="30" className="pt-2" /></Link>
+                        <Link to={{pathname: '/user/', search: `?username=${user?.username}`}}><img src={LeftArrow} alt="" width="30" className="pt-2" /></Link>
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
@@ -96,12 +112,14 @@ const NewPayment = () => {
             </table>
 
             <h4 className="my-4">Lakukan konfirmasi setelah melakukan pembayaran</h4>
-            <form method="post" encType="multipart/form-data">
+            <div>
                 <div className="mt-2">
-                    <input type="file" className="form-control w-25"/>
+                    <input type="file" 
+                    className="form-control w-25"
+                    onChange={e => setSelectedFile(e.target.files[0])}/>
                 </div>
                 <button onClick={handlePayment} type="submit" className="btn mt-4 px-4">Upload bukti transfer</button>
-            </form>
+            </div>
 
         </div>
     </div>
