@@ -10,6 +10,7 @@ import longArrow from '../assets/long-arrow.png';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
 import Layanan from '../components/Layanan';
+import MainImage from '../assets/mainImage.jpg';
 
 // just for developmet
 import TestBg from '../assets/bg-r.jpg';
@@ -24,6 +25,15 @@ const Home = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplaySpeed: 2000,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 700, // Perangkat mobile
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
   return (
     <>
@@ -34,31 +44,21 @@ const Home = () => {
         <Navbar isUserPage={false} />
 
         <section id="hero">
-          <div className="layer">
-            <div className="container">
-              <div className="hero-content">
-                <h1>Wira<span>Basa</span></h1>
-                <p>Asah kompetensi berbahasa dan sempurnakan<br/>tulisanmu bersama WiraBasa!</p>
-                <Link to='/layanan' className="btn rounded-3 px-4">Daftar! <img src={longArrow} alt="" width="30"/></Link>
+            <div className="container text-denter">
+              <div className='row'>
+                <div className="hero-content col ps-5">
+                  <h2 className='mb-4'>Asah kompetensi berbahasa dan sempurnakan tulisanmu.</h2>
+                  <p>WiraBasa hadir menjadi bagian dari kesuksesan Sobat dalam menulis dan menjadi pewara.</p>
+                  <Link to='/layanan' className="btn rounded-3 px-4">Daftar Sekarang!</Link>
+                </div>
+                <div className='col r-content text-center'>
+                  <img className='main-img' src={MainImage} alt='' />
+                </div>
               </div>
             </div>
-          </div>
         </section>
 
     <section id="main-content">
-      <div className="container">
-        <div className="box-content mt-5 px-5 pt-5 pb-3 rounded-4 text-center">
-          <p>Sobat Rasa punya tugas karya tulis tetapi bingung apakah penulisannya sudah sesuai 
-            kaidah kebahasaan? 
-            <br/><br/>Atau mungkin Sobat Rasa sedang membutuhkan jasa pewara (MC/moderator/pemantik diskusi) 
-            dalam acara Sobat tetapi belum mahir dalam bidang tersebut?</p>
-        </div>
-  
-        <div className="sec-content px-5 mt-5 text-center">
-          <p>Tenang! Sekarang, WiraBasa bersama dengan tim yang andal dalam berbahasa 
-            tulis maupun lisan hadir menjadi bagian dari kesuksesan Sobat dalam menulis dan menjadi pewara.</p>
-        </div>
-      </div>
   
         <Layanan />
 
@@ -71,7 +71,7 @@ const Home = () => {
           <div className='row row-cols-2 my-2'>
 
             <div className='col'>
-              <div className='row box rounded-3  m-2'>
+              <div className='row box rounded-3 my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={Certificate} alt='' />
                 </div>
@@ -86,7 +86,7 @@ const Home = () => {
             </div>
 
             <div className='col'>
-              <div className='row box rounded-3  m-2'>
+              <div className='row box rounded-3  my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={OnlineClass} alt='' />
                 </div>
@@ -100,7 +100,7 @@ const Home = () => {
             </div>
 
             <div className='col'>
-              <div className='row box rounded-3  m-2'>
+              <div className='row box rounded-3  my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={Certificate} alt='' />
                 </div>
@@ -115,7 +115,7 @@ const Home = () => {
             </div>
 
             <div className='col'>
-              <div className='row box rounded-3  m-2'>
+              <div className='row box rounded-3  my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={OnlineClass} alt='' />
                 </div>
@@ -133,10 +133,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='testi mb-5 py-5' id='Testimoni'>
+        <div className='testi mb-5' id='Testimoni'>
           <div className='container text-center'>
 
-            <div className=" text-center">
+            <div className="text-center">
               <h2>Kata mereka yang pernah menggunakan wirabasa</h2>
             </div>
 

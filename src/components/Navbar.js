@@ -4,11 +4,10 @@ import Logo from '../assets/logo-circle.png'
 import axios from 'axios';
 
 import { useUser } from '../utils/UserContext';
+import CustomNavLink from '../utils/CustomNavLink';
 
 const Navbar = ({isUserPage}) => {
-  const [userName, setUserName] = useState('');
   const { user, setUser } = useUser();
-
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -22,16 +21,28 @@ const Navbar = ({isUserPage}) => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <NavLink className="nav-link text-light px-3" aria-current="page" to='/'>Home</NavLink>
+            <CustomNavLink className="nav-link text-light px-3" to='/'>Home</CustomNavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-light px-3" aria-current="page" href='#Layanan'>Fitur</a>
+            <CustomNavLink 
+              className="nav-link text-light px-3" 
+              to='/#Layanan'>
+                Fitur
+              </CustomNavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-light px-3" aria-current="page" href='#Benefit'>Keunggulan</a>
+            <CustomNavLink 
+              className="nav-link text-light px-3" 
+              to='/#Benefit'>
+                Keunggulan
+              </CustomNavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-light px-3" aria-current="page" href='#Testimoni'>Testimoni</a>
+            <CustomNavLink 
+              className="nav-link text-light px-3" 
+              to='/#Testimoni'>
+                Testimoni
+              </CustomNavLink>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link text-light px-3 dropdown-toggle" href='' role="button" data-bs-toggle="dropdown" aria-expanded="false">

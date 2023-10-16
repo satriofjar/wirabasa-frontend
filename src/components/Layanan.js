@@ -24,13 +24,13 @@ const Layanan = () => {
               </div>
 
               <div className='row my-5 pt-3 pb-5 px-5 box gx-5 rounded-4'>
-                <div className='col mt-5 mx-3 text-start'>
+                <div className='col-md-6 mt-5 mx-3 text-start'>
                   <h3 className='mt-5'>Kepewaraan</h3>
                   <div className='yel-ln rounded-5 mb-5'></div>
                   <p>WiraBasa juga menyediakan layanan kepewaraan, seperti MC (master of ceremony), moderator, pemantik diskusi, dan layanan lainnya. </p>
                   <a href='' className='btn border mt-3'>PELAJARI LEBIH LANJUT</a>
                 </div>
-                <img className='thumbnail col mt-3 rounded-5' src={Mc} alt=''/>
+                <img className='thumbnail col-md-6 order-first order-md-1 mt-3 rounded-5' src={Mc} alt=''/>
               </div>
 
 

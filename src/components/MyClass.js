@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Thunbnail from '../assets/bg.jpg'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import formatDate from '../utils/formatDate'
-import Loading from './Loading'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import formatDate from '../utils/formatDate';
+import Loading from './Loading';
 
 const MyClass = () => {
 
@@ -23,8 +23,9 @@ const MyClass = () => {
     }
 
     useEffect(() => {
-        getClasses();
-    }, [kelas])
+        setTimeout(getClasses, 1000);
+        // getClasses();
+    }, [])
 
   return (
     <>

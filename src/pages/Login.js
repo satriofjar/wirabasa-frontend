@@ -6,6 +6,7 @@ import { useUser } from '../utils/UserContext';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isFailed, setIsFailed] = useState(false);
 
     const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const Login = () => {
                 },
                 withCredentials: true
             });
+            console.log(response.data);
             localStorage.clear();
             localStorage.setItem('access_token', response.data['access']);
             localStorage.setItem('refresh_token', response.data['refresh']);
@@ -44,6 +46,9 @@ const Login = () => {
             navigate('/');
         
         } catch (error) {
+            setIsFailed(true);
+            setEmail('');
+            setPassword('');
             console.error(error);
         }
     }
@@ -58,6 +63,11 @@ const Login = () => {
 
                 <h2 className="card-title text-center mb-2">SIGN IN</h2>
 
+                {isFailed &&
+                <div className='text-center text-danger my-5 error' role='alert'> 
+                  <p>Invalid login, please try again</p>
+                </div> }
+
 
                 <form method="post" onSubmit={handleLogin}>
                   <div className="mb-3">
@@ -67,6 +77,7 @@ const Login = () => {
                         id="inputEmail1" 
                         name="email" 
                         placeholder="example@mail.com"
+                        value={email}
                         onChange={e => setEmail(e.target.value)} />
                   </div>
 
@@ -76,6 +87,7 @@ const Login = () => {
                         className="form-control" 
                         id="inputPassword" 
                         name="password" 
+                        value={password}
                         onChange={e => setPassword(e.target.value)} />
                   </div>
 
@@ -87,10 +99,6 @@ const Login = () => {
                 </form>
 
                 <p className="text-center mt-4">Do not have an account? <a href="{% url 'register' %}">Sign Up</a></p>
-                {/* <p className="text-center">or</p> */}
-                
-
-                {/* <Link to='/home'><i className="bi bi-chevron-double-left"></i> Home</Link> */}
               </div>
             </div>
           </div>

@@ -1,13 +1,13 @@
-import React from 'react'
-import Thunbnail from '../assets/bg.jpg'
+import React from 'react';
+import Placeholder from '../assets/placeholder.png';
 
 const Loading = () => {
   return (
     <div className="col-md-4 mt-3 ms-3">
-        <img src={Thunbnail} className='live-thumbnail rounded' />
+        <img src={Placeholder} className='live-thumbnail rounded' />
         <div className='ms-2 mt-2'>
-            <h5>Strategi Menulis Karya Tulis ...</h5>
-            <p>07:00 - 3 June 2023</p>
+            <h5>Title class</h5>
+            <p></p>
             <a href='' className='btn'>Join Live</a>
         </div>
     </div>
