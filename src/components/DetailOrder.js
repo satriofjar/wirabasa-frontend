@@ -17,6 +17,7 @@ const DetailOrder = ({orderId, setIsActive}) => {
                     id:orderId
                 }
             });
+            console.log(response.data);
             setOrder(response.data);
 
         } catch (error) {
@@ -44,7 +45,7 @@ const DetailOrder = ({orderId, setIsActive}) => {
                 </tr>
                 <tr>
                     <td>Tanggal order</td>
-                    <td id="date-order">{formatDate(order?.created)}</td>
+                    <td id="date-order">{formatDate(false, order?.created)}</td>
                 </tr>
                 <tr>
                     <td>Status pembayaran</td>
@@ -55,22 +56,28 @@ const DetailOrder = ({orderId, setIsActive}) => {
                         <td>Upload bukti pembayaran</td>
                         <td><Link to={{pathname:'/payment', search:`?id=${order?.id}`}}>Bayar</Link></td>
                     </tr>}
-                <tr id="file-sunting">
-                    <td>Upload file untuk disunting</td>
-                    <td>
-                        <form method="post" className="d-flex" encType="multipart/form-data">
-                            <input type='file' className='form-control w-50' />
-                            <input type="hidden" name="orderId" id="orderId" />
-                            <button type="submit" name="form-file"><img src={UploadIcon} alt="" width="28" /></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr id="result-sunting">
-                    <td>Download hasil sunting</td>
-                    <td>
-                        <a id="result-file" href=""><img src={DownloadIcon} alt="" /></a>
-                    </td>
-                </tr>
+
+                {order?.product_category === 'Jasa-Sunting' &&
+                <>
+                    <tr id="file-sunting">
+                        <td>Upload file untuk disunting</td>
+                        <td>
+                            <form method="post" className="d-flex" encType="multipart/form-data">
+                                <input type='file' className='form-control w-50' />
+                                <input type="hidden" name="orderId" id="orderId" />
+                                <button type="submit" name="form-file"><img src={UploadIcon} alt="" width="28" /></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr id="result-sunting">
+                        <td>Download hasil sunting</td>
+                        <td>
+                            <a id="result-file" href=""><img src={DownloadIcon} alt="" /></a>
+                        </td>
+                    </tr>
+                </>}
+
+
             </tbody>
           </table>
 

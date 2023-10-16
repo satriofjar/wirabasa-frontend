@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import { useUser } from '../utils/UserContext';
 
 const Logout = () => {
     const navigate = useNavigate();
+    const { user, setUser } = useUser();
 
     useEffect(() => {
         (async () => {
@@ -18,7 +20,9 @@ const Logout = () => {
                 });
                 localStorage.clear();
                 axios.defaults.headers.common['Authorization'] = null;
+                setUser(null);
                 navigate('/');
+                // window.location.reload()
             } catch (error) {
                 console.error(error);
             }
@@ -29,4 +33,4 @@ const Logout = () => {
   )
 }
 
-export default Logout
+export default Logout;

@@ -9,7 +9,7 @@ import MyClass from '../components/MyClass';
 import { useUser } from '../utils/UserContext';
 import axios from 'axios';
 import formatDate from '../utils/formatDate';
-
+import Loading from '../components/Loading';
 
 const User = () => {
 
@@ -17,11 +17,13 @@ const User = () => {
     const [orders, setOrders] = useState(null);
     const [orderId, setOrderId] = useState(null);
     const { user, setUser } = useUser();
+    const [isLoading, setIsLoading] = useState(true);
 
     const getOrders = async () => {
         try {
             const response = await axios.get('http://127.0.0.1:8000/v1/order-products/');
             setOrders(response.data);
+            setIsLoading(false);
         } catch (error) {
             console.error(error);
         }
@@ -35,7 +37,7 @@ const User = () => {
 
     useEffect(() => {
         getOrders();
-    }, [])
+    }, [orders])
 
   return (
     <>
@@ -69,13 +71,14 @@ const User = () => {
                                 <div className="box-layanan border rounded-4">
                                     <div className="clr-block"></div>
                                     <h3 className="pt-2 ps-4">{order.product_name}</h3>
-
-                                    <p className="status bg-warning ms-4 mt-2 px-2 py-1 rounded " style={{fontWeight: 600}}>Unpaid</p>
+                                    {order.status === 'UnPaid' ? 
+                                        <p className="status bg-warning ms-4 mt-2 px-2 py-1 rounded " style={{fontWeight: 600}}>Unpaid</p>:
+                                        <p className="status bg-scs ms-4 mt-2 px-2 py-1 rounded " style={{fontWeight: 600}}>Paid</p>}
                                     <table className="table table-borderless">
                                         <tbody>
                                             <tr>
                                                 <td className="ps-4">Tanggal order</td>
-                                                <td className="text-end pe-4">{formatDate(order.created)}</td>
+                                                <td className="text-end pe-4">{formatDate(false, order.created)}</td>
                                             </tr>
                                         </tbody>
                                     </table>

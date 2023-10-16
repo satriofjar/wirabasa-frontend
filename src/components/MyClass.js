@@ -1,41 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Thunbnail from '../assets/bg.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import formatDate from '../utils/formatDate'
+import Loading from './Loading'
 
 const MyClass = () => {
+
+    const [kelas, setKelas] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const getClasses = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/v1/ordered-classes/');
+            console.log(response.data);
+            setKelas(response.data);
+            setIsLoading(false);
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getClasses();
+    }, [kelas])
+
   return (
     <>
         <div className="live-class my-5">
             <h2 className="">Live class</h2>
     
             <div className="row my-5">
-            
-                <div className="col-md-4 mt-3 ms-3">
-                        <img src={Thunbnail} className='live-thumbnail rounded' />
-                    <div className='ms-2 mt-2'>
-                        <h5>Strategi Menulis Karya Tulis ...</h5>
-                        <p>07:00 - 3 June 2023</p>
-                        <a href='' className='btn'>Join Live</a>
-                    </div>
-                </div>
-            
-                <div className="col-md-4 mt-3 ms-3">
-                        <img src={Thunbnail} className='live-thumbnail rounded' />
-                    <div className='ms-2 mt-2'>
-                        <h5>Strategi Menulis Karya Tulis ...</h5>
-                        <p>07:00 - 3 June 2023</p>
-                        <a href='' className='btn'>Join Live</a>
-                    </div>
-                </div>
-            
-                <div className="col-md-4 mt-3 ms-3">
-                        <img src={Thunbnail} className='live-thumbnail rounded' />
-                    <div className='ms-2 mt-2'>
-                        <h5>Strategi Menulis Karya Tulis ...</h5>
-                        <p>07:00 - 3 June 2023</p>
-                        <a href='' className='btn'>Join Live</a>
-                    </div>
-                </div>
+                {isLoading? <Loading />:
+                <>
+                    {kelas?.map((e, _index) => 
+                        <div className="col-md-4 mt-3 ms-3" key={_index}>
+                            <img src={'http://127.0.0.1:8000' + e.poster} className='live-thumbnail rounded' />
+                            <div className='ms-2 mt-2'>
+                                <h5>{e.topic}</h5>
+                                <p>{formatDate(true, e.schedule)}</p>
+                                <a href={e.zoom_link} className='btn'>Join Live</a>
+                            </div>
+                        </div>)}
+                </>
+                }
     
             </div>
         </div>

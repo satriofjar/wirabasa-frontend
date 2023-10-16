@@ -24,6 +24,15 @@ const Navbar = ({isUserPage}) => {
           <li className="nav-item">
             <NavLink className="nav-link text-light px-3" aria-current="page" to='/'>Home</NavLink>
           </li>
+          <li className="nav-item">
+            <a className="nav-link text-light px-3" aria-current="page" href='#Layanan'>Fitur</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-light px-3" aria-current="page" href='#Benefit'>Keunggulan</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-light px-3" aria-current="page" href='#Testimoni'>Testimoni</a>
+          </li>
           <li className="nav-item dropdown">
             <a className="nav-link text-light px-3 dropdown-toggle" href='' role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Layanan

@@ -1,6 +1,7 @@
-const formatDate = (x)=> {
+const formatDate = (jam, x)=> {
 
     const date = new Date(x);
+    const hour = date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })
     const day = String(date.getDate()).padStart(2, '0');
     const month = [
         'January', 'February', 'March', 'April', 'May', 'June',
@@ -8,7 +9,7 @@ const formatDate = (x)=> {
     ][date.getMonth()];
     const year = date.getFullYear();
 
-    return `${day} ${month} ${year}`;
+    return jam ? `${hour} - ${day} ${month} ${year}` : `${day} ${month} ${year}`;
 }
 
 

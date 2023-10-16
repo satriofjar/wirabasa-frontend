@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import longArrow from '../assets/long-arrow.png';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
+import Layanan from '../components/Layanan';
 
 // just for developmet
 import TestBg from '../assets/bg-r.jpg';
@@ -59,27 +60,19 @@ const Home = () => {
         </div>
       </div>
   
-        <div className="layanan my-5 py-4">
+        <Layanan />
 
-          <div className="header text-center">
-            <h2><span>Layanan</span> yang Tersedia</h2>
-            <div className='under-ln rounded-5'></div>
-          </div>
-
-        </div>
-
-        <div className='benefit'>
+        <div className='benefit mb-5' id='Benefit'>
           <div className='container'>
-          <div className="header text-center">
+          <div className="header text-center mb-5">
             <h2>Keuntungan yang akan Anda dapatkan jika menggunakan layanan WiraBasa</h2>
-            <div className='under-ln rounded-5'></div>
           </div>
 
-          <div className='row my-5'>
+          <div className='row row-cols-2 my-2'>
 
-            <div className='col box rounded-3 m-2'>
-              <div className='row'>
-                <div className='col-lg-5 text-center'>
+            <div className='col'>
+              <div className='row box rounded-3  m-2'>
+                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={Certificate} alt='' />
                 </div>
 
@@ -92,9 +85,38 @@ const Home = () => {
               </div>
             </div>
 
-            <div className='col box rounded-3 m-2'>
-              <div className='row'>
-                <div className='col-lg-5 text-center'>
+            <div className='col'>
+              <div className='row box rounded-3  m-2'>
+                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                  <img src={OnlineClass} alt='' />
+                </div>
+
+                <div className='col ps-4'>
+                  <h5 className='mt-5'>Pelatihan Dilakukan Secara Online</h5>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+
+              </div>
+            </div>
+
+            <div className='col'>
+              <div className='row box rounded-3  m-2'>
+                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                  <img src={Certificate} alt='' />
+                </div>
+
+                <div className='col ps-4'>
+                  <h5 className='mt-5'>Pelatihan Bersertifikat</h5>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div className='col'>
+              <div className='row box rounded-3  m-2'>
+                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
                   <img src={OnlineClass} alt='' />
                 </div>
 
@@ -111,7 +133,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='testi mb-5 py-5'>
+        <div className='testi mb-5 py-5' id='Testimoni'>
           <div className='container text-center'>
 
             <div className=" text-center">
@@ -155,7 +177,7 @@ const Home = () => {
             </div>
 
             <div className='text-center'>
-              <a href='' className='btn rounded-4 px-4'>Mulai sekarang!</a>
+              <Link to='/reading-test' className='btn px-4'>Mulai sekarang!</Link>
             </div>
 
           </div>

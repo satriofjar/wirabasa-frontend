@@ -173,7 +173,11 @@ body a{
     font-weight: 300;
 }
 
-.layanan{
+#main-content p{
+    font-size: 18px;
+}
+
+#main-content .layanan{
     background: #effaff;
 }
 
@@ -182,20 +186,56 @@ body a{
     margin: 0 auto;
 }
 
-.layanan h2{
+#main-content .layanan h2{
     font-weight: 600;
-    color: #4C4C4C;
+    color: #3b566e;
 }
 
 .layanan h2 span{
     color: var(--mainColor);
+    /* color: #ffb700; */
 }
 
 #main-content .layanan .under-ln{
-    background: var(--mainColor);
+    /* background: var(--mainColor); */
+    background: #ffb700;
     width: 230px;
     height: 3px;
     margin-left: 150px;
+}
+
+#main-content .layanan .box{
+    background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#main-content .layanan .box a{
+    color: #3b566e;
+    border-color: #3b566e !important;
+}
+
+#main-content .layanan .box a:hover{
+    color: #fff;
+    background: #3b566e;
+}
+
+#main-content .layanan .thumbnail{
+    max-width: 450px;
+    max-height: 400px;
+}
+
+#main-content .layanan h3{
+    font-weight: 600;
+    color: #3b566e;
+}
+
+#main-content .layanan .yel-ln{
+    background: #ffb700;
+    width: 80px;
+    height: 3px;
+    /* margin-left: 150px; */
 }
 
 #main-content .benefit h2{
@@ -204,10 +244,21 @@ body a{
     font-weight: 600;
 }
 
+#main-content .benefit .col{
+    max-width: 600px;
+    min-width: 300px;
+    margin: 0 auto !important;
+}
+
 #main-content .benefit .box{
-    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+    /* box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75); */
+
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+
+    max-width: 600px;
+    min-width: 300px;
 }
 
 #main-content .benefit h5{
@@ -249,18 +300,18 @@ body a{
     width: 500px;
 }
 
-#main-content .reading-test p{
-    font-size: 18px;
-}
-
 #main-content .reading-test a{
-    color: #fff;
+    /* color: #ffb700; */
+    color: var(--btnColor);
     font-size: 20px;
-    background: #ffb700 !important;
+    /* border-color: #ffb700; */
+    border-color: var(--btnColor);
+    /* background: #ffb700 !important; */
 }
 
 #main-content .reading-test a:hover{
-    background: #dfa000 !important;
+    color: #fff;
+    background: var(--btnColor);
 }
 
 #main-content .reading-test a img{
@@ -528,7 +579,8 @@ body a{
 
 #user .riwayat-pembelian .box-layanan{
     width: 400px;
-    height: 210px;
+    min-height: 210px;
+    max-height: fit-content;
     margin: 0 auto;
 }
 
