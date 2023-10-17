@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const DetailOrder = ({orderId, setIsActive}) => {
 
     const [order, setOrder] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const getOrder = async () => {
         try {
@@ -17,9 +18,27 @@ const DetailOrder = ({orderId, setIsActive}) => {
                     id:orderId
                 }
             });
-            console.log(response.data);
             setOrder(response.data);
 
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handleUpload = async () => {
+        try {
+            const response = await axios.put('http://127.0.0.1:8000/v1/order-product/', {
+                    id: order.sunting.id,
+                    file_sunting: selectedFile
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                params: {
+                    id: orderId
+                }
+            })
+            alert("Success!");
         } catch (error) {
             console.error(error);
         }
@@ -28,6 +47,7 @@ const DetailOrder = ({orderId, setIsActive}) => {
     useEffect(() => {
         getOrder();
     }, [])
+
   return (
     <div className="popup-overlay">
         <div className="detail-order">
@@ -62,17 +82,20 @@ const DetailOrder = ({orderId, setIsActive}) => {
                     <tr id="file-sunting">
                         <td>Upload file untuk disunting</td>
                         <td>
-                            <form method="post" className="d-flex" encType="multipart/form-data">
-                                <input type='file' className='form-control w-50' />
-                                <input type="hidden" name="orderId" id="orderId" />
-                                <button type="submit" name="form-file"><img src={UploadIcon} alt="" width="28" /></button>
-                            </form>
+                            <div>
+                                <input 
+                                    type='file' 
+                                    className='form-control w-50' 
+                                    onChange={e => setSelectedFile(e.target.files[0])}/>
+                                <button type="submit" onClick={handleUpload} name="form-file"><img src={UploadIcon} alt="" width="28" /></button>
+                            </div>
                         </td>
                     </tr>
                     <tr id="result-sunting">
                         <td>Download hasil sunting</td>
                         <td>
-                            <a id="result-file" href=""><img src={DownloadIcon} alt="" /></a>
+                            {order.sunting?.file_result ? 
+                            <a id="result-file" download href={order.sunting.file_result}><img src={DownloadIcon} alt="" /></a> : <p>-</p>}
                         </td>
                     </tr>
                 </>}

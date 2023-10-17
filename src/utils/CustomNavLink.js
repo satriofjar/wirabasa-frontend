@@ -12,6 +12,7 @@ const CustomNavLink = ({to, className, children}) => {
             return to.substring(1);
         }
     }
+
   return (
     <HashLink to={to} smooth className={location.hash === getClassName() ? `active ${className}` : className}>
         {children}

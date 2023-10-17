@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/UserContext';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -76,7 +77,7 @@ const Login = () => {
                         className="form-control" 
                         id="inputEmail1" 
                         name="email" 
-                        placeholder="example@mail.com"
+                        placeholder="example@eirabasa.com"
                         value={email}
                         onChange={e => setEmail(e.target.value)} />
                   </div>
@@ -98,7 +99,7 @@ const Login = () => {
                   
                 </form>
 
-                <p className="text-center mt-4">Do not have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+                <p className="text-center mt-4">Do not have an account? <Link to='/register' >Sign Up</Link></p>
               </div>
             </div>
           </div>

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../assets/logo-circle.png'
-import axios from 'axios';
-
 import { useUser } from '../utils/UserContext';
 import CustomNavLink from '../utils/CustomNavLink';
 
@@ -21,7 +19,7 @@ const Navbar = ({isUserPage}) => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <CustomNavLink className="nav-link text-light px-3" to='/'>Home</CustomNavLink>
+            <CustomNavLink className="nav-link text-light px-3" to='/#Main'>Home</CustomNavLink>
           </li>
           <li className="nav-item">
             <CustomNavLink 
@@ -65,8 +63,8 @@ const Navbar = ({isUserPage}) => {
           </li>
 
           <li className="nav-item">
-          {user? (isUserPage? <NavLink className="nav-link text-light px-3" to='/logout'>Logout</NavLink> :
-          <NavLink className="nav-link text-light px-3" to={{pathname: '/user/', search: `?username=Satrio`}}>{user?.username}</NavLink>):
+          {user? (isUserPage? <CustomNavLink className="nav-link text-light px-3" to='/logout'>Logout</CustomNavLink> :
+          <CustomNavLink className="nav-link text-light px-3" to={`/user/?username=${user?.username}`} >{user?.username}</CustomNavLink>):
           <NavLink className="nav-link text-light px-3" to='/login'>Login</NavLink>}
           </li>
         </ul>

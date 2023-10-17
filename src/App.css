@@ -112,65 +112,52 @@ body a{
 }
 
 
-#hero {
+#Main {
     width: 100%;
-    /* height: 80vh; */
-    /* position: relative; */
     background: #fff;
-    /* background: url("./assets/bg.jpg") no-repeat; */
-    /* background-size: cover; */
     padding: 0;
     margin-top: 50px;
 }
 
-/* #hero .layer{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-} */
 
-#hero .main-img{
+#Main .main-img{
     width: 500px;
 }
-#hero .hero-content{
+#Main .hero-content{
     padding-top: 16vh;
     margin: 0 auto;
 }
 
-#hero .hero-content h1{
+#Main .hero-content h1{
     color: var(--mainColor);
     font-size: 70px;
     font-weight: 700;
 }
 
-#hero .hero-content h1 span{
+#Main .hero-content h1 span{
     color: var(--btnColor);
     font-size: 70px;
     font-weight: 700;
 }
 
-#hero .hero-content h2{
+#Main .hero-content h2{
     line-height: 1.5;
 }
 
-#hero .hero-content p{
+#Main .hero-content p{
     color: #3b566e;
     font-size: 20px;
     font-weight: 500;
 }
 
-#hero .hero-content .btn{
+#Main .hero-content .btn{
     color: var(--btnColor);
     font-size: 20px;
     font-weight: 350;
     border-color: var(--btnColor);
-    /* background-color: var(--btnColor); */
 }
 
-#hero .hero-content .btn:hover{
+#Main .hero-content .btn:hover{
     color: #fff;
     background: var(--btnColor);
 }
@@ -212,11 +199,9 @@ body a{
 
 .layanan h2 span{
     color: var(--mainColor);
-    /* color: #ffb700; */
 }
 
 #main-content .layanan .under-ln{
-    /* background: var(--mainColor); */
     background: #ffb700;
     width: 230px;
     height: 3px;
@@ -256,7 +241,6 @@ body a{
     background: #ffb700;
     width: 80px;
     height: 3px;
-    /* margin-left: 150px; */
 }
 
 #main-content .benefit{
@@ -276,10 +260,6 @@ body a{
 }
 
 #main-content .benefit .box{
-    /* box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75); */
-
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     margin: 0 2px;
 
@@ -310,13 +290,11 @@ body a{
 
 
 #main-content .testi .cntnr{
-    /* max-width: 900px; */
     margin: 0 auto;
 }
 
 #main-content .slick-slide img {
     width: 360px !important;
-    /* height: auto; */
 }
 
 #main-content .reading-test h2{
@@ -330,12 +308,9 @@ body a{
 }
 
 #main-content .reading-test a{
-    /* color: #ffb700; */
     color: var(--btnColor);
     font-size: 20px;
-    /* border-color: #ffb700; */
     border-color: var(--btnColor);
-    /* background: #ffb700 !important; */
 }
 
 #main-content .reading-test a:hover{
@@ -455,7 +430,6 @@ body a{
 #layanan .box-layanan ul li{
     background: url('./assets/check.png') no-repeat left top;
     background-size: 18px;
-    /* background-position-y: 5px; */
     padding-left: 35px;
     font-size: 16px;
     line-height: 15px;
@@ -566,7 +540,6 @@ body a{
     font-size: 18px;
     color: var(--btnColor);
     border: var(--btnColor) 2px solid;
-    /* background: var(--btnColor); */
 }
 
 #user h2{

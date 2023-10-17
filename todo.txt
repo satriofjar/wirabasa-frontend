@@ -1,2 +1,58 @@
-- menambahkan alert jika user berhasil upload bukti transfer
-- tambah alert user gagal login
+- menambahkan alert jika user berhasil upload bukti transfer => done
+- tambah alert user gagal login => done
+- hover item navbar kaya web toki https://bebras.or.id/v3/
+- posisi navbar jadi tetap
+- ubah warna navbar (optional)
+
+- ubah testimoni item
+
+
+<div className="kelas my-5">
+        <h2 className="">Kelas saya</h2>
+
+        <div className="row my-5 ms-2">
+        
+            <div className="col-md-6 my-2">
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
+                    </div>
+               </Link>
+            </div>
+        
+            <div className="col-md-6 my-2"> 
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
+                    </div>
+               </Link>
+            </div>
+        
+            <div className="col-md-6 my-2">
+               <Link>
+                    <div className='row'>
+                        <div className='col-4 vid-wraper'>
+                            <img src={Thunbnail} className='rounded vid-thumbnail' />
+                        </div>
+                        <div className='col-8'>
+                            <h5 className='my-2' style={{minWidth: '300px'}}>Strategi Menulis Karya Tulis Ilmiah yang Komersial</h5>
+                            <p>100 Views</p>
+                        </div>
+                    </div>
+               </Link>
+            </div>
+        
+        </div>
+    </div>

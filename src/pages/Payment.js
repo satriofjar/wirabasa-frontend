@@ -47,7 +47,8 @@ const NewPayment = () => {
                     id: orderId
                 }
             });
-            navigate({pathname:'/user/', search:`?username=Satrio`, replace:true})
+            navigate({pathname:'/user/', search:`?username=Satrio`, replace:true});
+            alert('Payment processed!');
             
         } catch (error) {
             console.error(error);
@@ -116,6 +117,7 @@ const NewPayment = () => {
                 <div className="mt-2">
                     <input type="file" 
                     className="form-control w-25"
+                    required
                     onChange={e => setSelectedFile(e.target.files[0])}/>
                 </div>
                 <button onClick={handlePayment} type="submit" className="btn mt-4 px-4">Upload bukti transfer</button>

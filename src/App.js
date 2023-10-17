@@ -8,6 +8,7 @@ import EditProfile from './pages/EditProfile';
 import ReadingTest from './pages/ReadingTest';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
+import Register from './pages/Register';
 import {
   BrowserRouter as Router,
   Route,
@@ -36,6 +37,7 @@ function App() {
         </Route>
         <Route path={'/reading-test'} element={<ReadingTest />} />
         <Route path={'/login'} element={!user ? <Login /> : <Navigate to='/' />} />
+        <Route path={'/register'} element={!user ? <Register /> : <Navigate to='/' />} />
 
       </Routes>
     </Router>

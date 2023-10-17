@@ -43,7 +43,7 @@ const Home = () => {
     </Helmet>
         <Navbar isUserPage={false} />
 
-        <section id="hero">
+        <section id="Main">
             <div className="container text-denter">
               <div className='row'>
                 <div className="hero-content col ps-5">
