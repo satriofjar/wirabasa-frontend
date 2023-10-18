@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import longArrow from '../assets/long-arrow.png';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
 import Layanan from '../components/Layanan';
@@ -157,7 +156,7 @@ const Home = () => {
 
         <div className='reading-test mb-5'>
           <div className='container'>
-            <div className=" text-center">
+            <div className="text-center">
               <h2>SEBERAPA CEPAT ANDA MEMBACA?</h2>
             </div>
 

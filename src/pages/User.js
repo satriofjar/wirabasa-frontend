@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from '../components/Navbar';
@@ -10,6 +10,10 @@ import RiwayatOrder from '../components/RiwayatOrder';
 
 const User = () => {
     const { user, setUser } = useUser();
+
+    useEffect(()=> {
+      window.scrollTo(0, 0);
+    }, [])
 
   return (
     <>

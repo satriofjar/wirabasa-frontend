@@ -1,6 +1,7 @@
 import React from 'react';
 import Writing from '../assets/writing.jpg';
 import Mc from '../assets/mc.jpg';
+import { Link } from 'react-router-dom';
 
 const Layanan = () => {
   return (
@@ -19,7 +20,9 @@ const Layanan = () => {
                   <div className='yel-ln rounded-5 mb-5'></div>
                   <p>Layanan penyuntingan untuk tulisan Sobat Rasa yang berkemungkinan masih mengandung ketidakefektifan kalimat, ketidakpaduan paragraf, dan kekurangtepatan penggunaan ejaan.</p>
                 
-                    <a href='' className='btn border mt-3'>PELAJARI LEBIH LANJUT</a>
+                    <Link className='btn border mt-3' onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} >PELAJARI LEBIH LANJUT</Link>
                 </div>
               </div>
 
@@ -28,7 +31,9 @@ const Layanan = () => {
                   <h3 className='mt-5'>Kepewaraan</h3>
                   <div className='yel-ln rounded-5 mb-5'></div>
                   <p>WiraBasa juga menyediakan layanan kepewaraan, seperti MC (master of ceremony), moderator, pemantik diskusi, dan layanan lainnya. </p>
-                  <a href='' className='btn border mt-3'>PELAJARI LEBIH LANJUT</a>
+                  <Link className='btn border mt-3' onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} >PELAJARI LEBIH LANJUT</Link>
                 </div>
                 <img className='thumbnail col-md-6 order-first order-md-1 mt-3 rounded-5' src={Mc} alt=''/>
               </div>

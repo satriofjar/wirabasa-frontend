@@ -27,22 +27,48 @@ body a{
 }
 
 .navbar{
-    background-color: var(--mainColor);
+    transition: 0.3s;
 }
 
-.navbar a{
+.navbar .nav-item .nav-link{
+    color: #3b566e !important;
     font-size: 18px;
+    margin: 0 30px !important;
+
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
-.navbar a:hover{
+.navbar .nav-item .nav-link::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #007bff;
+    transform: scaleX(0);
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: -1;
+    bottom: 10%;
+}
+
+.navbar .nav-item .nav-link:hover{
+    color: #cdcdcd !important;
+    background-color: transparent;
+}
+
+.navbar .nav-item .nav-link:hover:before{
+    transform: scaleX(1)
+}
+
+
+
+.active{
     color: #cdcdcd !important;
 }
 
-.navbar .active{
-    color: #cdcdcd !important;
-}
-
-.navbar .dropdown-menu{
+/* .navbar .dropdown-menu{
     width: 240px;
 }
 
@@ -56,7 +82,7 @@ body a{
 
 .navbar .dropdown-menu .dropdown-item .nav-link{
     font-size: 18px;
-}
+} */
 
 
 .icon{
@@ -81,10 +107,6 @@ body a{
     color: #818181;
 }
 
-.rd{
-    color: #ff3b19 !important;
-}
-
 .bg-green{
     background-color: #33af7d !important;
 }
@@ -94,11 +116,15 @@ body a{
 }
 
 .bg-yellow{
-    background-color: #ffd25f !important;
+    background-color: #ffc007 !important;
 }
 
 .bg-blue{
     background-color: #3c91e6 !important;
+}
+
+.bg-red{
+    background-color: #ff1f1f !important;
 }
 
 .b-5{
@@ -390,9 +416,46 @@ body a{
 /* ============= Layanan =============== */
 
 
-#layanan .title{
-    font-size: 28px;
+#layanan .header h2{
+    font-size: 30px;
     font-weight: 700;
+}
+
+#layanan .header p{
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#layanan .title h3{
+    font-weight: 600;
+    font-size: 26px;
+}
+
+#layanan .title p{
+    font-size: 16px;
+    color: #3b566e;
+}
+
+#layanan .help-contact{
+    background:rgba(42, 125, 202, 0.7);
+}
+
+#layanan .help-contact h2{
+    font-weight: 600;
+    font-size: 26px;
+    color: #fff;
+}
+
+#layanan .help-contact .btn{
+    background:#2a7dca;
+    /* border: var(--btnColor) 1px solid;
+    color: var(--btnColor); */
+}
+
+#layanan .help-contact .btn:hover{
+    background: #2472ba;
+    color: #fff;
 }
 
 #layanan .btn{
@@ -404,7 +467,7 @@ body a{
 
 #layanan .box-layanan{
     max-width: 290px;
-    height: 365px;
+    height: 400px;
     margin: 0 auto;
 }
 
@@ -432,9 +495,9 @@ body a{
     background-size: 18px;
     padding-left: 35px;
     font-size: 16px;
-    line-height: 15px;
+    line-height: 1;
     max-width: 230px;
-    height: 35px;
+    height: 45px;
 }
 
 #layanan .box-layanan a{
@@ -442,30 +505,26 @@ body a{
     font-weight: 600;
 }
 
-#layanan .header{
-    background-color: var(--mainColor);
-    max-width: fit-content;
-    border-radius: 0 10px 10px 0;
-    color: #fff;
+#layanan .wraper{
+    background:#2a7dca;
 }
 
-#layanan .con-header{
-    position: relative;
-    height: 75px;
+#layanan .description{
+    /* background: #effaff; */
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
 
-#layanan .con-header .header-r{
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: var(--mainColor);
-    border-radius: 10px 0 0 10px;
-    color: #fff;
-}
+#layanan .description h2{
+    font-weight: 600;
+}   
 
-#layanan .des{
-    max-width: 900px;
+
+#layanan .description p{
     font-size: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-color: #000;
+
 }
 
 
@@ -564,7 +623,8 @@ body a{
 }
 
 #user .live-thumbnail{
-    width: 320px;
+    width: 300px;
+    height: 360px;
 }
 
 #user .live-class a{
