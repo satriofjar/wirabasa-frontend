@@ -27,7 +27,6 @@ const Login = () => {
                 },
                 withCredentials: true
             });
-            console.log(response.data);
             localStorage.clear();
             localStorage.setItem('access_token', response.data['access']);
             localStorage.setItem('refresh_token', response.data['refresh']);
@@ -37,7 +36,6 @@ const Login = () => {
             if(localStorage.getItem('access_token')){
               try {
                 const response = await axios.get( API_URI + 'user/');
-                console.log(response.data);
 
                 localStorage.setItem('user', JSON.stringify(response.data))
                 setUser(response.data)
