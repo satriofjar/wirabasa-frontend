@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
+import  { API_URI } from '../utils/config';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -20,7 +21,7 @@ const Login = () => {
             password: password
         }
         try {
-            const response = await axios.post('http://127.0.0.1:8000/v1/token/', user, {
+            const response = await axios.post( API_URI + 'token/', user, {
                 headers:{
                     'Content-Type': 'application/json'
                 },
@@ -35,7 +36,7 @@ const Login = () => {
 
             if(localStorage.getItem('access_token')){
               try {
-                const response = await axios.get('http://127.0.0.1:8000/v1/user/');
+                const response = await axios.get( API_URI + 'user/');
                 console.log(response.data);
 
                 localStorage.setItem('user', JSON.stringify(response.data))

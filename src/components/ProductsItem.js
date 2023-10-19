@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
 import axios from 'axios';
+import { API_URI } from '../utils/config';
 
 const ProductsItem = () => {
 
@@ -10,7 +11,7 @@ const ProductsItem = () => {
 
       const getProducts = async () => {
         try{
-          const response = await axios.get('http://127.0.0.1:8000/v1/products/');
+          const response = await axios.get( API_URI + 'products/');
           setProducts(response.data);
         } catch (error){
           console.error(error);
@@ -33,15 +34,15 @@ const ProductsItem = () => {
   return (
     <>
       <div className='container'>
-        <div className='mt-5'>
+        <div id='jasa-sunting'>
           <div className='title'>
             <h3>Jasa sunting tulisan</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
 
           <div className='row mt-5'>
-            {products?.filter((e) => e.category === 'Jasa-Sunting').map((product) => 
-              <div className="col-md-3 my-3" style={{minWidth: '270px'}}>
+            {products?.filter((e) => e.category === 'Jasa-Sunting').map((product, _index) => 
+              <div key={_index} className="col-md-3 my-3" style={{minWidth: '270px'}}>
               <div className="box-layanan border rounded-4">
               <div className='clr-block bg-green'></div>
               <div className="text-center">
@@ -61,7 +62,7 @@ const ProductsItem = () => {
               </div>
                 
                 <ul className="text-start ms-4 me-2">
-                  {product.features.map((feature, _index) => 
+                  {product.features.slice(0, 3).map((feature, _index) => 
                       <li key={ _index }>{getSubString(feature.name, 35)}</li>
                       )}
                 </ul>
@@ -72,15 +73,15 @@ const ProductsItem = () => {
         </div>
 
 
-        <div className='mt-5'>
+        <div id='kelas-sunting'>
           <div className='title'>
           <h3>Kelas menyunting</h3>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
 
           <div className='row mt-5'>
-            {products?.filter((e) => e.category === 'Kelas-Sunting').map((product) => 
-                <div className="col-md-3 my-3" style={{minWidth: '270px'}}>
+            {products?.filter((e) => e.category === 'Kelas-Sunting').map((product, _index) => 
+                <div key={_index} className="col-md-3 my-3" style={{minWidth: '270px'}}>
                 <div className="box-layanan border rounded-4">
                 <div className='clr-block bg-yellow'></div>
                 <div className="text-center">
@@ -100,7 +101,7 @@ const ProductsItem = () => {
                 </div>
                   
                   <ul className="text-start ms-4 me-2">
-                    {product.features.map((feature, _index) => 
+                    {product.features.slice(0, 3).map((feature, _index) => 
                         <li key={ _index }>{getSubString(feature.name, 35)}</li>
                         )}
                   </ul>
@@ -113,15 +114,15 @@ const ProductsItem = () => {
 
         </div>
 
-        <div className='mt-5'>
+        <div id='jasa-kepewaraan'>
           <div className='title'>
           <h3>Jasa kepewaraan</h3>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
 
           <div className='row mt-5'>
-            {products?.filter((e) => e.category === 'Jasa-Kepewaraan').map((product) => 
-                  <div className="col-md-3 my-3" style={{minWidth: '270px'}}>
+            {products?.filter((e) => e.category === 'Jasa-Kepewaraan').map((product, _index) => 
+                  <div key={_index} className="col-md-3 my-3" style={{minWidth: '270px'}}>
                   <div className="box-layanan border rounded-4">
                   <div className='clr-block bg-red'></div>
                   <div className="text-center">
@@ -141,7 +142,7 @@ const ProductsItem = () => {
                   </div>
                     
                     <ul className="text-start ms-4 me-2">
-                      {product.features.map((feature, _index) => 
+                      {product.features.slice(0, 3).map((feature, _index) => 
                           <li key={ _index }>{getSubString(feature.name, 35)}</li>
                           )}
                     </ul>
@@ -153,15 +154,15 @@ const ProductsItem = () => {
 
         </div>
 
-        <div className='mt-5'>
+        <div id='kelas-kepewaraan'>
           <div className='title'>
           <h3>Kelas kepewaraan</h3>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
 
           <div className='row mt-5'>
-            {products?.filter((e) => e.category === 'Kelas-Kepewaraan').map((product) => 
-                  <div className="col-md-3 my-3" style={{minWidth: '270px'}}>
+            {products?.filter((e) => e.category === 'Kelas-Kepewaraan').map((product, _index) => 
+                  <div key={_index} className="col-md-3 my-3" style={{minWidth: '270px'}}>
                   <div className="box-layanan border rounded-4">
                   <div className='clr-block bg-blue'></div>
                   <div className="text-center">
@@ -181,7 +182,7 @@ const ProductsItem = () => {
                   </div>
                     
                     <ul className="text-start ms-4 me-2">
-                      {product.features.map((feature, _index) => 
+                      {product.features.slice(0, 3).map((feature, _index) => 
                           <li key={ _index }>{getSubString(feature.name, 35)}</li>
                           )}
                     </ul>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
+import  { API_URI } from '../utils/config';
 
 const Register = () => {
     const [isFailed, setIsFailed] = useState(false);
@@ -37,7 +38,7 @@ const Register = () => {
       }
 
         try {
-          const response = await axios.post('http://127.0.0.1:8000/v1/create-user/', userData, {
+          const response = await axios.post( API_URI + 'create-user/', userData, {
               headers:{
                 'Content-Type': 'application/json'
               },
@@ -52,7 +53,7 @@ const Register = () => {
 
             if(localStorage.getItem('access_token')){
               try {
-                const response = await axios.get('http://127.0.0.1:8000/v1/user/');
+                const response = await axios.get( API_URI + 'user/');
                 localStorage.setItem('user', JSON.stringify(response.data))
                 setUser(response.data)
               } catch (error) {

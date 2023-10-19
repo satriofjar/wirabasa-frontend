@@ -5,6 +5,7 @@ import axios from 'axios';
 import rupiahFormat from '../utils/rupiahFormat';
 import formatDate from '../utils/formatDate';
 import { Link } from 'react-router-dom';
+import { API_URI } from '../utils/config';
 
 const DetailOrder = ({orderId, setIsActive}) => {
 
@@ -13,7 +14,7 @@ const DetailOrder = ({orderId, setIsActive}) => {
 
     const getOrder = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/v1/order-product/', {
+            const response = await axios.get( API_URI + 'order-product/', {
                 params:{
                     id:orderId
                 }
@@ -27,7 +28,7 @@ const DetailOrder = ({orderId, setIsActive}) => {
 
     const handleUpload = async () => {
         try {
-            const response = await axios.put('http://127.0.0.1:8000/v1/order-product/', {
+            const response = await axios.put( API_URI + 'order-product/', {
                     id: order.sunting.id,
                     file_sunting: selectedFile
             }, {

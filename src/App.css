@@ -31,9 +31,9 @@ body a{
 }
 
 .navbar .nav-item .nav-link{
-    color: #3b566e !important;
-    font-size: 18px;
-    margin: 0 30px !important;
+    color: #3b566e;
+    font-size: 20px;
+    margin: 0 20px !important;
 
     position: relative;
     overflow: hidden;
@@ -54,7 +54,7 @@ body a{
 }
 
 .navbar .nav-item .nav-link:hover{
-    color: #cdcdcd !important;
+    color: #cdcdcd;
     background-color: transparent;
 }
 
@@ -63,6 +63,31 @@ body a{
 }
 
 
+.navbar .nav-item .btn-login{
+    color: #007bff;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin: 0 20px !important;
+}  
+
+.navbar .nav-item .btn-login:hover{
+    background: rgba(0, 123, 255, .2);
+    transition: .3s;
+    border: none;
+}
+
+.navbar .nav-item .btn-register{
+    color: #007bff;
+    font-size: 18px;
+    border: #007bff 1px solid;
+    padding: 5px 20px;
+    margin: 0 20px !important;
+}
+
+.navbar .nav-item .btn-register:hover{
+    color: #fff;
+    background: #007bff;
+}
 
 .active{
     color: #cdcdcd !important;
@@ -127,6 +152,10 @@ body a{
     background-color: #ff1f1f !important;
 }
 
+.rd{
+    color: #ff1f1f !important;
+}
+
 .b-5{
     font-weight: 500;
 }
@@ -156,12 +185,6 @@ body a{
 
 #Main .hero-content h1{
     color: var(--mainColor);
-    font-size: 70px;
-    font-weight: 700;
-}
-
-#Main .hero-content h1 span{
-    color: var(--btnColor);
     font-size: 70px;
     font-weight: 700;
 }
@@ -210,7 +233,8 @@ body a{
 }
 
 #main-content .layanan{
-    background: #effaff;
+    background: rgba(206, 239, 255, .7);
+    padding-top: 40px;
 }
 
 #main-content .layanan .header{
@@ -270,7 +294,7 @@ body a{
 }
 
 #main-content .benefit{
-    margin-top: 80px;
+    padding-top: 70px;
 }
 
 #main-content .benefit h2{
@@ -305,7 +329,7 @@ body a{
 
 #main-content .testi{
     background: #2a7dca;
-    padding: 60px 0;
+    padding: 70px 0;
 }
 
 #main-content .testi h2{
@@ -323,10 +347,34 @@ body a{
     width: 360px !important;
 }
 
+
+#main-content .reading-test{
+    position: relative;
+}
+
+#main-content .reading-test::before{
+    content: "";
+    background: url('./assets/wave.png') no-repeat; /* Ganti 'gambarmu.jpg' dengan URL gambar latar belakangmu */
+    background-size: 100% 350px;
+    opacity: 0.4; /* Sesuaikan tingkat opasitas sesuai kebutuhan */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#main-content .reading-test .container{
+    position: relative;
+    z-index: 1;
+}
+
+
 #main-content .reading-test h2{
     font-weight: 600;
     color: #4C4C4C;
-
+    padding-top: 130px;
 }
 
 #main-content .reading-test img{
@@ -392,7 +440,7 @@ body a{
 }
 
 @media (max-width: 700px) {
-    #hero .r-content{
+    #Main .r-content{
         display: none;
     }
 
@@ -414,6 +462,13 @@ body a{
 }
 
 /* ============= Layanan =============== */
+
+#jasa-sunting,
+#kelas-sunting,
+#jasa-kepewaraan,
+#kelas-kepewaraan{
+    margin-top: 80px;
+}
 
 
 #layanan .header h2{

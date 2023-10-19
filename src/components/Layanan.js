@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Layanan = () => {
   return (
-    <div className="layanan my-5 py-4" id='Layanan'>
+    <div className="layanan pb-5" id='Layanan'>
 
           <div className='container'>
               <div className="header mt-5 text-center">

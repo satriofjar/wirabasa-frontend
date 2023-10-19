@@ -7,6 +7,7 @@ import rupiahFormat from '../utils/rupiahFormat';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { useUser } from '../utils/UserContext';
+import  { API_URI } from '../utils/config';
 
 const NewPayment = () => {
     const location = useLocation();
@@ -22,7 +23,7 @@ const NewPayment = () => {
     const getProduct = async () => {
 
         try {
-            const response = await axios.get('http://127.0.0.1:8000/v1/order-product/', {
+            const response = await axios.get( API_URI + 'order-product/', {
                 params: {
                 id: orderId
                 }
@@ -35,7 +36,7 @@ const NewPayment = () => {
 
     const handlePayment = async () => {
         try {
-            const response = await axios.put('http://127.0.0.1:8000/v1/order-product/', {
+            const response = await axios.put( API_URI + 'order-product/', {
                 product:order?.product,
                 user:order?.user,
                 bukti_transfer:selectedFile

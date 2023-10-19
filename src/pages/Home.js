@@ -34,6 +34,7 @@ const Home = () => {
       },
     ],
   }
+
   return (
     <>
     <Helmet>
@@ -132,7 +133,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='testi mb-5' id='Testimoni'>
+        <div className='testi' id='Testimoni'>
           <div className='container text-center'>
 
             <div className="text-center">
@@ -176,7 +177,9 @@ const Home = () => {
             </div>
 
             <div className='text-center'>
-              <Link to='/reading-test' className='btn px-4'>Mulai sekarang!</Link>
+              <Link onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} className='btn px-4'>Mulai sekarang!</Link>
             </div>
 
           </div>

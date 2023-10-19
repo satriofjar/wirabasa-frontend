@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../utils/UserContext';
+import  { API_URI } from '../utils/config';
 
 const Logout = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Logout = () => {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.post('http://127.0.0.1:8000/v1/logout/', {
+                const response = await axios.post( API_URI + 'logout/', {
                     refresh_token: localStorage.getItem('refresh_token')
                 }, {
                     headers: {

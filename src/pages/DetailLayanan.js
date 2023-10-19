@@ -8,6 +8,8 @@ import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
+import { useUser } from '../utils/UserContext';
+import  { API_URI } from '../utils/config';
 
 const DetailLayanan = () => {
     const location = useLocation();
@@ -18,7 +20,7 @@ const DetailLayanan = () => {
     const [product, setProduct] = useState();
     const [pagesValue, setPagesValue] = useState(0);
     const [totalPrice, setTotalPrice] = useState('');
-    const [user, setUser] = useState('');
+    const { user, setUser } = useUser();
 
     const navigate = useNavigate()
 
@@ -28,7 +30,7 @@ const DetailLayanan = () => {
 
     const getProduct = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/v1/product/', {
+            const response = await axios.get( API_URI + 'product/', {
                 params: {
                     id:productId
                 }
@@ -39,29 +41,20 @@ const DetailLayanan = () => {
         }
     }
 
-    const getUser = async () => {
-        try{
-            const response = await axios.get('http://127.0.0.1:8000/v1/user')
-             setUser(response.data?.id);
-        } catch (error){
-            console.error(error);
-        }
-    }
-
     const handleOrder = async () => {
         if(!isAuth){
             navigate('/login');
         }
         try {
             if (product?.category == 'Jasa-Sunting'){
-                const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
+                const response = await axios.post( API_URI + 'order-product/', {
                 product: product?.id,
                 user:user,
                 number_of_pages:pagesValue
                 });
                 navigate({pathname: '/payment/', search: `?id=${response.data['id']}`, replace:true});
             } else{
-                const response = await axios.post('http://127.0.0.1:8000/v1/order-product/', {
+                const response = await axios.post( API_URI + 'order-product/', {
                 product: product?.id,
                 user:user,
     
@@ -116,7 +109,6 @@ const DetailLayanan = () => {
 
     useEffect(() => {
         getProduct();
-        getUser();
     }, [])
 
     const arg = {

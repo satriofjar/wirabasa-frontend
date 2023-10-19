@@ -6,6 +6,7 @@ import Instagram from '../assets/instagram.png';
 import Tiktok from '../assets/tiktok.png';
 import Mail from '../assets/mail.png';
 import Phone from '../assets/phone.png';
+import { HashLink } from 'react-router-hash-link';
 
 const Footer = () => {
   return (
@@ -26,23 +27,25 @@ const Footer = () => {
           <h3>Produk WiraBasa</h3>
           <ul>
             <li>
-              <Link to={{pathname: '/layanan/', search: `?layanan=${'Jasa-Suting'}`}}>Jasa Penyuntingan</Link>
+              <HashLink to='/layanan/#jasa-sunting'>Jasa Penyuntingan</HashLink>
             </li>
             <li>
-              <Link to={{pathname: '/layanan/', search: `?layanan=${'Kelas-Sunting'}`}}>Kelas Penyuntingan</Link>
+              <HashLink to='/layanan/#kelas-sunting'>Kelas Penyuntingan</HashLink>
             </li>
             <li>
-              <Link to={{pathname: '/layanan/', search: `?layanan=${'Jasa-Kepewaraan'}`}}>Jasa Kepewaraan</Link>
+              <HashLink to='/layanan/#jasa-kepewaraan'>Jasa Kepewaraan</HashLink>
             </li>
             <li>
-              <Link to={{pathname: '/layanan/', search: `?layanan=${'Kelas-Kepewaraan'}`}}>Kelas Kepewaraan</Link>
+              <HashLink to='/layanan/#kelas-kepewaraan'>Kelas Kepewaraan</HashLink>
             </li>
           </ul>
         </div>
 
         <div className="col">
           <h3>Lain-lain</h3>
-          <Link to='/reading-test'>Test kecepatan membaca</Link>
+          <Link onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} >Test kecepatan membaca</Link>
         </div>
       </div>
     </div>

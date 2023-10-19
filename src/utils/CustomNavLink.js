@@ -14,7 +14,10 @@ const CustomNavLink = ({to, className, children}) => {
     }
 
   return (
-    <HashLink to={to} smooth className={location.hash === getClassName() ? `active ${className}` : className}>
+    <HashLink 
+        to={to} 
+        smooth 
+        className={location.hash === getClassName() ? `active ${className}` : className}>
         {children}
     </HashLink>
   )

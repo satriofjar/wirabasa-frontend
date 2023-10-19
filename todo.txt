@@ -1,8 +1,11 @@
 - menambahkan alert jika user berhasil upload bukti transfer => done
 - tambah alert user gagal login => done
 - hover item navbar kaya web toki https://bebras.or.id/v3/
-- posisi navbar jadi tetap
-- ubah warna navbar (optional)
+- posisi navbar jadi tetap => done
+- ubah warna navbar (optional) => done
+
+- border-bottom navbar ganti jadi shadow bottom => done
+- buat login register button kaya codechef => done
 
 - ubah testimoni item
 

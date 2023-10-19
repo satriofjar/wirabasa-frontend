@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DetailOrder from '../components/DetailOrder';
 import formatDate from '../utils/formatDate';
-import Loading from '../components/Loading';
+import { API_URI } from '../utils/config';
 
 const RiwayatOrder = () => {
     const [isActive, setIsActive] = useState(false);
@@ -12,7 +12,7 @@ const RiwayatOrder = () => {
 
     const getOrders = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/v1/order-products/');
+            const response = await axios.get( API_URI + 'order-products/');
             setOrders(response.data);
             setIsLoading(false);
         } catch (error) {
