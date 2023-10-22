@@ -43,9 +43,7 @@ const Footer = () => {
 
         <div className="col">
           <h3>Lain-lain</h3>
-          <Link onClick={() => {
-                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
-                    }} >Test kecepatan membaca</Link>
+          <Link to='/reading-test' >Test kecepatan membaca</Link>
         </div>
       </div>
     </div>

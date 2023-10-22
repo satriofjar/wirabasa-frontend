@@ -1,31 +1,95 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Helmet } from 'react-helmet';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Reading from '../assets/reading.jpg';
+import { useUser } from '../utils/UserContext';
+import  { API_URI } from '../utils/config';
 
 const ReadingTest = () => {
-    const startTimer = () => {
+    const { user, setUser } = useUser();
+
+    const [article, setArticle] = useState();
+    const [startBtn, setStartBtn] = useState('Mulai');
+    const [timer, setTimer] = useState(0);
+    const [wpm, setWpm] = useState(0);
+
+    const getArticle = async () => {
+        try {
+            const response = await axios.get( API_URI + 'article/');
+            setArticle(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
 
     }
 
-    const stopTimer = () => {
-
+    const recordSpeed = async () => {
+        try {
+            const response = await axios.post( API_URI + 'speed-record/', {
+                article:1,
+                user:user.id,
+                wpm:wpm
+            })
+        } catch (error) {
+            console.error(error);
+        }
     }
     
+    const startTimer = () => {
+        const startTime = new Date().getTime();
+        setTimer(startTime)
+        setStartBtn('Membaca...');
+    }
+
+
+    const stopTimer = () => {
+        const endTime = new Date().getTime();
+        const timers = parseFloat((endTime - timer) / (60 * 1000)).toFixed(2);
+
+        const velocity = parseFloat(article?.length_text / timers).toFixed(0);
+        setWpm(velocity);
+        setStartBtn('Mulai');
+
+        if(user){
+            recordSpeed();
+        }
+    }
+
+    useEffect(()=> {
+        getArticle();
+        window.scrollTo(0,0);
+    }, [])
+    
   return (
-    <div>
-        <section id="hero1">
-            <div className="layer">
-                <div className="container">
-                    <div className="hero-cntn text-center">
+    <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Reading Test Speed - WiraBasa</title>
+        </Helmet>
+
+        <Navbar />
+        <section className='mb-5' id="hero">
+            <div className="container">
+                <div className="row">
+                    <div className="main col ps-5">
                         <h2>SEBERAPA CEPAT ANDA MEMBACA?</h2>
-                        <a href="#Test">Mulai sekarang <img src="" alt="" width="20" /></a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <a href="#Test" className='btn mt-3'>Mulai sekarang</a>
+                    </div>
+                    <div className='col text-center'>
+                        <img src={Reading} alt='' />
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="read-test">
-            <div className="container">
-                <div className="instruction mt-5">
-                    <h3 className="mb-3">Instruksi</h3>
+            <div className='instruction py-5'>
+                <div className="container rounded-4 p-5">
+                    <h2 className="mb-3 text-center">Instruksi</h2>
                     <p>Sebelum menghitung kecepatan membaca, bersiaplah. Kemudian, klik tombol mulai jika sudah siap membaca. 
                         <br />
                         Saat menekan tombol dimulai, pengatur waktu akan dimulai pula.
@@ -36,21 +100,23 @@ const ReadingTest = () => {
                         <br />
                         Sebelum memulai tes sebenarnya, Anda dapat mengeklik mulai. Scroll ke bawah tanpa membaca, lalu klik berhenti untuk melihat hasilnya.</p>
                 </div>
+            </div>
+            <div className="container">
 
-                <div id="Test" className="read-test mt-5">
-                    <h2>Test Kecepatan Membaca</h2>
+                <div id="Test" className="read-test">
+                    <h2 className='text-center'>Test Kecepatan Membaca</h2>
                     <div className="text-center my-5">
-                        <button id="startBtn" onclick={startTimer} className="btn px-4 py-2 rounded-3">Mulai</button>
+                        <button onClick={startTimer} className="btn px-4 py-2 mt-5 rounded-3">{ startBtn }</button>
                     </div>
 
-                        <h3 className="text-center"></h3>
-                        <p></p>
+                        <h3 className="text-center">{ article?.title }</h3>
+                        <p>{ article?.body }</p>
                         <div className="text-center my-5">
-                            <button id="endBtn" onclick={stopTimer} className="btn px-4 py-2 rounded-3">Selesai</button>
+                            <button onClick={stopTimer} className="btn px-4 py-2 rounded-3">Selesai</button>
                         </div>
 
                         <h3 id="result-test" className="mb-3">Hasil kecepatan membaca</h3>
-                        <p>Kecepatan membacamu <span id="wpm"></span> kata per menit.</p>
+                        <p>Kecepatan membacamu {wpm} kata per menit.</p>
                 </div>
 
                 <div className="py-5">
@@ -77,7 +143,9 @@ const ReadingTest = () => {
                 </div>
             </div>
         </section>
-    </div>
+
+        <Footer />
+    </>
   )
 }
 

@@ -44,9 +44,10 @@ const DetailLayanan = () => {
     const handleOrder = async () => {
         if(!isAuth){
             navigate('/login');
+            return;
         }
         try {
-            if (product?.category == 'Jasa-Sunting'){
+            if (product?.category === 'Jasa-Sunting'){
                 const response = await axios.post( API_URI + 'order-product/', {
                 product: product?.id,
                 user:user,
@@ -128,7 +129,7 @@ const DetailLayanan = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-5">
-                        <Link to={{pathname: '/layanan', search: `id=${product?.id}`, state:{arg}}}><img src={LArrow} alt="" width="30" className="pt-2" /></Link>
+                        <Link to='/layanan'><img src={LArrow} alt="" width="30" className="pt-2" /></Link>
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">

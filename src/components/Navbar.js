@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../assets/logo-circle.png'
 import { useUser } from '../utils/UserContext';
 import CustomNavLink from '../utils/CustomNavLink';
 import { NavHashLink } from 'react-router-hash-link';
 
 const Navbar = ({isUserPage}) => {
+  const location = useLocation();
   const { user, setUser } = useUser();
   const [background, setBackground] = useState('');
   const [style, setStyle] = useState({
-          backgroundColor: 'transparent',
+          background: location.pathname !== '/' ? '#fff' : 'linear-gradient(180deg, rgba(0,123,255,.6) 100%, rgba(255, 255, 255,.1) 50%)',
           height: '100px',
          });
+
+  const [loginStyle, setLoginStyle] = useState({
+    color: location.pathname !== '/' ? '#007bff' : '#fff'
+  })
+
+  const [registerStyle, setRegisterStyle] = useState({
+    color:  location.pathname !== '/' ? '#007bff' : '#fff',
+    border: location.pathname !== '/' ? '#007bff 1px solid' : '#fff 1px solid'
+  })
 
   const handleClick = () => {
     setStyle({
@@ -25,17 +35,43 @@ const Navbar = ({isUserPage}) => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) { // Ubah 50 ke tinggi yang sesuai
+      if (window.scrollY > 5) { // Ubah 50 ke tinggi yang sesuai
         setStyle({
           backgroundColor: '#fff',
           height: '70px',
           boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.3)',
         })
+
+        setLoginStyle({
+          color: '#007bff'
+        });
+        setRegisterStyle({
+          color: '#007bff',
+          border: '#007bff 1px solid'
+        });
       } else {
-        setStyle({
-            backgroundColor: 'transparent',
+        if(location.pathname !== '/'){
+          setStyle({
+            // backgroundColor: 'transparent',
+            background: '#fff',
             height: '100px',
         })
+        }else{
+          setStyle({
+              // backgroundColor: 'transparent',
+              background: '#007bff',
+              background: 'linear-gradient(180deg, rgba(0,123,255,.6) 100%, rgba(255, 255, 255,.1) 50%)',
+              height: '100px',
+          })
+          setLoginStyle({
+            color:'#fff'
+          });
+
+          setRegisterStyle({
+            color: '#fff',
+            border: '#fff 1px solid'
+          });
+        }
       }
     });
   
@@ -57,45 +93,56 @@ const Navbar = ({isUserPage}) => {
       <div className="collapse navbar-collapse" id="navbarNav" style={{background: background}}>
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <CustomNavLink className="nav-link" to='/#Main'>Home</CustomNavLink>
+            <CustomNavLink 
+              className="nav-link pb-1" 
+              to='/'>
+                Home
+                </CustomNavLink>
           </li>
           <li className="nav-item">
             <CustomNavLink 
-              className="nav-link" 
-              to='/#Layanan'>
+              className="nav-link pb-1" 
+              to='/#fitur'>
                 Fitur
               </CustomNavLink>
           </li>
           <li className="nav-item">
-            <CustomNavLink 
-              className="nav-link" 
-              to='/#Benefit'>
+            <CustomNavLink
+              className="nav-link pb-1" 
+              to='/#benefit'>
                 Keunggulan
               </CustomNavLink>
           </li>
           <li className="nav-item">
             <CustomNavLink 
-              className="nav-link" 
+              className="nav-link pb-1" 
               to='/#Testimoni'>
                 Testimoni
               </CustomNavLink>
           </li>
           <li className="nav-item">
             <NavHashLink
-              className="nav-link" 
+              className="nav-link pb-1" 
               to='/layanan' >
                 Layanan
               </NavHashLink>
           </li>
 
+          {user? (isUserPage? 
           <li className="nav-item">
-          {user? (isUserPage? <CustomNavLink className="nav-link" to='/logout'>Logout</CustomNavLink> :
-          <NavHashLink className="nav-link" to={`/user/?username=${user?.username}`} >{user?.username}</NavHashLink>):
+            <CustomNavLink className="nav-link pb-1" to='/logout'>Logout</CustomNavLink> 
+          </li> :
+          <li className="nav-item">
+            <NavHashLink className="nav-link pb-1" to={`/user/?username=${user?.username}`} >{user?.username}</NavHashLink>
+          </li>):
           <>
-            <NavHashLink className="btn btn-login" to='/login'>Login</NavHashLink>
-            <NavHashLink className="btn btn-register" to='/register'>Sign Up</NavHashLink>
-          </>}
+          <li className="nav-item">
+            <NavHashLink className="btn btn-login nav-link pb-1 px-4" to='/login' style={loginStyle}>Login</NavHashLink>
           </li>
+          <li className="nav-item">
+            <NavHashLink className="btn btn-register nav-link pb-1 px-4" to='/register' style={registerStyle}>Sign Up</NavHashLink>
+          </li>
+          </>}
         </ul>
       </div>
     </div>

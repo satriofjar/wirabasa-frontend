@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Slider from 'react-slick';
@@ -8,14 +8,17 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
-import Layanan from '../components/Layanan';
-import MainImage from '../assets/mainImage.jpg';
+import MainImage from '../assets/mainImage.png';
+import Writing from '../assets/writing.jpg';
+import Mc from '../assets/mc.jpg';
+import { useLocation } from 'react-router-dom';
 
 // just for developmet
 import TestBg from '../assets/bg-r.jpg';
 
 const Home = () => {
 
+  const location = useLocation();
 
   const setting = {
     dots: true,
@@ -35,6 +38,22 @@ const Home = () => {
     ],
   }
 
+  useEffect(()=> {
+    if(location.pathname === '/' && location.hash === ''){
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, [location])
+
+  // useEffect(()=> {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   });
+  // }, [])
+
   return (
     <>
     <Helmet>
@@ -43,7 +62,7 @@ const Home = () => {
     </Helmet>
         <Navbar isUserPage={false} />
 
-        <section id="Main">
+        <section className='mb-5' id="main">
             <div className="container text-denter">
               <div className='row'>
                 <div className="hero-content col ps-5">
@@ -60,11 +79,47 @@ const Home = () => {
 
     <section id="main-content">
   
-        <Layanan />
+      <div className="layanan pb-5" id='fitur'>
 
-        <div className='benefit mb-5' id='Benefit'>
           <div className='container'>
-          <div className="header text-center mb-5">
+              <div className="header mt-5 text-center">
+                <h2><span>Layanan</span> yang Tersedia</h2>
+                <div className='under-ln rounded-5'></div>
+              </div>
+
+              <div className='row my-5 pt-3 pb-5 px-5 box gx-5 rounded-4'>
+                <img className='thumbnail col mt-3 rounded-5' src={Writing} alt=''/>
+                <div className='col mt-3 mx-3 text-start'>
+                  <h3 className='mt-5'>Penyuntingan</h3>
+                  <div className='yel-ln rounded-5 mb-5'></div>
+                  <p>Layanan penyuntingan untuk tulisan Sobat Rasa yang berkemungkinan masih mengandung ketidakefektifan kalimat, ketidakpaduan paragraf, dan kekurangtepatan penggunaan ejaan.</p>
+                
+                    <Link className='btn border mt-3' onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} >PELAJARI LEBIH LANJUT</Link>
+                </div>
+              </div>
+
+              <div className='row my-5 pt-3 pb-5 px-5 box gx-5 rounded-4'>
+                <div className='col-md-6 mt-5 mx-3 text-start'>
+                  <h3 className='mt-5'>Kepewaraan</h3>
+                  <div className='yel-ln rounded-5 mb-5'></div>
+                  <p>WiraBasa juga menyediakan layanan kepewaraan, seperti MC (master of ceremony), moderator, pemantik diskusi, dan layanan lainnya. </p>
+                  <Link className='btn border mt-3' onClick={() => {
+                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
+                    }} >PELAJARI LEBIH LANJUT</Link>
+                </div>
+                <img className='thumbnail col-md-6 order-first order-md-1 mt-3 rounded-5' src={Mc} alt=''/>
+              </div>
+
+
+          </div>
+
+      </div>
+
+        <div className='benefit mb-5' id='benefit'>
+          <div className='container'>
+          <div className="header text-center my-5">
             <h2>Keuntungan yang akan Anda dapatkan jika menggunakan layanan WiraBasa</h2>
           </div>
 
@@ -177,9 +232,7 @@ const Home = () => {
             </div>
 
             <div className='text-center'>
-              <Link onClick={() => {
-                        alert("Site is still under construction so here is the email: admin@wirabasa.com");
-                    }} className='btn px-4'>Mulai sekarang!</Link>
+              <Link to='/reading-test' className='btn px-4'>Mulai sekarang!</Link>
             </div>
 
           </div>

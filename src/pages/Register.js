@@ -139,7 +139,7 @@ const Register = () => {
 
                   
                   <div className="d-grid">
-                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign In</button>
+                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign Up</button>
                   </div>
                   
                 </form>

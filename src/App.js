@@ -26,7 +26,7 @@ function App() {
    <div className='App'>
      <Router>
       <Routes>
-        <Route path={'/'} element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path={'/layanan'} element={<Layanan />} />
         <Route path={'/detail-layanan'} element={<DetailLayanan/>} />
         <Route element={<ProtectRoute />}>
