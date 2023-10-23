@@ -112,10 +112,6 @@ const DetailLayanan = () => {
         getProduct();
     }, [])
 
-    const arg = {
-        coba: 1
-    }
-
     
   return (
     <div id="det-layanan">
@@ -231,7 +227,7 @@ const DetailLayanan = () => {
             <div className="container pt-4">
                 <div className="ftr-cnt text-center">
                     <h3>Butun bantuan?</h3>
-                    <a href="" className="btn rounded-5"><img src={WhatsApp} alt="" className="mb-1" /> Hubungi Kami! </a>
+                    <a href='https://wa.me/085702891223' target='_blank' rel="noreferrer" className="btn rounded-5"><img src={WhatsApp} alt="" className="mb-1" /> Hubungi Kami! </a>
                 </div>
             </div>
         </footer>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../assets/logo-circle.png'
+import Logo from '../assets/logo-circle.png';
 import { useUser } from '../utils/UserContext';
 import CustomNavLink from '../utils/CustomNavLink';
 import { NavHashLink } from 'react-router-hash-link';
@@ -52,14 +52,11 @@ const Navbar = ({isUserPage}) => {
       } else {
         if(location.pathname !== '/'){
           setStyle({
-            // backgroundColor: 'transparent',
             background: '#fff',
             height: '100px',
         })
         }else{
           setStyle({
-              // backgroundColor: 'transparent',
-              background: '#007bff',
               background: 'linear-gradient(180deg, rgba(0,123,255,.6) 100%, rgba(255, 255, 255,.1) 50%)',
               height: '100px',
           })

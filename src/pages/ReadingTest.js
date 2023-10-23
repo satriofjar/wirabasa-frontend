@@ -6,18 +6,36 @@ import Footer from '../components/Footer';
 import Reading from '../assets/reading.jpg';
 import { useUser } from '../utils/UserContext';
 import  { API_URI } from '../utils/config';
+import getSubString from '../utils/getSubString';
+import { HashLink } from 'react-router-hash-link';
 
 const ReadingTest = () => {
     const { user, setUser } = useUser();
 
+    const [articles, setArticles] = useState();
     const [article, setArticle] = useState();
     const [startBtn, setStartBtn] = useState('Mulai');
     const [timer, setTimer] = useState(0);
     const [wpm, setWpm] = useState(0);
+    const [filteredArticle, setFilteredArticle] = useState();
+    const [articleClass, setArticleClass] = useState('list-article rounded-3 py-3 hidden text-start');
 
-    const getArticle = async () => {
+    const getArticles = async () => {
         try {
-            const response = await axios.get( API_URI + 'article/');
+            const response = await axios.get( API_URI + 'articles/');
+            setArticles(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const getArticle = async (articleId) => {
+        try {
+            const response = await axios.get( API_URI + 'article/', {
+                params: {
+                    id: articleId
+                }
+            });
             setArticle(response.data);
             console.log(response.data);
         } catch (error) {
@@ -28,8 +46,8 @@ const ReadingTest = () => {
 
     const recordSpeed = async () => {
         try {
-            const response = await axios.post( API_URI + 'speed-record/', {
-                article:1,
+            await axios.post( API_URI + 'speed-record/', {
+                article:article?.id,
                 user:user.id,
                 wpm:wpm
             })
@@ -37,6 +55,19 @@ const ReadingTest = () => {
             console.error(error);
         }
     }
+
+    const filterArticle = (categoryArticle) => {
+        setFilteredArticle(articles?.filter(article => article.category === categoryArticle));
+        setArticleClass('list-article rounded-3 py-3 text-start');
+    }
+
+    const newBody = article?.body.split('\n').map((line, _index) => (
+        <React.Fragment key={_index}>
+            {line}
+            <br />
+        </React.Fragment>
+    ))
+
     
     const startTimer = () => {
         const startTime = new Date().getTime();
@@ -60,11 +91,12 @@ const ReadingTest = () => {
 
     useEffect(()=> {
         getArticle();
+        setTimeout(getArticles, 1000);
         window.scrollTo(0,0);
     }, [])
     
   return (
-    <>
+    <React.Fragment>
         <Helmet>
             <meta charSet="utf-8" />
             <title>Reading Test Speed - WiraBasa</title>
@@ -77,7 +109,7 @@ const ReadingTest = () => {
                     <div className="main col ps-5">
                         <h2>SEBERAPA CEPAT ANDA MEMBACA?</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <a href="#Test" className='btn mt-3'>Mulai sekarang</a>
+                        <HashLink to="/reading-test/#test" className='btn mt-3'>Mulai sekarang</HashLink>
                     </div>
                     <div className='col text-center'>
                         <img src={Reading} alt='' />
@@ -103,14 +135,38 @@ const ReadingTest = () => {
             </div>
             <div className="container">
 
-                <div id="Test" className="read-test">
+                <div id="test" className="read-test">
                     <h2 className='text-center'>Test Kecepatan Membaca</h2>
+                    <div className='category mt-5 text-center'>
+                        <div className='row py-3'>
+                            <div className='col my-2'>
+                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('Pendidikan')}>Pendidikan</button>
+                            </div>
+                            <div className='col my-2'>
+                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                            </div>
+                            <div className='col my-2'>
+                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                            </div>
+                            <div className='col my-2'>
+                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                            </div>
+                        </div>
+                        <ul className={articleClass}>
+                            {filteredArticle?.map((article, _index) => 
+                            <li key={_index}>
+                                <button className='my-1 btn-title border-0' onClick={() => getArticle(article.id)}><h4 className='text-start'>{ article.title }</h4></button>
+                                <p className='ps-2'>{ getSubString(article.body, 100) }</p>
+                                <hr />
+                            </li>)}
+                        </ul>
+                    </div>  
                     <div className="text-center my-5">
                         <button onClick={startTimer} className="btn px-4 py-2 mt-5 rounded-3">{ startBtn }</button>
                     </div>
 
                         <h3 className="text-center">{ article?.title }</h3>
-                        <p>{ article?.body }</p>
+                        <p className='body-article'>{ newBody }</p>
                         <div className="text-center my-5">
                             <button onClick={stopTimer} className="btn px-4 py-2 rounded-3">Selesai</button>
                         </div>
@@ -145,7 +201,7 @@ const ReadingTest = () => {
         </section>
 
         <Footer />
-    </>
+    </React.Fragment>
   )
 }
 

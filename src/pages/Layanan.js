@@ -31,7 +31,7 @@ const Layanan = () => {
 
                 <div className='text-center help-contact my-5 py-5'>
                   <h2>Butuh bantuan mengenai layanan wirabasa? </h2>
-                  <a href='' className='btn mt-5'>Hubungi kami segera</a>
+                  <a href='https://wa.me/085702891223' target='_blank' rel="noreferrer" className='btn mt-5'>Hubungi kami segera</a>
 
                 </div>
 

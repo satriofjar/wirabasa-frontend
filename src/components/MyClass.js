@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import formatDate from '../utils/formatDate';
+import getSubString from '../utils/getSubString';
 import Loading from './Loading';
 import { API_URI } from '../utils/config';
 
@@ -33,11 +34,11 @@ const MyClass = () => {
                 <>
                     {kelas?.map((e, _index) => 
                         <div className="col-md-4 mt-3 ms-3" key={_index}>
-                            <img src={e.poster} className='live-thumbnail rounded' />
+                            <img src={e.poster} className='live-thumbnail rounded' alt='' />
                             <div className='ms-2 mt-2'>
-                                <h5>{e.topic}</h5>
+                                <h5>{getSubString(e.topic, 25)}</h5>
                                 <p>{formatDate(true, e.schedule)}</p>
-                                <a href={e.zoom_link}  target="_blank" className='btn'>Join Live</a>
+                                <a href={e.zoom_link}  target="_blank" rel="noreferrer" className='btn'>Join Live</a>
                             </div>
                         </div>)}
                 </>

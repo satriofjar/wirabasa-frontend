@@ -4,8 +4,6 @@ import { useLocation } from 'react-router-dom';
 
 const CustomNavLink = ({to, className, children}) => {
     const location = useLocation();
-    console.log(location);
-
     const getClassName = () => {
         if (to === ''){
             return '';
