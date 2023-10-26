@@ -1,7 +1,10 @@
 import axios from "axios";
 import { API_URI } from "../utils/config";
+import { useUser } from "../utils/UserContext";
 let refresh = false;
+
 axios.interceptors.response.use(resp => resp, async error => {
+  const { user, setUser } = useUser();
   if (error.response?.status === 401 && !refresh) {
     refresh = true;
     const refreshToken = localStorage.getItem('refresh_token');
@@ -13,6 +16,7 @@ axios.interceptors.response.use(resp => resp, async error => {
         // Access token sudah kedaluwarsa
         localStorage.clear(); // Hapus token dari localStorage
         axios.defaults.headers.common['Authorization'] = null; // Hapus header Authorization dari Axios
+        setUser(null);
       }
     }
 

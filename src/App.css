@@ -42,7 +42,7 @@ body a{
 
 
 .navbar .nav-item .nav-link:hover{
-    color: #cdcdcd;
+    color: #007bff;
     border-bottom: 2px solid #007bff;
 }
 
@@ -78,7 +78,8 @@ body a{
 }
 
 .active{
-    color: #cdcdcd !important;
+    /* color: #cdcdcd !important; */
+    color: #007bff !important;
     border-bottom: #007bff 3px solid !important;
 }
 

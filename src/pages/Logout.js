@@ -11,7 +11,7 @@ const Logout = () => {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.post( API_URI + 'logout/', {
+                await axios.post( API_URI + 'logout/', {
                     refresh_token: localStorage.getItem('refresh_token')
                 }, {
                     headers: {
