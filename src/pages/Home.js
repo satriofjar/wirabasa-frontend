@@ -40,8 +40,8 @@ const Home = () => {
               <div className='row'>
                 <div className="hero-content col ps-5">
                   <h2 className='mb-4'>Asah kompetensi berbahasa dan sempurnakan tulisanmu.</h2>
-                  <p>WiraBasa hadir menjadi bagian dari kesuksesan Sobat dalam menulis dan menjadi pewara.</p>
-                  <Link to='/layanan' className="btn rounded-3 px-4">Daftar Sekarang!</Link>
+                  <p>Butuh jasa pewara (MC)? Jasa penyuntingan naskah? Atau ingin belajar menjadi pewara, penyunting, dan penulis karya tulis ilmiah kompetitif? WiraBasa jawabannya</p>
+                  <Link to='/layanan' className="btn rounded-3 px-4">Pesan Sekarang!</Link>
                 </div>
                 <div className='col r-content text-center'>
                   <img className='main-img' src={MainImage} alt='' />

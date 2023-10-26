@@ -10,7 +10,7 @@ const Navbar = ({isUserPage}) => {
   const { user, setUser } = useUser();
   const [background, setBackground] = useState('');
   const [style, setStyle] = useState({
-          background: location.pathname !== '/' ? '#fff' : 'linear-gradient(180deg, rgba(0,123,255,.6) 100%, rgba(255, 255, 255,.1) 50%)',
+          background: location.pathname !== '/' ? '#fff' : 'linear-gradient(180deg, rgba(0,123,255,.4) 100%, rgba(255, 255, 255,.1) 50%)',
           height: '100px',
          });
 
@@ -57,7 +57,7 @@ const Navbar = ({isUserPage}) => {
         })
         }else{
           setStyle({
-              background: 'linear-gradient(180deg, rgba(0,123,255,.6) 100%, rgba(255, 255, 255,.1) 50%)',
+              background: 'linear-gradient(180deg, rgba(0,123,255,.4) 100%, rgba(255, 255, 255,.1) 50%)',
               height: '100px',
           })
           setLoginStyle({
@@ -93,7 +93,7 @@ const Navbar = ({isUserPage}) => {
             <CustomNavLink 
               className="nav-link pb-1" 
               to='/'>
-                Home
+                Beranda
                 </CustomNavLink>
           </li>
           <li className="nav-item">

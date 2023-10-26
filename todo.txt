@@ -1,13 +1,18 @@
 - menambahkan alert jika user berhasil upload bukti transfer => done
 - tambah alert user gagal login => done
-- hover item navbar kaya web toki https://bebras.or.id/v3/
+- hover item navbar kaya web toki https://bebras.or.id/v3/ => done
 - posisi navbar jadi tetap => done
 - ubah warna navbar (optional) => done
 
 - border-bottom navbar ganti jadi shadow bottom => done
 - buat login register button kaya codechef => done
 
-- ubah testimoni item
+- ubah testimoni item => done
+
+- masukin data ke cookie
+	- cek cookie is axist? if axist return cookie
+	- axios get data
+	- masukin response.data ke cookie
 
 
 <div className="kelas my-5">

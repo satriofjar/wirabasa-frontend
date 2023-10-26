@@ -3,7 +3,7 @@ import { API_URI } from "../utils/config";
 let refresh = false;
 axios.interceptors.response.use(resp => resp, async error => {
   if (error.response?.status === 401 && !refresh) {
-    // const refreshToken = localStorage.getItem('refresh_token') !== null ? localStorage.getItem('refresh_token'): '';
+    refresh = true;
     const refreshToken = localStorage.getItem('refresh_token');
     if (refreshToken !== null) {
       const refreshTokenData = JSON.parse(atob(refreshToken.split('.')[1])); // Decode access token
@@ -16,7 +16,7 @@ axios.interceptors.response.use(resp => resp, async error => {
       }
     }
 
-     refresh = true;
+     
      const response = await axios.post(`${API_URI}token/refresh/`, {
                 refresh: localStorage.getItem('refresh_token')
             }, {
