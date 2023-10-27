@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import { useUser } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
 import  { API_URI } from '../utils/config';
@@ -9,6 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isFailed, setIsFailed] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -20,6 +22,7 @@ const Login = () => {
             email: email,
             password: password
         }
+        setIsLoading(true);
         try {
             const response = await axios.post( API_URI + 'token/', user, {
                 headers:{
@@ -93,10 +96,16 @@ const Login = () => {
 
                   
                   <div className="d-grid">
-                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign In</button>
+                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign In
+                    </button>
                   </div>
                   
                 </form>
+
+                {isLoading && 
+                  <div className='mt-4 d-flex justify-content-center'>
+                    <ReactLoading type='spinningBubbles' color='#007bff' height={'10%'} width={'10%'} />
+                  </div>}
 
                 <p className="text-center mt-4">Do not have an account? <Link to='/register' >Sign Up</Link></p>
               </div>

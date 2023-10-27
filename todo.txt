@@ -15,6 +15,9 @@
 	- masukin response.data ke cookie
 
 
+- fix jarak panah testimoni section beda
+
+
 <div className="kelas my-5">
         <h2 className="">Kelas saya</h2>
 
