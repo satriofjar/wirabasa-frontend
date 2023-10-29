@@ -34,6 +34,8 @@ const Login = () => {
             localStorage.setItem('access_token', response.data['access']);
             localStorage.setItem('refresh_token', response.data['refresh']);
 
+            setIsLoading(false);
+
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
 
             if(localStorage.getItem('access_token')){
@@ -52,6 +54,7 @@ const Login = () => {
             setIsFailed(true);
             setEmail('');
             setPassword('');
+            setIsLoading(false);
             console.error(error);
         }
     }

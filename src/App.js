@@ -9,6 +9,7 @@ import ReadingTest from './pages/ReadingTest';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
+import VerifyEmail from './pages/VerifyEmail';
 import {
   BrowserRouter as Router,
   Route,
@@ -38,6 +39,7 @@ function App() {
         <Route path={'/reading-test'} element={<ReadingTest />} />
         <Route path={'/login'} element={!user ? <Login /> : <Navigate to='/' />} />
         <Route path={'/register'} element={!user ? <Register /> : <Navigate to='/' />} />
+        <Route path={'/verify-email/:user_id/:token'} element={<VerifyEmail />} />
 
       </Routes>
     </Router>

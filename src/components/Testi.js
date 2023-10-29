@@ -31,7 +31,7 @@ const Testi = () => {
                 <h2>Kata mereka yang pernah menggunakan wirabasa</h2>
             </div>
 
-            <div className='cntnr mt-5 text-start'>
+            <div className='cntnr mt-5 text-center'>
             <Slider {...setting} >
                 
                 <div className='rounded-3 item px-4 pt-5'>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ReactLoading from 'react-loading';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import  { API_URI } from '../utils/config';
 
 const Register = () => {
     const [isFailed, setIsFailed] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [userForm, setUserForm] = useState({
       username: '',
       email: '',
@@ -37,41 +39,45 @@ const Register = () => {
           password: userForm.password1
       }
 
-        try {
-          const response = await axios.post( API_URI + 'create-user/', userData, {
-              headers:{
-                'Content-Type': 'application/json'
-              },
-              withCredentials: true
-          });
+      setIsLoading(true);
 
-            localStorage.clear();
-            localStorage.setItem('access_token', response.data['access']);
-            localStorage.setItem('refresh_token', response.data['refresh']);
+      try {
+        const response = await axios.post( API_URI + 'create-user/', userData, {
+            headers:{
+              'Content-Type': 'application/json'
+            },
+            withCredentials: true
+        });
 
-            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
+          localStorage.clear();
+          localStorage.setItem('access_token', response.data['access']);
+          localStorage.setItem('refresh_token', response.data['refresh']);
+          setIsLoading(false);
 
-            if(localStorage.getItem('access_token')){
-              try {
-                const response = await axios.get( API_URI + 'user/');
-                localStorage.setItem('user', JSON.stringify(response.data))
-                setUser(response.data)
-              } catch (error) {
-                console.error(error);
-              }
+          axios.defaults.headers.common['Authorization'] = `Bearer ${response.data['access']}`;
+
+          if(localStorage.getItem('access_token')){
+            try {
+              const response = await axios.get( API_URI + 'user/');
+              localStorage.setItem('user', JSON.stringify(response.data))
+              setUser(response.data)
+            } catch (error) {
+              console.error(error);
             }
-            navigate('/');
+          }
+          navigate('/');
 
-        } catch (error) {
-            setIsFailed(true);
-            setUserForm({
-              username: '',
-              email: '',
-              password1: '',
-              password2: ''
-            })
-            console.error(error);
-        }
+      } catch (error) {
+          setIsFailed(true);
+          setIsLoading(false);
+          setUserForm({
+            username: '',
+            email: '',
+            password1: '',
+            password2: ''
+          })
+          console.error(error);
+      }
     }
 
     
@@ -134,7 +140,7 @@ const Register = () => {
                         onChange={e => setUserForm({...userForm, password2: e.target.value})} />
                   </div>
 
-                  <p>password minimum of 8 characters in length and includes a combination of letters and numbers.</p>
+                  <p style={{fontSize: '14px'}}>password minimum of 8 characters in length and includes a combination of letters and numbers.</p>
 
 
                   
@@ -143,6 +149,11 @@ const Register = () => {
                   </div>
                   
                 </form>
+
+                {isLoading && 
+                  <div className='mt-4 d-flex justify-content-center'>
+                    <ReactLoading type='spinningBubbles' color='#007bff' height={'10%'} width={'10%'} />
+                  </div>}
 
                 <p className="text-center mt-4">Do not have an account? <Link to='/login'>Sign In</Link></p>
               </div>

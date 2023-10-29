@@ -24,25 +24,26 @@ const ReadingTest = () => {
         try {
             const response = await axios.get( API_URI + 'articles/');
             setArticles(response.data);
+            setArticle(articles[0]);
         } catch (error) {
             console.error(error);
         }
     }
 
-    const getArticle = async (articleId) => {
-        try {
-            const response = await axios.get( API_URI + 'article/', {
-                params: {
-                    id: articleId
-                }
-            });
-            setArticle(response.data);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
+    // const getArticle = async (articleId) => {
+    //     try {
+    //         const response = await axios.get( API_URI + 'article/', {
+    //             params: {
+    //                 id: articleId
+    //             }
+    //         });
+    //         setArticle(response.data);
+    //         console.log(response.data);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
 
-    }
+    // }
 
     const recordSpeed = async () => {
         try {
@@ -90,8 +91,9 @@ const ReadingTest = () => {
     }
 
     useEffect(()=> {
-        getArticle();
-        setTimeout(getArticles, 1000);
+        // getArticle();
+        getArticles();
+        // setTimeout(getArticles, 1000);
         window.scrollTo(0,0);
     }, [])
     
@@ -137,25 +139,25 @@ const ReadingTest = () => {
 
                 <div id="test" className="read-test">
                     <h2 className='text-center'>Test Kecepatan Membaca</h2>
-                    <div className='category mt-5 text-center'>
-                        <div className='row py-3'>
+                    <div className='category mt-5 text-center rounded-2'>
+                        <div className='row py-3 rounded-2' style={{border: '#3b566e 1px solid'}}>
                             <div className='col my-2'>
-                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('Pendidikan')}>Pendidikan</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('Pendidikan')}>Pendidikan</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category rounded-3' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
                             </div>
                         </div>
                         <ul className={articleClass}>
                             {filteredArticle?.map((article, _index) => 
                             <li key={_index}>
-                                <button className='my-1 btn-title border-0' onClick={() => getArticle(article.id)}><h4 className='text-start'>{ article.title }</h4></button>
+                                <button className='my-1 btn-title border-0' onClick={() => setArticle(article)}><h4 className='text-start'>{ article.title }</h4></button>
                                 <p className='ps-2'>{ getSubString(article.body, 100) }</p>
                                 <hr />
                             </li>)}

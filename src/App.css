@@ -139,7 +139,7 @@ body a{
     width: 100%;
     padding: 0;
     background: rgb(0,123,255);
-    background: linear-gradient(180deg, rgba(0,123,255,.4) 10%, rgba(255, 255, 255, 0.1) 50%);
+    background: linear-gradient(180deg, rgba(0,123,255,.3) 10%, rgba(255, 255, 255, 0.1) 50%);
 }
 
 
@@ -890,8 +890,7 @@ body a{
 }
 
 #read-test .instruction .container{
-    background: #fff;
-    
+    background: #fff;    
 }
 
 #read-test .instruction .container h2{
@@ -908,26 +907,32 @@ body a{
 }
 
 #read-test .read-test .category{
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
+    /* border:#3b566e 1px solid; */
+
 }
 
 #read-test .read-test .category .col{
-    max-width: 180px;
+    /* max-width: 180px; */
     margin: 0 auto;
 }
 
 
 #read-test .read-test .category .btn-category{
+    border: none;
+    
     color: #3b566e;
-    border-color: #3b566e !important;
+    /* border-color: #3b566e !important; */
     width: 150px;
 
 }
 
 #read-test .read-test .category .btn-category:hover{
-    color: #fff;
-    background: #3b566e;
+    color: #3b566e;
+    /* background: #3b566e; */
+    background: #fff;
+    text-decoration: underline;
 }
 
 #read-test .read-test .category .list-article{
@@ -969,14 +974,16 @@ body a{
 
 
 #read-test .read-test .btn{
-    color: var(--btnColor);
+    /* color: var(--btnColor); */
     font-size: 20px;
     font-weight: 500;
-    border: var(--btnColor) 1px solid;
+    /* border: var(--btnColor) 1px solid; */
+    color: #3b566e;
+    border-color: #3b566e !important;
 }
 
 #read-test .read-test .btn:hover{
-    background: var(--btnColor);
+    background: #3b566e;
     color: #fff;
 }
 
