@@ -64,7 +64,7 @@ const Login = () => {
       <div className='container'>
         <div className="row pt-5">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
-            <div className="card border-0 shadow rounded-4 my-5">
+            <div className="card border-0 shadow my-5">
               <div className="card-body p-4 p-sm-5">
 
                 <h2 className="card-title text-center mb-2">SIGN IN</h2>
@@ -99,7 +99,7 @@ const Login = () => {
 
                   
                   <div className="d-grid">
-                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign In
+                    <button className="btn w-100" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign In
                     </button>
                   </div>
                   

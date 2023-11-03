@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
+import Quiz from './pages/Quiz';
 import {
   BrowserRouter as Router,
   Route,
@@ -40,6 +41,8 @@ function App() {
         <Route path={'/login'} element={!user ? <Login /> : <Navigate to='/' />} />
         <Route path={'/register'} element={!user ? <Register /> : <Navigate to='/' />} />
         <Route path={'/verify-email/:user_id/:token'} element={<VerifyEmail />} />
+        
+        <Route path='/quiz' element={<Quiz />} />
 
       </Routes>
     </Router>

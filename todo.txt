@@ -15,7 +15,8 @@
 	- masukin response.data ke cookie
 
 
-- fix jarak panah testimoni section beda
+- fix jarak panah testimoni section beda => done
+- "Email verified, now you can login"
 
 
 <div className="kelas my-5">

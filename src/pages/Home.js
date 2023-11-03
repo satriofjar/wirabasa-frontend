@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Testi from '../components/Testi';
+import UpComingClass from '../components/UpComingClass';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
 import MainImage from '../assets/mainImage.png';
@@ -61,7 +62,7 @@ const Home = () => {
               </div>
 
               <div className='row my-5 pt-3 pb-5 px-5 box gx-5 rounded-4'>
-                <img className='thumbnail col mt-3 rounded-5' src={Writing} alt=''/>
+                <img className='thumbnail col mt-3' src={Writing} alt=''/>
                 <div className='col mt-3 mx-3 text-start'>
                   <h3 className='mt-5'>Penyuntingan</h3>
                   <div className='yel-ln rounded-5 mb-5'></div>
@@ -74,7 +75,7 @@ const Home = () => {
               </div>
 
               <div className='row my-5 pt-3 pb-5 px-5 box gx-5 rounded-4'>
-                <div className='col-md-6 mt-5 mx-3 text-start'>
+                <div className='col mt-5 mx-3 text-start'>
                   <h3 className='mt-5'>Kepewaraan</h3>
                   <div className='yel-ln rounded-5 mb-5'></div>
                   <p>WiraBasa juga menyediakan layanan kepewaraan, seperti MC (master of ceremony), moderator, pemantik diskusi, dan layanan lainnya. </p>
@@ -82,7 +83,7 @@ const Home = () => {
                         alert("Site is still under construction so here is the email: admin@wirabasa.com");
                     }} >PELAJARI LEBIH LANJUT</Link>
                 </div>
-                <img className='thumbnail col-md-6 order-first order-md-1 mt-3 rounded-5' src={Mc} alt=''/>
+                <img className='thumbnail col order-first order-md-1 mt-3' src={Mc} alt=''/>
               </div>
 
 
@@ -191,8 +192,11 @@ const Home = () => {
           </div>
         </div>
 
+    <UpComingClass />
 
     </section>
+
+
 
     <Footer/>
 

@@ -9,8 +9,10 @@ import  { API_URI } from '../utils/config';
 const Register = () => {
     const [isFailed, setIsFailed] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setisSuccess] = useState(false);
     const [userForm, setUserForm] = useState({
       username: '',
+      name: '',
       email: '',
       password1: '',
       password2: ''
@@ -26,6 +28,7 @@ const Register = () => {
           setIsFailed(true);
           setUserForm({
             username: '',
+            name: '',
             email: '',
             password1: '',
             password2: ''
@@ -35,6 +38,7 @@ const Register = () => {
 
         const userData = {
           username: userForm.username,
+          name: userForm.name,
           email: userForm.email,
           password: userForm.password1
       }
@@ -65,13 +69,22 @@ const Register = () => {
               console.error(error);
             }
           }
-          navigate('/');
+          setIsFailed(false);
+          setisSuccess(true);
+          setUserForm({
+            username: '',
+            name: '',
+            email: '',
+            password1: '',
+            password2: ''
+          })
 
       } catch (error) {
           setIsFailed(true);
           setIsLoading(false);
           setUserForm({
             username: '',
+            name: '',
             email: '',
             password1: '',
             password2: ''
@@ -96,6 +109,11 @@ const Register = () => {
                   <p>Invalid register, please try again</p>
                 </div> }
 
+                {isSuccess &&
+                <div className='text-center text-success border border-success pt-3 my-5' role='alert'> 
+                  <p>Pleace cek email for the confirmation</p>
+                </div> }
+
 
                 <form method="post" onSubmit={handleRegister}>
                   <div className="mb-3">
@@ -107,6 +125,17 @@ const Register = () => {
                         required
                         value={userForm.username}
                         onChange={e => setUserForm({...userForm, username: e.target.value})} />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Name</label>
+                    <input type="text" 
+                        className="form-control" 
+                        name="username" 
+                        placeholder="username" 
+                        required
+                        value={userForm.name}
+                        onChange={e => setUserForm({...userForm, name: e.target.value})} />
                   </div>
 
                   <div className="mb-3">
@@ -140,12 +169,12 @@ const Register = () => {
                         onChange={e => setUserForm({...userForm, password2: e.target.value})} />
                   </div>
 
-                  <p style={{fontSize: '14px'}}>password minimum of 8 characters in length and includes a combination of letters and numbers.</p>
+                  <p style={{fontSize: '14px'}}>password minimum 8 characters and includes a combination of letters and numbers.</p>
 
 
                   
                   <div className="d-grid">
-                    <button className="btn rounded-5 px-4 pb-2" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign Up</button>
+                    <button className="btn w-100" type="submit" style={{backgroundColor: '#2E8BC0'}}>Sign Up</button>
                   </div>
                   
                 </form>

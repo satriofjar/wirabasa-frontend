@@ -140,18 +140,19 @@ const ReadingTest = () => {
                 <div id="test" className="read-test">
                     <h2 className='text-center'>Test Kecepatan Membaca</h2>
                     <div className='category mt-5 text-center rounded-2'>
-                        <div className='row py-3 rounded-2' style={{border: '#3b566e 1px solid'}}>
+                        <p>Pilih tingkatan membaca</p>
+                        <div className='row rounded-2' style={{border: '#3b566e 1px solid'}}>
                             <div className='col my-2'>
-                                <button className='btn btn-category' onClick={() => filterArticle('Pendidikan')}>Pendidikan</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('Pendidikan')}>SD</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>SMP</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>SMA</button>
                             </div>
                             <div className='col my-2'>
-                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>category 1</button>
+                                <button className='btn btn-category' onClick={() => filterArticle('category1')}>PT</button>
                             </div>
                         </div>
                         <ul className={articleClass}>

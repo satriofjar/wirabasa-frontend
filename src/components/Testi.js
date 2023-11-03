@@ -15,9 +15,15 @@ const Testi = () => {
         adaptiveHeight: true,
         responsive: [
           {
-            breakpoint: 700, // Perangkat mobile
+            breakpoint: 780, // Perangkat mobile
             settings: {
               slidesToShow: 1,
+            },
+          },
+          {
+            breakpoint: 1000, // Perangkat mobile
+            settings: {
+              slidesToShow: 2,
             },
           },
         ],
