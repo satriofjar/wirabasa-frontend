@@ -109,8 +109,8 @@ const ReadingTest = () => {
             <div className="container">
                 <div className="row">
                     <div className="main col ps-5">
-                        <h2>SEBERAPA CEPAT ANDA MEMBACA?</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <h2>SEBERAPA CEPAT ANDA DALAM MEMBACA?</h2>
+                        <p>Uji kecepatan membaca Anda untuk mengetahui skor dan level membaca Anda!</p>
                         <HashLink to="/reading-test/#test" className='btn mt-3'>Mulai sekarang</HashLink>
                     </div>
                     <div className='col text-center'>
@@ -123,22 +123,20 @@ const ReadingTest = () => {
         <section id="read-test">
             <div className='instruction py-5'>
                 <div className="container rounded-4 p-5">
-                    <h2 className="mb-3 text-center">Instruksi</h2>
-                    <p>Sebelum menghitung kecepatan membaca, bersiaplah. Kemudian, klik tombol mulai jika sudah siap membaca. 
-                        <br />
-                        Saat menekan tombol dimulai, pengatur waktu akan dimulai pula.
-                        <br />
-                        Jangan cepat-cepat saat membaca, tetapi membacalah secara normal untuk menemukan tingkat membaca Anda saat ini.
-                        <br />
-                        Klik tombol stop segera setelah Anda selesai. Ini akan menghentikan pengatur waktu dan menampilkan kecepatan membaca Anda.
-                        <br />
-                        Sebelum memulai tes sebenarnya, Anda dapat mengeklik mulai. Scroll ke bawah tanpa membaca, lalu klik berhenti untuk melihat hasilnya.</p>
+                    <h2 className="mb-5 text-center">Instruksi</h2>
+                   <ol>
+                    <li>Pilih kategori bacaan yang sesuai dengan tingkatan Anda</li>
+                    <li>Bacalah teks pada kategori tersebut</li>
+                    <li>Jika sudah selesai, akhiri dengan klik “Selesai”</li>
+                    <li>Indikator seberapa cepat Anda dalam membaca dapat dilihat pada laman “Hasil kecepatan membaca”</li>
+                    <li>Lihatlah tingkatan atau level membaca Anda pada laman “Keterangan”</li>
+                   </ol>
                 </div>
             </div>
             <div className="container">
 
                 <div id="test" className="read-test">
-                    <h2 className='text-center'>Test Kecepatan Membaca</h2>
+                    <h2 className='text-center'>Tes Kecepatan Membaca</h2>
                     <div className='category mt-5 text-center rounded-2'>
                         <p>Pilih tingkatan membaca</p>
                         <div className='row rounded-2' style={{border: '#3b566e 1px solid'}}>
@@ -189,7 +187,7 @@ const ReadingTest = () => {
                         <li>Kecepatan antara100-125 kpm (lambat) digunakan untuk mempelajari bacaan yang sukar, bacaan ilmiah yang bersifat teknis, analisis nilai sastra klasik, memecahkan persoalan yang dirujuk bacaan (bacaan yang berisi instruksi).</li>
                     </ul>
 
-                    <p>Kecepatan rata-rata di atas hendaknya disertai dengan minimal 70% pemahaman isi bacaan, karena kecepatan rata-rata di atas masih merupakan kecepatan kasar yang belum menyertakan pemahaman isi bacaan. Berdasarkan hasil studi para ahli membaca di Amerika, 
+                    <p>Kecepatan rata-rata di atas hendaknya disertai dengan minimal 70% pemahaman isi bacaan karena kecepatan rata-rata di atas masih merupakan kecepatan kasar yang belum menyertakan pemahaman isi bacaan. Berdasarkan hasil studi para ahli membaca di Amerika, 
                         kecepatan yang memadai untuk siswa tingkat akhir sekolah dasar (SD) kurang lebih 200 kpm, siswa SLTP 200-250 kpm, siswa SLTA 250-325 kpm, dan tingkat mahasiswa 325-400 kpm  dengan pemahaman isi minimal 700%. 
                         Data tersebut jika dikonversi ke dalam perhitungan KEM (kemampuan membaca yang sesungguhnya) menjadi seperti berikut.</p>
 

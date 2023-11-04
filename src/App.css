@@ -538,8 +538,6 @@ body a{
 
 #layanan .help-contact .btn{
     background:#2a7dca;
-    /* border: var(--btnColor) 1px solid;
-    color: var(--btnColor); */
 }
 
 #layanan .help-contact .btn:hover{
@@ -551,7 +549,7 @@ body a{
     color: #fff;
     background-color: var(--btnColor);
     font-size: 18px;
-    width: 220px;
+    width: 230px;
 }
 
 #layanan .box-layanan{
@@ -951,8 +949,13 @@ body a{
     font-weight: 600;
 }
 
-#read-test  p{
-    font-size: 18px;
+#read-test .instruction li{
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+#read-test p{
+    font-size: 20px;
     line-height: 1.7;
 }
 

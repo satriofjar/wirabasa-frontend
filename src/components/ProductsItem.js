@@ -36,8 +36,8 @@ const ProductsItem = () => {
       <div className='container'>
         <div id='jasa-sunting'>
           <div className='title'>
-            <h3>Jasa sunting tulisan</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <h3>Jasa Sunting Tulisan</h3>
+            <p>Buat naskahmu jadi berkualitas dengan menyunting bahasa tulismu bersama WiraBasa. </p>
           </div>
 
           <div className='row mt-5'>
@@ -75,8 +75,8 @@ const ProductsItem = () => {
 
         <div id='kelas-sunting'>
           <div className='title'>
-          <h3>Kelas menyunting</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h3>Kelas Menyunting</h3>
+          <p>Raih keterampilan dalam menulis dan menyunting naskah melalui kelas spesial WiraBasa.</p>
           </div>
 
           <div className='row mt-5'>
@@ -116,8 +116,8 @@ const ProductsItem = () => {
 
         <div id='jasa-kepewaraan'>
           <div className='title'>
-          <h3>Jasa kepewaraan</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h3>Jasa Kepewaraan</h3>
+          <p>Buat acaramu berjalan teratur bersama WiraBasa.</p>
           </div>
 
           <div className='row mt-5'>
@@ -156,8 +156,8 @@ const ProductsItem = () => {
 
         <div id='kelas-kepewaraan'>
           <div className='title'>
-          <h3>Kelas kepewaraan</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h3>Kelas Kepewaraan</h3>
+          <p>Raih kemahiran dan  naskah melalui kelas spesial WiraBasa.</p>
           </div>
 
           <div className='row mt-5'>

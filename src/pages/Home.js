@@ -9,6 +9,8 @@ import Testi from '../components/Testi';
 import UpComingClass from '../components/UpComingClass';
 import Certificate from '../assets/sertifikat.png';
 import OnlineClass from '../assets/online-class.png';
+import Berbahasa from '../assets/berbahasa.jpg';
+import Pendampingan from '../assets/pendampingan.jpg';
 import MainImage from '../assets/mainImage.png';
 import Writing from '../assets/writing.jpg';
 import Mc from '../assets/mc.jpg';
@@ -107,7 +109,7 @@ const Home = () => {
 
                 <div className='col ps-4'>
                   <h5 className='mt-5'>Pelatihan Bersertifikat</h5>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <p>Dapatkan sertifikat dari kelas dan pelatihan yang Kanca Rasa ikuti!</p>
 
                 </div>
 
@@ -121,8 +123,8 @@ const Home = () => {
                 </div>
 
                 <div className='col ps-4'>
-                  <h5 className='mt-5'>Pelatihan Dilakukan Secara Online</h5>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <h5 className='mt-5'>Pelatihan Online</h5>
+                  <p>Ikuti kelas secara fleksibel, di mana saja dan kapan saja!</p>
                 </div>
 
               </div>
@@ -131,12 +133,12 @@ const Home = () => {
             <div className='col'>
               <div className='row box rounded-3  my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
-                  <img src={Certificate} alt='' />
+                  <img src={Berbahasa} alt='' />
                 </div>
 
                 <div className='col ps-4'>
-                  <h5 className='mt-5'>Pelatihan Bersertifikat</h5>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <h5 className='mt-5'>Terampil Berbahasa</h5>
+                  <p>Raih kreativitas berbahasa tulis maupun lisan melalui WiraBasa!</p>
 
                 </div>
 
@@ -146,12 +148,12 @@ const Home = () => {
             <div className='col'>
               <div className='row box rounded-3  my-2'>
                 <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
-                  <img src={OnlineClass} alt='' />
+                  <img src={Pendampingan} alt='' />
                 </div>
 
                 <div className='col ps-4'>
-                  <h5 className='mt-5'>Pelatihan Dilakukan Secara Online</h5>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <h5 className='mt-5'>Pendampingan Eksklusif</h5>
+                  <p>Dapatkan kesempatan bimbingan secara eksklusif untuk meningkatkan kompetensi berbahasa!</p>
                 </div>
 
               </div>

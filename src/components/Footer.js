@@ -43,7 +43,7 @@ const Footer = () => {
 
         <div className="col">
           <h3>Lain-lain</h3>
-          <Link to='/reading-test' >Test kecepatan membaca</Link>
+          <Link to='/reading-test' >Tes kecepatan membaca</Link>
         </div>
       </div>
     </div>
