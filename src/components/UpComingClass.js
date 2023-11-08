@@ -9,9 +9,9 @@ const UpComingClass = () => {
         </div>
 
         <div className='container pb-5 mt-5'>
-            <div className='row justify-content-md-center' style={{'margin': '0 auto'}}>
+            <div className='row justify-content-md-center w-75 mx-auto'>
 
-                <div className='col-md-4 m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
+                <div className='col-md-4 mx-auto m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
                     <div className='content border'>
                         <img src='http://assets.wirabasa.com/Kelas_Kepewaraan_Batch_1.png' alt='' />
                         <h3 className='mt-4 ms-3'>Teknik asik jadi pewara</h3>
@@ -19,7 +19,7 @@ const UpComingClass = () => {
                     </div>
                 </div>
 
-                <div className='col-md-4 m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
+                <div className='col-md-4 mx-auto m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
                     <div className='content border'>
                         <img src='http://assets.wirabasa.com/Kelas_Kepewaraan_Batch_1.png' alt='' />
                         <h3 className='mt-4 ms-3'>Teknik asik jadi pewara</h3>
@@ -27,7 +27,7 @@ const UpComingClass = () => {
                     </div>
                 </div>
 
-                <div className='col-md-4 m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
+                <div className='col-md-4 mx-auto m-4 ps-0' style={{'width' : '305px', 'borderRadius': '15px'}}>
                     <div className='content border'>
                         <img src='http://assets.wirabasa.com/Kelas_Kepewaraan_Batch_1.png' alt='' />
                         <h3 className='mt-4 ms-3'>Teknik asik jadi pewara</h3>

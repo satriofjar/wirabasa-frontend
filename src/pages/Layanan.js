@@ -23,8 +23,7 @@ const Layanan = () => {
             <div className="">
               <div className='text-center header'>
                 <h2 className="my-4">Layanan WiraBasa buat kamu</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                <p>Terampil berbahasa merupakan salah satu aset unggulan manusia yang mampu menjadi jembatan untuk mentransfer beragam pengetahuan. Semua orang memiliki kecerdasan, tapi tidak semua orang mampu menguraikan kecerdasan melalui gagasan dengan bahasa yang elegan. Asah kompetensi berbahasamu bersama WiraBasa.</p>
               </div>
 
                 <ProductsItem />

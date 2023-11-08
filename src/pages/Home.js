@@ -101,9 +101,9 @@ const Home = () => {
 
           <div className='row row-cols-2 my-2'>
 
-            <div className='col'>
+            <div className='col px-0'>
               <div className='row box rounded-3 my-2'>
-                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                <div className='col-lg-5 text-center mx-auto' style={{width: 'fit-content'}}>
                   <img src={Certificate} alt='' />
                 </div>
 
@@ -116,9 +116,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className='col'>
+            <div className='col px-0'>
               <div className='row box rounded-3  my-2'>
-                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                <div className='col-lg-5 text-center mx-auto' style={{width: 'fit-content'}}>
                   <img src={OnlineClass} alt='' />
                 </div>
 
@@ -130,9 +130,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className='col'>
+            <div className='col px-0'>
               <div className='row box rounded-3  my-2'>
-                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                <div className='col-lg-5 text-center mx-auto' style={{width: 'fit-content'}}>
                   <img src={Berbahasa} alt='' />
                 </div>
 
@@ -145,9 +145,9 @@ const Home = () => {
               </div>
             </div>
 
-            <div className='col'>
+            <div className='col px-0'>
               <div className='row box rounded-3  my-2'>
-                <div className='col-lg-5 text-center' style={{margin: '0 auto', width: 'fit-content'}}>
+                <div className='col-lg-5 text-center mx-auto' style={{width: 'fit-content'}}>
                   <img src={Pendampingan} alt='' />
                 </div>
 

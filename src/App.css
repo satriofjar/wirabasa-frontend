@@ -30,6 +30,10 @@ body a{
     transition: 0.3s;
 }
 
+.navbar .w-icon{
+    width: 80px;
+}
+
 .navbar .nav-item .nav-link{
     font-size: 20px;
     margin: 0 20px !important;
@@ -966,28 +970,21 @@ body a{
 #read-test .read-test .category{
     max-width: 700px;
     margin: 0 auto;
-    /* border:#3b566e 1px solid; */
-
 }
 
 #read-test .read-test .category .col{
-    /* max-width: 180px; */
     margin: 0 auto;
 }
 
 
 #read-test .read-test .category .btn-category{
     border: none;
-    
     color: #3b566e;
-    /* border-color: #3b566e !important; */
     width: 150px;
-
 }
 
 #read-test .read-test .category .btn-category:hover{
     color: #3b566e;
-    /* background: #3b566e; */
     background: #fff;
     text-decoration: underline;
 }
@@ -1031,10 +1028,8 @@ body a{
 
 
 #read-test .read-test .btn{
-    /* color: var(--btnColor); */
     font-size: 20px;
     font-weight: 500;
-    /* border: var(--btnColor) 1px solid; */
     color: #3b566e;
     border-color: #3b566e !important;
 }
@@ -1043,11 +1038,6 @@ body a{
     background: #3b566e;
     color: #fff;
 }
-
-/* #read-test .read-test span{
-    text-decoration: underline;
-    padding: 0 8px;
-} */
 
 
 /* ============= Authentication =============== */
@@ -1105,7 +1095,7 @@ body a{
     color: #535353;
 }
 
-#quiz .col{
+#quiz .question .col{
     min-width: 200px;
     margin: 0 auto;
 }
@@ -1116,13 +1106,10 @@ body a{
     font-size: 20px;
     font-weight: 600;
     margin: 0 auto;
+    background: #fff;
+    transition: 0.1s;
 }
 
-#quiz .answare:hover{
-    background: #007bff6d;
-    border: 2px solid #007bff26;
-    color: #fff;
-}
 
 #quiz .wrong{
     color: #fff;

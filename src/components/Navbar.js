@@ -82,7 +82,7 @@ const Navbar = ({isUserPage}) => {
     <nav className='navbar navbar-expand-lg sticky-top' style={style}>
     <div className="container-fluid container">
       <Link className="navbar-brand" to='/'>
-        <img className="icon rounded-5" src={Logo} alt='' /> 
+        <img className="icon" src={Logo} alt='' /> 
       </Link>
       <button className="navbar-toggler" onClick={handleClick}  type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

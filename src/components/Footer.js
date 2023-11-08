@@ -43,7 +43,14 @@ const Footer = () => {
 
         <div className="col">
           <h3>Lain-lain</h3>
-          <Link to='/reading-test' >Tes kecepatan membaca</Link>
+          <ul>
+            <li>
+              <Link to='/reading-test' >Tes kecepatan membaca</Link>
+            </li>
+            <li>
+              <Link to='/quiz' >Kuis</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
