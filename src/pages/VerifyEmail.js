@@ -25,7 +25,12 @@ const VerifyEmail = () => {
         verify();
     }, [user_id, token])
   return (
-    <div></div>
+    <div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Verification success!</strong> You should login.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
   )
 }
 

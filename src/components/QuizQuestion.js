@@ -15,12 +15,14 @@ const QuizQuestion = () => {
 
     const [questions, setQuestions] = useState();
     const [question, setQuestion] = useState();
+    const [numberOfQuestions, setNumberOfQuestions] = useState(0);
     const [clicked, setClicked] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies();
 
     const getQuiz = async () => {
         try {
             const response = await axios.get(API_URI + 'quiz/');
+            setNumberOfQuestions(response.data.number_of_questions);
             setQuestions(response.data.question_set);
             setCookie('questions', response.data.question_set);
             setQuestion(response.data.question_set?.find(question => question.id === questionId));
@@ -109,7 +111,7 @@ const QuizQuestion = () => {
                                     }
                                 </div>
                                 <div className='col text-end'>
-                                    {questionId === 15 ?
+                                    {questionId === numberOfQuestions ?
                                     <Link 
                                     to='/quiz'
                                     className='btn rounded-4 px-3'>
