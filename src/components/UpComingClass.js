@@ -10,6 +10,7 @@ const UpComingClass = () => {
         try {
             const response = await axios.get(API_URI + 'all-classes/');
             setClasses(response.data);
+            console.log(response.data);
         } catch (error) {
             console.error(error);
         }

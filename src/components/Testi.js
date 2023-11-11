@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Logo from '../assets/logo-circle.png';
 
 const Testi = () => {
     const setting = {
@@ -44,7 +43,7 @@ const Testi = () => {
                     <p className='text-start mt-5 message'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <div className='d-flex profile mb-3'>
                         <div className=''>
-                        <img src={Logo} className='rounded-circle' alt='' />
+                        {/* <img src={} className='rounded-circle' alt='' /> */}
                         </div>
                         <div className='ms-3'>
                             <h5 className=''>Summer violet</h5>
@@ -57,7 +56,7 @@ const Testi = () => {
                     <p className='text-start mt-5 message'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <div className='d-flex profile mb-3'>
                         <div className=''>
-                        <img src={Logo} className='rounded-circle' alt='' />
+                        {/* <img src={} className='rounded-circle' alt='' /> */}
                         </div>
                         <div className='ms-3'>
                             <h5 className=''>Summer violet</h5>
@@ -70,7 +69,7 @@ const Testi = () => {
                     <p className='text-start mt-5 message'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <div className='d-flex profile mb-3'>
                         <div className=''>
-                        <img src={Logo} className='rounded-circle' alt='' />
+                        {/* <img src={} className='rounded-circle' alt='' /> */}
                         </div>
                         <div className='ms-3'>
                             <h5 className=''>Summer violet</h5>
@@ -83,7 +82,7 @@ const Testi = () => {
                     <p className='text-start mt-5 message'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <div className='d-flex profile mb-3'>
                         <div className=''>
-                        <img src={Logo} className='rounded-circle' alt='' />
+                        {/* <img src={} className='rounded-circle' alt='' /> */}
                         </div>
                         <div className='ms-3'>
                             <h5 className=''>Summer violet</h5>

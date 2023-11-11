@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import LeftArrow from '../assets/left-arrow.png';
-import Logo from '../assets/logo-circle.png';
+import LogoNav from '../assets/LogoNav.png';
 
 
 const EditProfile = () => {
@@ -22,7 +22,7 @@ const EditProfile = () => {
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
-                            <img className="icon" src={Logo} alt="" />
+                            <img className="icon" src={LogoNav} alt="" />
                             <h3 className="title ms-3">WiraBasa</h3>
                         </div>
 

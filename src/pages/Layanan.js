@@ -11,7 +11,7 @@ const Layanan = () => {
   }, [])
 
   return (
-    <>
+    <React.Fragment>
 
         <Helmet>
           <meta charSet="utf-8" />
@@ -63,7 +63,7 @@ const Layanan = () => {
             </div>
         </div>
         <Footer/>
-    </>
+    </React.Fragment>
   )
 }
 

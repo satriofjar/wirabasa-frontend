@@ -1,42 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import ReactLoading from 'react-loading';
 import queryString from 'query-string';
-import axios from 'axios';
-import  { API_URI } from '../utils/config';
 import Arrow from '../assets/arrow.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const QuizQuestion = () => {
     const location = useLocation();
-    const search = location.search;
-    const queryParams = queryString.parse(search);
+    const queryParams = queryString.parse(location.search);
     const questionId = parseInt(queryParams.id);
 
-    const [questions, setQuestions] = useState();
     const [question, setQuestion] = useState();
-    const [numberOfQuestions, setNumberOfQuestions] = useState(0);
     const [clicked, setClicked] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [cookies, setCookie, removeCookie] = useCookies();
 
-    const getQuiz = async () => {
-        try {
-            const response = await axios.get(API_URI + 'quiz/');
-            setNumberOfQuestions(response.data.number_of_questions);
-            setQuestions(response.data.question_set);
-            setCookie('questions', response.data.question_set);
-            setQuestion(response.data.question_set?.find(question => question.id === questionId));
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    const questions = useSelector(state => state.quiz.data);
 
     const handleClick = (_index) => {
         if(!clicked){
             const updatedAnswers = question?.answare_set.map((answare, i) => {
                 if(_index === i){
-                    setCookie('answares', [...cookies.answares, {'answare': _index}])
-                    return {...answare, selected: true}
+                    setCookie('answares', [...cookies.answares, {answare: _index, id: questionId}]);
+                    return {...answare, selected: true};
                 }else{
                     return {...answare, selected: false}
                 }
@@ -46,23 +34,22 @@ const QuizQuestion = () => {
         }
     }
 
-    useEffect(() => {
-        getQuiz();
-    },[]);
 
     useEffect(() => {
-        const foundQuestions = cookies.questions? cookies.questions : questions;
-        const ques = foundQuestions.find(question => question.id === parseInt(questionId));
+        const ques = questions.question_set.find(question => question.id === questionId);
         setQuestion(ques);
         setClicked(false);
+        setIsLoading(false);
+
         try {
-            const sevedAnsware =  cookies.answares[questionId - 1];
-            if(sevedAnsware){
+            const savedAnsware =  cookies.answares.find(answare => answare.id === questionId);
+            console.log(savedAnsware);
+            if(savedAnsware){
                 const updatedAnswers = ques?.answare_set.map((answare, i) => {
-                    if(sevedAnsware['answare'] === i){
-                        return {...answare, selected: true}
+                    if(savedAnsware['answare'] === i){
+                        return {...answare, selected: true};
                     }else{
-                        return {...answare, selected: false}
+                        return {...answare, selected: false};
                     }
                 })
                 setQuestion({...ques, answare_set: updatedAnswers});
@@ -81,6 +68,11 @@ const QuizQuestion = () => {
             <div className='row pt-5'>
                 <div className='col-lg-7 mx-auto mt-5'>
                     <div className='card border-0 shadow my-5 rounded-5'>
+
+                        {isLoading ? 
+                        <div className='mt-4 d-flex justify-content-center pt-5 mt-5'>
+                            <ReactLoading type='spinningBubbles' color='#007bff' height={'10%'} width={'10%'} />
+                        </div>:
                         <div className='card-body p-4 p-sm-5'>
                             <h2 className='card-title text-center mb-5'>{ question?.text }</h2>
                             
@@ -111,7 +103,7 @@ const QuizQuestion = () => {
                                     }
                                 </div>
                                 <div className='col text-end'>
-                                    {questionId === numberOfQuestions ?
+                                    {questionId === questions.number_of_questions ?
                                     <Link 
                                     to='/quiz'
                                     className='btn rounded-4 px-3'>
@@ -125,7 +117,7 @@ const QuizQuestion = () => {
                                 </div>
 
                             </div>
-                        </div>
+                        </div>}
 
                     </div>
 

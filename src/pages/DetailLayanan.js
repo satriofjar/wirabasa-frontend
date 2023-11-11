@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import LArrow from '../assets/left-arrow.png';
-import Logo from '../assets/logo-circle.png';
+import LogoNav from '../assets/LogoNav.png';
 import WhatsApp from '../assets/wa.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import getDiscount from '../utils/getDiscount';
@@ -129,7 +129,7 @@ const DetailLayanan = () => {
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
-                            <img className="icon rounded-5" src={Logo} alt="" />
+                            <img className="icon rounded-5" src={LogoNav} alt="" />
                             <h3 className="title ms-3">WiraBasa</h3>
                         </div>
 

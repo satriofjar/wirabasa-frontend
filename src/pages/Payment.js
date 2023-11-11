@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import LeftArrow from '../assets/left-arrow.png';
-import Logo from '../assets/logo-circle.png';
+import LogoNav from '../assets/LogoNav.png';
 import rupiahFormat from '../utils/rupiahFormat';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
@@ -75,7 +75,7 @@ const NewPayment = () => {
                     </div>
                     <div className="col-7">
                         <div className="d-flex pt-1">
-                            <img className="icon" src={Logo} alt="" />
+                            <img className="icon" src={LogoNav} alt="" />
                             <h3 className="title ms-3">WiraBasa</h3>
                         </div>
 

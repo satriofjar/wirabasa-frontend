@@ -30,8 +30,8 @@ body a{
     transition: 0.3s;
 }
 
-.navbar .w-icon{
-    width: 80px;
+.navbar .n-icon{
+    width: 100px;
 }
 
 .navbar .nav-item .nav-link{
@@ -79,6 +79,13 @@ body a{
     color: #fff !important;
     background: #007bff;
     border: #007bff 1px solid !important;
+}
+
+@media (max-width: 1000px){
+    .navbar .nav-item .btn-login,
+    .navbar .nav-item .btn-register{
+        color: rgba(0, 0, 0, 0.8) !important;
+    }  
 }
 
 .active{
@@ -1087,6 +1094,10 @@ body a{
     background: url('./assets/bgQuiz.png') no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+#quiz .card{
+    min-height: 300px;
 }
 
 #quiz .card-title{

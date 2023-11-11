@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 
 const QuizHome = () => {
+    const quizes = useSelector(state => state.quiz.data);
     const [cookies, setCookie, removeCookie] = useCookies();
 
-    useEffect(()=> {
+    useEffect(() => {
         setCookie('answares', []);
-    },[])
-
+    }, [])
   return (
     <div id='quiz'>
         <div className='container'>
@@ -21,7 +22,7 @@ const QuizHome = () => {
                                 <tbody>
                                     <tr>
                                         <td scope="col">Jumlah soal</td>
-                                        <td scope="col">15</td>
+                                        <td scope="col">{ quizes?.number_of_questions }</td>
                                     </tr>
                                     <tr>
                                         <td scope="col">Jenis soal</td>

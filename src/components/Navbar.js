@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../assets/logo-circle.png';
+import LogoNav from '../assets/LogoNav.png';
 import { useUser } from '../utils/UserContext';
 import CustomNavLink from '../utils/CustomNavLink';
 import { NavHashLink } from 'react-router-hash-link';
@@ -9,6 +9,7 @@ const Navbar = ({isUserPage}) => {
   const location = useLocation();
   const { user, setUser } = useUser();
   const [background, setBackground] = useState('');
+  const [clicked, setClicked] = useState(false);
   const [style, setStyle] = useState({
           background: location.pathname !== '/' ? '#fff' : 'linear-gradient(180deg, rgba(0,123,255,.3) 100%, rgba(255, 255, 255,.1) 50%)',
           height: '100px',
@@ -24,13 +25,21 @@ const Navbar = ({isUserPage}) => {
   })
 
   const handleClick = () => {
-    setStyle({
-      backgroundColor: '#fff',
-      height: 'fit-content',
-    })
-
-    setBackground('#fff');
-
+    if(clicked){
+      setStyle({
+        background: location.pathname !== '/' ? '#fff' : 'linear-gradient(180deg, rgba(0,123,255,.3) 100%, rgba(255, 255, 255,.1) 50%)',
+        height: '100px',
+       });
+       setBackground('');
+      setClicked(false);
+    }else{
+      setStyle({
+        background: '#fff',
+        height: 'fit-content',
+      });
+      setBackground('#fff');
+      setClicked(true);
+      }
     }
 
   useEffect(() => {
@@ -82,12 +91,12 @@ const Navbar = ({isUserPage}) => {
     <nav className='navbar navbar-expand-lg sticky-top' style={style}>
     <div className="container-fluid container">
       <Link className="navbar-brand" to='/'>
-        <img className="icon" src={Logo} alt='' /> 
+        <img className="n-icon" src={LogoNav} alt='' /> 
       </Link>
       <button className="navbar-toggler" onClick={handleClick}  type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarNav" style={{background: background}}>
+      <div className="collapse navbar-collapse" id="navbarNav" style={{background}}>
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
             <CustomNavLink 
@@ -122,6 +131,13 @@ const Navbar = ({isUserPage}) => {
               className="nav-link pb-1" 
               to='/layanan' >
                 Layanan
+              </NavHashLink>
+          </li>
+          <li className="nav-item">
+            <NavHashLink
+              className="nav-link pb-1" 
+              to='/profile' >
+                Profile
               </NavHashLink>
           </li>
 

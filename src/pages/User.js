@@ -16,7 +16,7 @@ const User = () => {
     }, [])
 
   return (
-    <>
+    <React.Fragment>
         <Helmet>
           <meta charSet="utf-8" />
           <title>Satrio - WiraBasa</title>
@@ -43,7 +43,7 @@ const User = () => {
         </div>
 
         <Footer/>
-    </>
+    </React.Fragment>
 
   )
 }

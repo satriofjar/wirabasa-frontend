@@ -31,7 +31,7 @@ const Home = () => {
   }, [location])
 
   return (
-    <>
+    <React.Fragment>
     <Helmet>
       <meta charSet="utf-8" />
       <title>Home - WiraBasa</title>
@@ -202,7 +202,7 @@ const Home = () => {
 
     <Footer/>
 
-    </>
+    </React.Fragment>
   )
 }
 

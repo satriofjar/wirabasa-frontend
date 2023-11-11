@@ -5,6 +5,8 @@ import ReactLoading from 'react-loading';
 import { useUser } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
 import  { API_URI } from '../utils/config';
+import { useDispatch } from 'react-redux';
+import { addToUser } from '../redux/slices/userSlice';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -13,6 +15,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { user, setUser } = useUser();
 
@@ -42,6 +45,7 @@ const Login = () => {
               try {
                 const response = await axios.get( API_URI + 'user/');
 
+                dispatch(addToUser(response.data))
                 localStorage.setItem('user', JSON.stringify(response.data))
                 setUser(response.data)
               } catch (error) {

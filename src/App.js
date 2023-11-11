@@ -11,6 +11,7 @@ import Logout from './pages/Logout';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
 import Quiz from './pages/Quiz';
+import Profile from './pages/Profile';
 import {
   BrowserRouter as Router,
   Route,
@@ -43,6 +44,7 @@ function App() {
         <Route path={'/verify-email/:user_id/:token'} element={<VerifyEmail />} />
         
         <Route path='/quiz' element={<Quiz />} />
+        <Route path='/profile' element={<Profile />} />
 
       </Routes>
     </Router>
